@@ -637,10 +637,6 @@
         $('#rarityModal').modal('hide');
     }
 
-    function deleteFish(){
-        
-    }
-
     function download(filename) {
         //Boolean Creation
         var scoreBool = $("#ShowScoreboardCheck").is(":checked");
@@ -662,7 +658,7 @@ Announce Legendary: ${legendBool}
         //Text Creation
         var chatPfx = $("#chatPrefixInput").val();
         var curSym = $("#currencySymbol").val();
-        var lanSymbol = $("#languageSymbol").data("symbol");
+        var lanSymbol = $("#languageSymbol").find(':selected').data("symbol");
 
         fileText += (`
 Chat Prefix: '${chatPfx}'
