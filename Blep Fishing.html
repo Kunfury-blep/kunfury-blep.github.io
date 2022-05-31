@@ -1,0 +1,858 @@
+﻿
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+    
+
+<style>
+    .top-button {
+        width: 10%;
+    }
+    .scrollList{
+        max-height: 15rem;
+    }
+
+    .addBtn{
+        width: 100%;
+        background-color: green;
+    }
+
+    .topright {
+        position: absolute;
+        right: 5;
+        top: 5;
+    }
+</style>
+
+<br/>
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="text-center">
+            <button class="btn btn-primary top-button" onclick="download('config.yml')">Export</button>
+            
+            <button class="btn btn-primary top-button disabled" id="importBtn">Import</button>
+            <input type="file" id="importUpload"  name="importUpload" style="display:none" accept=".yml" />
+        </div>
+        
+        <div>
+            <fieldset>
+                <div class="row mt-md-1">
+                    <div class="col">
+                        <!--@*Initial Checkboxes*@-->
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="ShowScoreboardCheck" checked="checked">
+                                <label class="form-check-label active" for="ShowScoreboardCheck">
+                                    Show Scoreboard
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="ShowChatCheck">
+                                <label class="form-check-label" for="ShowChatCheck">
+                                    Show Chat
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="PriorityCheck">
+                                <label class="form-check-label" for="PriorityCheck">
+                                    High Priority
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="TournamentCheck">
+                                <label class="form-check-label" for="TournamentCheck">
+                                    Tournament Only
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="AreaCheck">
+                                <label class="form-check-label" for="AreaCheck">
+                                    Area Permissions
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="LegendCheck" checked="checked">
+                                <label class="form-check-label active" for="LegendCheck">
+                                    Announce Legendary
+                                </label>
+                            </div>
+
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="WorldCheck">
+                                <label class="form-check-label" for="WorldCheck">
+                                    World Whitelist
+                                </label>
+                            </div>
+                            
+                        </div>
+
+                        <!--@*Wandering Traders*@-->
+                        
+                        <div class="input-group mb-3 flex-nowrap">
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="WanderingTraderCheck">
+                                <label class="form-check-label" for="WanderingTraderCheck">
+                                    Allow Wandering Traders
+                                </label>
+                            </div>
+                            <span class="input-group-text" style="width:fit-content;">Modifier</span>
+                            <input type="number" class="form-control w-25" id="traderModifierValue" value="1.5">
+                        </div>
+
+                        <!--@*Input Boxes*@-->
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text" style="width:fit-content;">Chat Prefix</span>
+                                <input type="text" class="form-control" id="chatPrefixInput" value="&b[BF]&f ">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text" style="width:fit-content;">Currency Symbol</span>
+                                <input type="text" class="form-control" id="currencySymbol" value="$">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text" style="width:fit-content;">Language Symbol</span>
+                               <select class="form-select" aria-label="Language Select" id="languageSymbol">
+                                    <option selected data-symbol="en">English</option>
+                                    <option data-symbol="es">Spanish</option>
+                                    <option data-symbol="nl">Dutch</option>
+                                    <option data-symbol="pl">Polish</option>
+                                    <option data-symbol="zh">Simplified Chinese</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>                    
+                </div>
+                
+
+                <div class="row mt-md-1">
+                    <div class="col-3 list-group overflow-visible scrollList" id="worldList">
+                        <span class="list-group-item text-center">Allowed Worlds</span>
+                        <div id="WorldsParent">
+                            <button class="btn btn-primary addBtn" onclick="displayWorldModal()">Add New</button>
+                        </div>
+                        
+                    </div>
+                    <div class="col-3 list-group overflow-visible scrollList" id="fishList">
+                        <span class="list-group-item text-center">Available Fish</span>
+                        <div id="FishParent">
+                            <button type="button" class="btn btn-primary addBtn"  onclick="displayFishModal();">Add New</button>
+                        </div>
+                    </div>
+                    <div class="col-3 list-group overflow-visible scrollList" id="areaList">
+                        <span class="list-group-item text-center">Fishing Areas</span>
+                        <div id="AreaParent">
+                            <button class="btn btn-primary addBtn" onclick="displayAreaModal();">Add New</button>
+                        </div>
+                        
+                    </div>
+                    <div class="col-3 list-group" id="rarityList overflow-visible scrollList">
+                        <span class="list-group-item text-center">Fish Rarities</span>
+                        <div id="RarityParent">
+                            <button class="btn btn-primary addBtn" onclick="displayRarityModal()">Add New</button>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+            </fieldset>
+        </form>
+
+    </div>
+</div>
+
+
+
+<!-- Fish Modal -->
+<div class="modal fade" id="fishModal" tabindex="-1" aria-labelledby="fishModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+              <div class="modal-content">
+        <form>
+            <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('fish')" id="fishDeleteBtn">Delete</button></div>
+            <div class="modal-header">
+                <div class="col-10">
+                    <input type="text" id="inputFishName" class="form-control" style="text-align: center;" placeholder="Fish Name"/>
+                </div>
+                
+            </div>
+            <div class="modal-body">
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputLore" class="col-form-label">Lore</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="text" id="inputFishLore" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputMinSize" class="col-form-label">Min Length</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="number" id="inputMinSize" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputMaxSize" class="col-form-label">Max Length</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="number" id="inputMaxSize" class="form-control">
+                    </div>
+                </div>
+
+                
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputMinHeight" class="col-form-label">Min Height</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="number" id="inputMinHeight" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputMaxHeight" class="col-form-label">Max Height</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="number" id="inputMaxHeight" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputModelData" class="col-form-label">Model Data</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="number" id="inputModelData" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputPrice" class="col-form-label">Base Price</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="number" id="inputPrice" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputFishArea" class="col-form-label">Area</label>
+                    </div>
+                    <div class="col-9">
+                        <select class="form-select" id="inputFishArea">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputFishRaining" class="col-form-label">Raining</label>
+                    </div>
+                    <div class="col-9">
+                        <input class="form-check-input" type="checkbox" id="inputFishRaining" class="form-control">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveFish();" id="SaveFishBtn">Create</button>
+              </div>
+        </form>
+      
+      </div>
+    </div>
+
+</div>
+
+<!-- Area Modal -->
+<div class="modal fade" id="areaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+                <div class="modal-content">
+          <form>
+            <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('area')" id="areaDeleteBtn">Delete</button></div>
+              <div class="modal-header">
+                <div class="col-10">
+                    <input type="text" id="inputAreaName" class="form-control" style="text-align: center;" placeholder="Area Name"/>
+                </div>
+              </div>
+              <div class="modal-body">
+  
+                  <div class="row g-3 align-items-center">
+                      <div class="col-2">
+                          <label for="inputAreaBiomes" class="col-form-label">Biomes</label>
+                      </div>
+                      <div class="col-10">
+                        <textarea class="form-control" id="inputAreaBiomes" rows="3" placeholder="Seperate each biome by a space"></textarea>
+                      </div>
+                  </div>
+  
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="saveArea();" id="SaveAreaBtn">Create</button>
+                </div>
+          </form>
+        
+        </div>
+      </div>
+  
+  </div>
+
+<!-- World Modal -->
+<div class="modal fade" id="worldModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+                <div class="modal-content">
+          <form>
+            <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('world')" id="worldDeleteBtn">Delete</button></div>
+              <div class="modal-header">
+                  <div class="col-10">
+                    <input type="text" id="inputWorldName" class="form-control" style="text-align: center;" placeholder="World Name"/>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="saveWorld();" id="SaveWorldBtn">Create</button>
+                </div>
+          </form>
+        
+        </div>
+      </div>
+  
+  </div>
+
+<!-- Rarity Modal -->
+<div class="modal fade" id="rarityModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('rarity')" id="rarityDeleteBtn">Delete</button></div>
+                <div class="modal-header">
+                    <div class="col-10">
+                        <input type="text" id="inputRarityName" class="form-control" style="text-align: center;" placeholder="Rarity Name"/>
+                    </div>
+              </div>
+              <div class="modal-body">
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputRarityWeight" class="col-form-label">Weight</label>
+                    </div>
+                    <div class="col-9">
+                      <input type="text" class="form-control" id="inputRarityWeight"></input>
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputRarityColor" class="col-form-label">Color Code</label>
+                    </div>
+                    <div class="col-9">
+                      <input type="text" class="form-control" id="inputRarityColor"></input>
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputRarityPrice" class="col-form-label">Price Mod</label>
+                    </div>
+                    <div class="col-9">
+                      <input type="number" class="form-control" id="inputRarityPrice"></input>
+                    </div>
+                </div>
+            </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="saveRarity();" id="SaveRarityBtn">Create</button>
+                </div>
+          </form>
+        
+        </div>
+      </div>
+  
+  </div>
+
+<script>
+    var activeFish;
+    var activeArea;
+    var activeWorld;
+    var activeRarity;
+
+    var availAreas = [];
+
+    $(document).ready(function () {
+        updateAvailAreas();
+
+        //Populate Fish
+        CreateFishEle("Bluegill", "Does it call me Pink Lung?", 5, 15, 1, 10, "Temperate", false, 0, 0);
+        CreateFishEle("Brown Trout", "Looks more beige to me.", 15, 39, 2, 10, "Temperate", true, 0, 0);
+        CreateFishEle("Carp", " ", 16, 31, 3, 10, "Temperate", false, 0, 0);
+        CreateFishEle("Catfish", "I prefer a Dogfish.", 45, 65, 4, 10, "Temperate", false, 0, 0);
+        CreateFishEle("Gar", " ", 5, 15, 5, 10, "Temperate", false, 0, 0);
+        CreateFishEle("Minnow", " ", 1, 8, 6, 10, "Temperate", false, 0, 0);
+        CreateFishEle("Muskeullunge", "Don’t listen to them, I think you’re fin-tastic!", 28, 48, 7, 10, "Temperate", false, 0, 0);
+
+        //Fish need to have their sizes updated
+        CreateFishEle("Perch", " ", 15, 39, 8, 10, "Temperate", false, 0, 0);
+        CreateFishEle("Smallmouth Bass", " ", 15, 39, 9, 10, "Temperate", false, 0, 0);
+        CreateFishEle("Blackfish", " ", 15, 39, 10, 10, "Cold", false, 0, 0);
+        CreateFishEle("Cod", "Cod you pass me the salt?", 15, 39, 11, 10, "Cold", false, 0, 0);
+        CreateFishEle("Halibut", "Do it for the Halibut!", 15, 39, 12, 10, "Cold", false, 0, 0);
+        CreateFishEle("Herring", "Now to find a red one...", 15, 39, 13, 10, "Cold", false, 0, 0);
+        CreateFishEle("Pink Salmon", " ", 15, 39, 14, 10, "Cold", false, 0, 0);
+        CreateFishEle("Pollock", "What a load of Pollocks.", 15, 39, 15, 10, "Cold", false, 0, 0);
+        CreateFishEle("Rainbow Trout", " ", 15, 39, 16, 10, "Cold", false, 0, 0);
+        CreateFishEle("Red Grouper", "I'm green with envy.", 15, 39, 17, 10, "Ocean", false, 0, 0);
+        CreateFishEle("Tuna", "Hmm... Tastes like chicken!", 15, 39, 18, 10, "Ocean", false, 0, 0);
+        CreateFishEle("Tuna", "Hmm... Tastes like chicken!", 15, 39, 18, 10, "Ocean", false, 0, 0);
+        CreateFishEle("Bayad", "I'm hooked!", 15, 39, 19, 10, "Dry", false, 0, 0);
+        CreateFishEle("Boulti", "I think you're fintastic!", 15, 39, 20, 10, "Dry", false, 0, 0);
+        CreateFishEle("Capitaine", "Not quite up to scale.", 15, 39, 21, 10, "Dry", false, 0, 0);
+        CreateFishEle("Synodontis", "A bunch of Fischious Rumors.", 15, 39, 22, 10, "Dry", false, 0, 0);
+        CreateFishEle("Anglerfish", "Go with the Glow!", 15, 39, 23, 10, "Ocean", false, -256, 15);
+
+        //Populate Rarities
+        CreateRarityEle("Legendary", 5, 6, 10);
+        CreateRarityEle("Epic", 30, 'd', 5);
+        CreateRarityEle("Rare", 60, 'b', 2.5);
+        CreateRarityEle("Common", 100, 'a', 1);
+
+        //Populate Worlds
+        CreateWorldEle("WORLD");
+        CreateWorldEle("WORLD_THE_END");
+        CreateWorldEle("WORLD_NETHER");
+
+        //Populate Areas
+        CreateAreaEle("Cold", "MOUNTAINS GRAVELLY_MOUNTAINS WOODED_MOUNTAIN TAIGA TAIGA_MOUNTAIN GIANT_TREE_TAIGA STONE_SHORE SNOWY_TUNDRA ICE_SPIKES SNOWY_TAIGA SNOWY_TAIGA_MOUNTAINS FROZEN_RIVER SNOWY_BEACH")
+        CreateAreaEle("Temperate", "PLAINS SUNFLOWER_PLAINS FOREST FLOWER_FOREST BIRCH_FOREST TALL_BIRCH_FOREST DARK_FOREST DARK_FOREST_HILLS JUNGLE MODIFIED_JUNGLE JUNGLE_EDGE MODIFIED_JUNGLE_EDGE BAMBOO_JUNGLE RIVER BEACH MUSHROOM_FIELDS MUSHROOM_FIELD_SHORE")
+        CreateAreaEle("End", "THE_END SMALL_END_ISLANDS END_MIDLANDS END_HIGHLANDS END_BARRENS");
+        CreateAreaEle("Dry", "DESERT DESERT_LAKES DESERT_HILLS SAVANNA SHATTERED_SAVANNA BADLANDS ERODED_BADLANDS WOODED_BADLANDS_PLATEAU MODIFIED_WOODED_BADLANDS_PLATEAU");
+        CreateAreaEle("Nether", "NETHER_WASTES SOUL_SAND_VALLEY CRIMSON_FOREST WARPED_FOREST BASALT_DELTAS");
+        CreateAreaEle("Ocean", "WARM_OCEAN LUKEWARM_OCEAN DEEP_LUKEWARM_OCEAN OCEAN DEEP_OCEAN COLD_OCEAN DEEP_COLD_OCEAN FROZEN_OCEAN DEEP_FROZEN_OCEAN");
+    
+    
+    });
+
+    $(document).on('click', '.fishButton', function () {
+        var fish = $(event.target);
+        displayFishModal(fish);
+    });
+    
+    $(document).on('click', '.areaButton', function () {
+        var area = $(event.target);
+        displayAreaModal(area);
+    });
+
+    $(document).on('click', '.worldButton', function () {
+        var world = $(event.target);
+        displayWorldModal(world);
+    });
+
+    $(document).on('click', '.rarityButton', function () {
+        var rarity = $(event.target);
+        displayRarityModal(rarity);
+    });
+
+    $("#importBtn").click(function () {
+        $("#importUpload").trigger('click');
+    });
+
+    $('#importUpload').on("change", function(){ uploadFile(); });
+
+    function uploadFile(){
+        //alert("Uploading!");
+        const selectedFile = document.getElementById('importUpload').files[0];
+
+        console.log(selectedFile);
+    }
+
+    function updateAvailAreas(){
+        var areaList = $("#AreaParent").children();
+        $("#inputFishArea").empty();
+        for(var i = 0; i< areaList.length; i++){
+            availAreas.push(areaList[i])
+            var area = areaList[i].textContent;
+            if(area != "Add New"){
+                var option = document.createElement("option");
+                option.text = area;
+
+                $("#inputFishArea").append(option);
+    }}}
+
+    function displayFishModal(fish){
+        activeFish = fish;
+        if(activeFish != null){
+            $('#inputFishName').val(fish.data("name"));
+            $('#inputFishLore').val(fish.data("lore"));
+            $('#inputMinSize').val(fish.data("min"));
+            $('#inputMaxSize').val(fish.data("max"));
+            $('#inputMinHeight').val(fish.data("minHeight"));
+            $('#inputMaxHeight').val(fish.data("maxHeight"));
+            $('#inputModelData').val(fish.data("model"));
+            $('#inputPrice').val(fish.data("price"));
+            $('#inputFishArea').val(fish.data("area"));
+            $('#inputFishRaining').prop('checked', fish.data("raining"));
+            $('#SaveFishBtn').html('Update');
+            $('#fishDeleteBtn').show();
+        }else{
+            $('#inputFishName').val("");
+            $('#inputFishLore').val("");
+            $('#inputMinSize').val("");
+            $('#inputMaxSize').val("");
+            $('#inputMinHeight').val("");
+            $('#inputMaxHeight').val("");
+            $('#inputModelData').val("");
+            $('#inputPrice').val("");
+            $('#inputFishArea').val("");
+            $('#inputFishRaining').prop('checked', false);
+            $('#fishDeleteBtn').hide();
+        }
+        //Fill the modal with the clicked fish
+        $('#fishModal').modal('show');
+    }
+
+    function displayAreaModal(area){
+        activeArea = area;
+        if(activeArea != null){
+            $('#inputAreaName').val(area.data("name"));
+            $('#inputAreaBiomes').val(area.data("biomes"));
+            $('#SaveAreaBtn').html('Update');
+            $('#areaDeleteBtn').show();
+        }else{
+            $('#inputAreaName').val("");
+            $('#inputAreaBiomes').val("");
+            $('#SaveAreaBtn').html('Create');
+            $('#areaDeleteBtn').hide();
+        }
+        $('#areaModal').modal('show');
+    }
+
+    function displayWorldModal(world){
+        activeWorld = world;
+        if(activeWorld != null){
+            $('#inputWorldName').val(world.text());
+            $('#SaveWorldBtn').html('Update');
+            $('#worldDeleteBtn').show();
+        }else{
+            $('#inputWorldName').val("");
+            $('#SaveWorldBtn').html('Create');
+            $('#worldDeleteBtn').hide();
+        }
+        $('#worldModal').modal('show');
+    }
+
+    function displayRarityModal(rarity){
+        activeRarity = rarity;
+        if(activeRarity != null){
+            $('#inputRarityName').val(rarity.text());
+            $('#inputRarityWeight').val(rarity.data("weight"));
+            $('#inputRarityColor').val(rarity.data("color"));
+            $('#inputRarityPrice').val(rarity.data("price"));
+
+            $('#SaveRarityBtn').html('Update');
+            $('#rarityDeleteBtn').show();
+        }else{
+            $('#inputRarityName').val("");
+            $('#inputRarityWeight').val("");
+            $('#inputRarityColor').val("");
+            $('#inputRarityPrice').val("");
+            $('#SaveRarityBtn').html('Create');
+            $('#rarityDeleteBtn').hide();
+            
+        }
+        $('#rarityModal').modal('show');
+    }
+
+    function saveFish(){
+        var fishName = $('#inputFishName').val();
+        if(activeFish != null){ //Checks if we are updating a fish or creating an entirely new one
+            activeFish.remove();
+        }
+        if(fishName == ""){
+            alert("A name for the fish is required");
+            return;
+        }
+        CreateFishEle($('#inputFishName').val(),
+        $('#inputFishLore').val(),
+        $('#inputMinSize').val(),
+        $('#inputMaxSize').val(),
+        $('#inputModelData').val(),
+        $('#inputPrice').val(),
+        $('#inputFishArea').val(),
+        $('#inputFishRaining').val());
+
+        $('#fishModal').modal('hide');
+    }
+
+    function saveArea(){
+        var areaName = $('#inputAreaName').val();
+        if(activeArea != null){ //Checks if we are updating a fish or creating an entirely new one
+            activeArea.remove();
+        }
+        if(areaName == ""){
+            alert("A name for the area is required");
+            return;
+        }
+        CreateAreaEle($('#inputAreaName').val(), $('#inputAreaBiomes').val());
+
+        $('#areaModal').modal('hide');
+    }
+
+    function saveWorld(){
+        var worldName = $('#inputWorldName').val();
+        if(activeWorld != null){ //Checks if we are updating a fish or creating an entirely new one
+            activeWorld.remove();
+        }
+        if(worldName == ""){
+            alert("A name for the world is required");
+            return;
+        }
+        CreateWorldEle(worldName);
+
+        $('#worldModal').modal('hide');
+    }
+
+    function saveRarity(){
+        var rarityName = $('#inputRarityName').val();
+        if(activeRarity != null){ //Checks if we are updating a fish or creating an entirely new one
+            activeRarity.remove();
+        }
+        if(rarityName == ""){
+            alert("A name for the rarity is required");
+            return;
+        }
+        CreateRarityEle($('#inputRarityName').val(), $('#inputRarityWeight').val(), $('#inputRarityColor').val(), $('#inputRarityPrice').val());
+
+        $('#rarityModal').modal('hide');
+    }
+
+    function deleteFish(){
+        
+    }
+
+    function download(filename) {
+        //Boolean Creation
+        var scoreBool = $("#ShowScoreboardCheck").is(":checked");
+        var chatBool = $("#ShowChatCheck").is(":checked");
+        var prioBool = $("#PriorityCheck").is(":checked");
+        var tourneyBool = $("#TournamentCheck").is(":checked");
+        var areaBool = $("#AreaCheck").is(":checked");
+        var legendBool = $("#LegendCheck").is(":checked");      
+
+        var fileText = (
+`Show ScoreBoard: ${scoreBool}
+Show Chat: ${chatBool}
+High Priority: ${prioBool}
+Tournament Only: ${tourneyBool}
+Area Permissions: ${areaBool}
+Announce Legendary: ${legendBool}
+`);
+        
+        //Text Creation
+        var chatPfx = $("#chatPrefixInput").val();
+        var curSym = $("#currencySymbol").val();
+        var lanSymbol = $("#languageSymbol").data("symbol");
+
+        fileText += (`
+Chat Prefix: '${chatPfx}'
+Currency Symbol: ${curSym}
+Language Symbol: ${lanSymbol}
+`);
+
+        //Wandering Traders
+        var traderBool = $("#WanderingTraderCheck").is(":checked");
+        var traderMod = $("#traderModifierValue").val();
+
+        fileText += (`
+Allow Wandering Traders: ${traderBool}
+Wandering Traders Modifier: ${traderMod}
+`);
+
+        //World Whitelist
+        var worldBool = $("#WorldCheck").is(":checked");
+
+        console.log($("#WorldsParent"));
+        var worldsList = $("#WorldsParent").children();
+
+        fileText += (`
+World Whitelist: ${worldBool}
+Allowed Worlds: 
+`);
+
+        for(var i=0; i< worldsList.length; i++){
+            if(worldsList[i].textContent != "Add New")
+                fileText += "- " + worldsList[i].textContent + "\n";
+        }
+
+        
+        //Rarities
+        fileText += "\nrarities: ";
+
+        var rarityList = $("#RarityParent").children();
+        for(var i = 0; i< rarityList.length; i++){
+            var rarity = rarityList[i];
+
+            if(rarity.textContent != "Add New"){
+                fileText += (`
+    ${rarity.textContent}:
+        Weight: ${$(rarity).data("weight")}
+        Color Code: ${$(rarity).data("color")}
+        Price Mod: ${$(rarity).data("price")}
+    `);                
+            }}
+            
+
+        //Areas
+        fileText += "\nareas: ";
+        var areaList = $("#AreaParent").children();
+
+        for(var i = 0; i< areaList.length; i++){
+            var area = areaList[i];
+
+            if(area.textContent != "Add New"){
+                var biomes = $(area).data("biomes")?.split(" ");
+            fileText += "\n    " + area.textContent + ":";
+            fileText += "\n        Biomes:";
+            if(biomes != null){
+                for(var t = 0; t < biomes.length; t++){
+                fileText += "\n        - " + biomes[t];
+            }}
+            fileText += "\n";
+            }            
+        }
+
+
+        //Fish
+        fileText += "\nfish: "
+        var fishList = $("#FishParent").children();
+
+        for(var i = 0; i< fishList.length; i++){
+            var fish = fishList[i];
+
+            if(fish.textContent != "Add New"){
+                fileText += "\n    " + fish.textContent + ":";
+                fileText += "\n        Lore: " + $(fish).data("lore");
+                fileText += "\n        Min Size: " + $(fish).data("min");
+                fileText += "\n        Max Size: " + $(fish).data("max");
+                fileText += "\n        ModelData: " + $(fish).data("model");
+                fileText += "\n        Base Price: " + $(fish).data("price");
+                fileText += "\n        Area: " + $(fish).data("area");
+                fileText += "\n        Raining: " + $(fish).data("raining");
+            }
+        }
+
+
+
+
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileText));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+
+    }
+
+    function CreateFishEle(name, lore, min, max, modelData, price, fishArea, raining, minHeight, maxHeight){
+        var fish = document.createElement("a");
+        fish.text = name;
+
+        $(fish).data("name", name);
+        $(fish).data("lore", lore);
+        $(fish).data("min", min);
+        $(fish).data("max", max);
+        $(fish).data("model", modelData);
+        $(fish).data("price", price);
+        $(fish).data("area", fishArea);
+        $(fish).data("raining", raining);
+
+        $(fish).data("minHeight", minHeight);
+        $(fish).data("maxHeight", maxHeight);
+
+        $(fish).addClass( ["list-group-item", "fishButton"] );
+
+        $("#FishParent").append(fish);
+    }
+
+    function CreateAreaEle(name, biomes){
+        var area = document.createElement("a");
+        area.text = name;
+
+        $(area).data("name", name);
+        $(area).data("biomes", biomes);
+
+        $(area).addClass( ["list-group-item", "areaButton"] );
+
+        $("#AreaParent").append(area);
+        updateAvailAreas();
+    }
+
+    function CreateWorldEle(name){
+        var world = document.createElement("a");
+        world.text = name;
+
+        $(world).addClass( ["list-group-item", "worldButton"] );
+
+        $("#WorldsParent").append(world);
+    }
+
+    function CreateRarityEle(name, weight, color, price){
+        var rarity = document.createElement("a");
+        rarity.text = name;
+
+        $(rarity).data("weight", weight);
+        $(rarity).data("color", color);
+        $(rarity).data("price", price);
+
+        $(rarity).addClass( ["list-group-item", "rarityButton"] );
+
+        $("#RarityParent").append(rarity);
+    }
+
+
+    function Delete(item){
+        switch(item){
+            case "fish":
+                if(activeFish != null && confirm('You are about to delete ' + $(activeFish).text() + "." )){
+                    activeFish.remove();
+                    $('#fishModal').modal('hide');
+                }
+                break;
+            case "area":
+                if(activeArea != null && confirm('You are about to delete ' + $(activeArea).text() + "." )){
+                    activeArea.remove();
+                    $('#areaModal').modal('hide');
+                }
+                break;
+            case "world":
+                if(activeWorld != null && confirm('You are about to delete ' + $(activeWorld).text() + "." )){
+                    activeWorld.remove();
+                    $('#worldModal').modal('hide');
+                }
+                break;
+            case "rarity":
+                if(activeRarity != null && confirm('You are about to delete ' + $(activeRarity).text() + "." )){
+                    activeRarity.remove();
+                    $('#rarityModal').modal('hide');
+                }
+                break;
+            default:
+                alert("Default");
+        }
+    }
+</script>
