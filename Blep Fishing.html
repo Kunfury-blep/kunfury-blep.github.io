@@ -1,8 +1,9 @@
-﻿
+﻿<!DOCTYPE html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script data-main="scripts/js-yaml.js" src="scripts/require.js"></script>
 </head>
     
 
@@ -21,8 +22,8 @@
 
     .topright {
         position: absolute;
-        right: 5;
-        top: 5;
+        right: 0;
+        top: 0;
     }
 </style>
 
@@ -33,7 +34,7 @@
         <div class="text-center">
             <button class="btn btn-primary top-button" onclick="download('config.yml')">Export</button>
             
-            <button class="btn btn-primary top-button disabled" id="importBtn">Import</button>
+            <button class="btn btn-primary top-button" id="importBtn">Import</button>
             <input type="file" id="importUpload"  name="importUpload" style="display:none" accept=".yml" />
         </div>
         
@@ -131,29 +132,25 @@
                 <div class="row mt-md-1">
                     <div class="col-3 list-group overflow-visible scrollList" id="worldList">
                         <span class="list-group-item text-center">Allowed Worlds</span>
-                        <div id="WorldsParent">
-                            <button class="btn btn-primary addBtn" onclick="displayWorldModal()">Add New</button>
-                        </div>
+                        <button class="btn btn-primary addBtn" onclick="displayWorldModal()">Add New</button>
+                        <div id="WorldsParent"></div>
                         
                     </div>
                     <div class="col-3 list-group overflow-visible scrollList" id="fishList">
                         <span class="list-group-item text-center">Available Fish</span>
-                        <div id="FishParent">
-                            <button type="button" class="btn btn-primary addBtn"  onclick="displayFishModal();">Add New</button>
-                        </div>
+                        <button type="button" class="btn btn-primary addBtn"  onclick="displayFishModal();">Add New</button>
+                        <div id="FishParent"></div>
                     </div>
                     <div class="col-3 list-group overflow-visible scrollList" id="areaList">
                         <span class="list-group-item text-center">Fishing Areas</span>
-                        <div id="AreaParent">
-                            <button class="btn btn-primary addBtn" onclick="displayAreaModal();">Add New</button>
-                        </div>
+                        <button class="btn btn-primary addBtn" onclick="displayAreaModal();">Add New</button>
+                        <div id="AreaParent"></div>
                         
                     </div>
                     <div class="col-3 list-group" id="rarityList overflow-visible scrollList">
                         <span class="list-group-item text-center">Fish Rarities</span>
-                        <div id="RarityParent">
-                            <button class="btn btn-primary addBtn" onclick="displayRarityModal()">Add New</button>
-                        </div>
+                        <button class="btn btn-primary addBtn" onclick="displayRarityModal()">Add New</button>
+                        <div id="RarityParent"></div>
                     </div>
                 </div>
                 
@@ -383,6 +380,7 @@
   
   </div>
 
+
 <script>
     var activeFish;
     var activeArea;
@@ -464,17 +462,81 @@
         displayRarityModal(rarity);
     });
 
+    //Brings up the upload dialoge from the Import Button
     $("#importBtn").click(function () {
         $("#importUpload").trigger('click');
     });
 
-    $('#importUpload').on("change", function(){ uploadFile(); });
+    $('#importUpload').on("change", function(){ importConfig(); });
 
-    function uploadFile(){
-        //alert("Uploading!");
-        const selectedFile = document.getElementById('importUpload').files[0];
+    function importConfig(){
+        var fr = new FileReader();
+        fr.onload = function(){ parseImport(fr.result); }
+        fr.readAsText(document.getElementById('importUpload').files[0]);
+    }
 
-        console.log(selectedFile);
+    function parseImport(result){
+        const yaml = require('js-yaml'); //Needs to be moved to document load so it's only defined once
+        var config = (yaml.load(result, {encoding: 'utf-8'}));
+
+        $('#ShowScoreboardCheck').prop('checked', config['Show ScoreBoard']);
+        $('#ShowChatCheck').prop('checked', config['Show Chat']);
+        $('#PriorityCheck').prop('checked', config['High Priority']);
+        $('#TournamentCheck').prop('checked', config['Tournament Only']);
+        $('#AreaCheck').prop('checked', config['Area Permissions']);
+        $('#LegendCheck').prop('checked', config['Announce Legendary']);
+        $('#WorldCheck').prop('checked', config['World Whitelist']);
+
+        $('#WanderingTraderCheck').prop('checked', config['Allow Wandering Traders']);
+        $('#traderModifierValue').val(config['Wandering Traders Modifier']);
+
+        $('#chatPrefixInput').val(config['Chat Prefix']);
+        $('#currencySymbol').val(config['Currency Symbol']);
+
+        //Sets the dropdownt to the appropriate value
+        var langSymb = config['Language Symbol'];
+        $('#languageSymbol').children().each(function () {
+            if($(this).data("symbol") == langSymb){
+                $('#languageSymbol').val(this.value);
+            }
+        });
+
+        //Allowed Worlds
+        $(WorldsParent).empty();
+        var worlds = config['Allowed Worlds'];
+        $(worlds).each(function () {
+            CreateWorldEle(this);
+        });
+
+        //Available Fish
+        $(FishParent).empty();
+        var fishList = config['fish'];
+
+        for(var name in fishList){
+            var f = fishList[name];
+            CreateFishEle(name, f['Lore'], f['Min Size'], f['Max Size'],
+                            f['ModelData'], f['Base Price'], f['Area'], 
+                            f['Raining'], f['Min Height'], f['Max Height']);
+        }
+
+        //Fishing Areas
+        $(AreaParent).empty();
+        var areaList = config['areas'];
+
+        for(var name in areaList){
+            var f = areaList[name];
+            var biomes = (f['Biomes']).join(' ');
+            CreateAreaEle(name, biomes);
+        }
+
+        //Fish Rarities
+        $(RarityParent).empty();
+        var rarityList = config['rarities'];
+
+        for(var name in rarityList){
+            var f = rarityList[name];
+            CreateRarityEle(name, f['Weight'], f['Color Code'], f['Price Mod']);
+        }
     }
 
     function updateAvailAreas(){
@@ -678,7 +740,6 @@ Wandering Traders Modifier: ${traderMod}
         //World Whitelist
         var worldBool = $("#WorldCheck").is(":checked");
 
-        console.log($("#WorldsParent"));
         var worldsList = $("#WorldsParent").children();
 
         fileText += (`
@@ -745,6 +806,8 @@ Allowed Worlds:
                 fileText += "\n        Base Price: " + $(fish).data("price");
                 fileText += "\n        Area: " + $(fish).data("area");
                 fileText += "\n        Raining: " + $(fish).data("raining");
+                fileText += "\n        Min Height: " + $(fish).data("minHeight");
+                fileText += "\n        Max Height: " + $(fish).data("maxHeight");
             }
         }
 
@@ -764,14 +827,22 @@ Allowed Worlds:
 
     }
 
-    function CreateFishEle(name, lore, min, max, modelData, price, fishArea, raining, minHeight, maxHeight){
+    function CreateFishEle(name, lore, minSize, maxSize, modelData, price, fishArea, raining, minHeight, maxHeight){
         var fish = document.createElement("a");
         fish.text = name;
 
+        var raining = (raining === undefined) ? false : raining;
+        var minSize = (minSize === undefined) ? 0 : minSize;
+        var maxSize = (maxSize === undefined) ? 0 : maxSize;
+        var modelData = (modelData === undefined) ? 0 : modelData;
+        var price = (price === undefined) ? 0 : price;
+        var minHeight = (minHeight === undefined) ? 0 : minHeight;
+        var maxHeight = (maxHeight === undefined) ? 0 : maxHeight;
+
         $(fish).data("name", name);
         $(fish).data("lore", lore);
-        $(fish).data("min", min);
-        $(fish).data("max", max);
+        $(fish).data("min", minSize);
+        $(fish).data("max", maxSize);
         $(fish).data("model", modelData);
         $(fish).data("price", price);
         $(fish).data("area", fishArea);
@@ -819,7 +890,6 @@ Allowed Worlds:
 
         $("#RarityParent").append(rarity);
     }
-
 
     function Delete(item){
         switch(item){
