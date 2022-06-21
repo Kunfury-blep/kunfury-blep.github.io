@@ -103,16 +103,74 @@
                             <input type="number" class="form-control w-25" id="traderModifierValue" value="1.5">
                         </div>
 
-                        <!--@*Input Boxes*@-->
+                        <!--@*Treasure*@-->                        
+                        <div class="input-group mb-3 flex-nowrap">
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="treasureCheck" checked="checked">
+                                <label class="form-check-label" for="treasureCheck">
+                                    Enable Treasure
+                                </label>
+                            </div>
+                            <span class="input-group-text" style="width:fit-content;">Treasure Chance</span>
+                            <input type="number" class="form-control w-25" id="treasureChance" value="5">
+                        </div>
+
+                        <!--@*All Blue Settings*@-->   
                         <div class="mb-3">
-                            <div class="input-group">
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="EconomyCheck" checked="checked">
+                                <label class="form-check-label active" for="EconomyCheck">
+                                    Enable Economy
+                                </label>
+                            </div>
+
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="FishBagsCheck" checked="checked">
+                                <label class="form-check-label active" for="FishBagsCheck">
+                                    Enable Fish Bags
+                                </label>
+                            </div>
+
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="AllBlueCheck" checked="checked">
+                                <label class="form-check-label active" for="AllBlueCheck">
+                                    Enable All Blue
+                                </label>
+                            </div>
+
+                            <div class="form-check form-check-inline form-switch">
+                                <input class="form-check-input" type="checkbox" id="PermanentBlueCheck" checked="checked">
+                                <label class="form-check-label active" for="PermanentBlueCheck">
+                                    Permanent All Blue
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline form-switch">
+                                <span class="input-group-text" style="width:fit-content;">All Blue Name</span>
+                                <input type="text" class="form-control" id="allBlueNameInput" value="All Blue">
+                            </div>
+
+                            <div class="form-check form-check-inline form-switch">
+                                <span class="input-group-text" style="width:fit-content;">All Blue Fish Limit</span>
+                                <input type="number" class="form-control" id="allBlueFishInput" value=2000>
+                            </div>
+
+                            <div class="form-check form-check-inline form-switch">
                                 <span class="input-group-text" style="width:fit-content;">Chat Prefix</span>
                                 <input type="text" class="form-control" id="chatPrefixInput" value="&b[BF]&f ">
                             </div>
-                            <div class="input-group">
+
+                            <div class="form-check form-check-inline form-switch">
                                 <span class="input-group-text" style="width:fit-content;">Currency Symbol</span>
                                 <input type="text" class="form-control" id="currencySymbol" value="$">
                             </div>
+                        </div>
+
+
+                        <!--@*Input Boxes*@-->
+                        <div class="mb-3">
                             <div class="input-group">
                                 <span class="input-group-text" style="width:fit-content;">Language Symbol</span>
                                <select class="form-select" aria-label="Language Select" id="languageSymbol">
@@ -295,6 +353,23 @@
                         <textarea class="form-control" id="inputAreaBiomes" rows="3" placeholder="Seperate each biome by a space"></textarea>
                       </div>
                   </div>
+                  <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputHasCompass" class="col-form-label">Has Compass</label>
+                    </div>
+                    <div class="col-9">
+                        <input class="form-check-input" type="checkbox" id="inputHasCompass" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputCompassHint" class="col-form-label">Compass Hint</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="text" id="inputCompassHint" class="form-control">
+                    </div>
+                </div>
   
               </div>
               <div class="modal-footer">
@@ -431,12 +506,12 @@
         CreateWorldEle("WORLD_NETHER");
 
         //Populate Areas
-        CreateAreaEle("Cold", "MOUNTAINS GRAVELLY_MOUNTAINS WOODED_MOUNTAIN TAIGA TAIGA_MOUNTAIN GIANT_TREE_TAIGA STONE_SHORE SNOWY_TUNDRA ICE_SPIKES SNOWY_TAIGA SNOWY_TAIGA_MOUNTAINS FROZEN_RIVER SNOWY_BEACH")
-        CreateAreaEle("Temperate", "PLAINS SUNFLOWER_PLAINS FOREST FLOWER_FOREST BIRCH_FOREST TALL_BIRCH_FOREST DARK_FOREST DARK_FOREST_HILLS JUNGLE MODIFIED_JUNGLE JUNGLE_EDGE MODIFIED_JUNGLE_EDGE BAMBOO_JUNGLE RIVER BEACH MUSHROOM_FIELDS MUSHROOM_FIELD_SHORE")
-        CreateAreaEle("End", "THE_END SMALL_END_ISLANDS END_MIDLANDS END_HIGHLANDS END_BARRENS");
-        CreateAreaEle("Dry", "DESERT DESERT_LAKES DESERT_HILLS SAVANNA SHATTERED_SAVANNA BADLANDS ERODED_BADLANDS WOODED_BADLANDS_PLATEAU MODIFIED_WOODED_BADLANDS_PLATEAU");
-        CreateAreaEle("Nether", "NETHER_WASTES SOUL_SAND_VALLEY CRIMSON_FOREST WARPED_FOREST BASALT_DELTAS");
-        CreateAreaEle("Ocean", "WARM_OCEAN LUKEWARM_OCEAN DEEP_LUKEWARM_OCEAN OCEAN DEEP_OCEAN COLD_OCEAN DEEP_COLD_OCEAN FROZEN_OCEAN DEEP_FROZEN_OCEAN");
+        CreateAreaEle("Cold", true, "The pieces feel cold to the touch.", "MOUNTAINS GRAVELLY_MOUNTAINS WOODED_MOUNTAIN TAIGA TAIGA_MOUNTAIN GIANT_TREE_TAIGA STONE_SHORE SNOWY_TUNDRA ICE_SPIKES SNOWY_TAIGA SNOWY_TAIGA_MOUNTAINS FROZEN_RIVER SNOWY_BEACH")
+        CreateAreaEle("Temperate", true, "", "PLAINS SUNFLOWER_PLAINS FOREST FLOWER_FOREST BIRCH_FOREST TALL_BIRCH_FOREST DARK_FOREST DARK_FOREST_HILLS JUNGLE MODIFIED_JUNGLE JUNGLE_EDGE MODIFIED_JUNGLE_EDGE BAMBOO_JUNGLE RIVER BEACH MUSHROOM_FIELDS MUSHROOM_FIELD_SHORE")
+        CreateAreaEle("End", false, "", "THE_END SMALL_END_ISLANDS END_MIDLANDS END_HIGHLANDS END_BARRENS");
+        CreateAreaEle("Dry", true, "", "DESERT DESERT_LAKES DESERT_HILLS SAVANNA SHATTERED_SAVANNA BADLANDS ERODED_BADLANDS WOODED_BADLANDS_PLATEAU MODIFIED_WOODED_BADLANDS_PLATEAU");
+        CreateAreaEle("Nether", false, "", "NETHER_WASTES SOUL_SAND_VALLEY CRIMSON_FOREST WARPED_FOREST BASALT_DELTAS");
+        CreateAreaEle("Ocean", true, "", "WARM_OCEAN LUKEWARM_OCEAN DEEP_LUKEWARM_OCEAN OCEAN DEEP_OCEAN COLD_OCEAN DEEP_COLD_OCEAN FROZEN_OCEAN DEEP_FROZEN_OCEAN");
     
     
     });
@@ -492,6 +567,17 @@
         $('#chatPrefixInput').val(config['Chat Prefix']);
         $('#currencySymbol').val(config['Currency Symbol']);
 
+        $("#EconomyCheck").prop('checked', config['Use Economy']);
+        $("#FishBagsCheck").prop('checked', config['Enable Fish Bags']);
+        $("#AllBlueCheck").prop('checked', config['Enable All Blue']);
+        $("#PermanentBlueCheck").prop('checked', config['Permanent All Blue']);
+        $('#allBlueNameInput').val(config['All Blue Name']);
+        $('#allBlueFishInput').val(config['All Blue Fish']);
+
+
+
+
+
         //Sets the dropdownt to the appropriate value
         var langSymb = config['Language Symbol'];
         $('#languageSymbol').children().each(function () {
@@ -525,7 +611,7 @@
         for(var name in areaList){
             var f = areaList[name];
             var biomes = (f['Biomes']).join(' ');
-            CreateAreaEle(name, biomes);
+            CreateAreaEle(name, f['Has Compass'], f['Compass Hint'], biomes);
         }
 
         //Fish Rarities
@@ -588,11 +674,15 @@
         if(activeArea != null){
             $('#inputAreaName').val(area.data("name"));
             $('#inputAreaBiomes').val(area.data("biomes"));
+            $('#inputHasCompass').prop('checked', area.data("compassBool"));
+            $('#inputCompassHint').val(area.data("compassHint"));
             $('#SaveAreaBtn').html('Update');
             $('#areaDeleteBtn').show();
         }else{
             $('#inputAreaName').val("");
             $('#inputAreaBiomes').val("");
+            $('#inputHasCompass').prop('checked', false);
+            $('#inputCompassHint').val("");
             $('#SaveAreaBtn').html('Create');
             $('#areaDeleteBtn').hide();
         }
@@ -647,8 +737,8 @@
         CreateFishEle($('#inputFishName').val(),
         $('#inputFishLore').val(),
         $('#inputMinSize').val(),
-        $('#inputMaxSize').val(),
-        $('#inputModelData').val(),
+      $('#inputMaxSize').val(),
+        $('#inputModelData').val(),  
         $('#inputPrice').val(),
         $('#inputFishArea').val(),
         $('#inputFishRaining').val());
@@ -706,6 +796,10 @@
         var tourneyBool = $("#TournamentCheck").is(":checked");
         var areaBool = $("#AreaCheck").is(":checked");
         var legendBool = $("#LegendCheck").is(":checked");      
+        var economyBool = $("#EconomyCheck").is(":checked");      
+        var bagBool = $("#FishBagsCheck").is(":checked");
+        var allBlueBool = $("#AllBlueCheck").is(":checked");
+        var bluePermaBool = $("#PermanentBlueCheck").is(":checked");
 
         var fileText = (
 `Show ScoreBoard: ${scoreBool}
@@ -714,17 +808,26 @@ High Priority: ${prioBool}
 Tournament Only: ${tourneyBool}
 Area Permissions: ${areaBool}
 Announce Legendary: ${legendBool}
+Use Economy: ${economyBool}
+Enable Fish Bags: ${bagBool}
 `);
         
         //Text Creation
         var chatPfx = $("#chatPrefixInput").val();
         var curSym = $("#currencySymbol").val();
         var lanSymbol = $("#languageSymbol").find(':selected').data("symbol");
+        var blueFish = $("#allBlueFishInput").val();
+        var blueName = $("#allBlueNameInput").val();
 
         fileText += (`
 Chat Prefix: '${chatPfx}'
 Currency Symbol: ${curSym}
 Language Symbol: ${lanSymbol}
+
+Enable All Blue: ${allBlueBool}
+Permanent All Blue: ${bluePermaBool}
+All Blue Name: ${blueName}
+All Blue Fish: ${blueFish}
 `);
 
         //Wandering Traders
@@ -735,6 +838,16 @@ Language Symbol: ${lanSymbol}
 Allow Wandering Traders: ${traderBool}
 Wandering Traders Modifier: ${traderMod}
 `);
+
+        //Treasure
+        var treasureBool = $("#treasureCheck").is(":checked");
+        var treasureChance = $("#treasureChance").val();
+
+        fileText += (`
+Enable Treasure: ${treasureBool}
+Treasure Chance: ${treasureChance}
+`);
+
 
         //World Whitelist
         var worldBool = $("#WorldCheck").is(":checked");
@@ -779,6 +892,12 @@ Allowed Worlds:
             if(area.textContent != "Add New"){
                 var biomes = $(area).data("biomes")?.split(" ");
             fileText += "\n    " + area.textContent + ":";
+
+            fileText += "\n        Has Compass: " + $(area).data("compassBool");
+            fileText += "\n        Compass Hint: " + $(area).data("compassHint");
+
+
+
             fileText += "\n        Biomes:";
             if(biomes != null){
                 for(var t = 0; t < biomes.length; t++){
@@ -855,12 +974,14 @@ Allowed Worlds:
         $("#FishParent").append(fish);
     }
 
-    function CreateAreaEle(name, biomes){
+    function CreateAreaEle(name, compassBool, compassHint, biomes){
         var area = document.createElement("a");
         area.text = name;
 
         $(area).data("name", name);
         $(area).data("biomes", biomes);
+        $(area).data("compassBool", compassBool);
+        $(area).data("compassHint", compassHint);
 
         $(area).addClass( ["list-group-item", "areaButton"] );
 
