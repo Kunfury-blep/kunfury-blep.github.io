@@ -25,60 +25,75 @@
         </div>
         
         <div>
-            <fieldset>
-                <div class="row mt-md-1">
-                    <div class="col">
-                        <!--@*Initial Checkboxes*@-->
-                        <div class="mb-3">
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="ShowScoreboardCheck" checked="checked">
-                                <label class="form-check-label active" for="ShowScoreboardCheck">
-                                    Show Scoreboard
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="ShowChatCheck">
-                                <label class="form-check-label" for="ShowChatCheck">
-                                    Show Chat
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="PriorityCheck">
-                                <label class="form-check-label" for="PriorityCheck">
-                                    High Priority
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="TournamentCheck">
-                                <label class="form-check-label" for="TournamentCheck">
-                                    Tournament Only
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="AreaCheck">
-                                <label class="form-check-label" for="AreaCheck">
-                                    Area Permissions
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="LegendCheck" checked="checked">
-                                <label class="form-check-label active" for="LegendCheck">
-                                    Announce Legendary
-                                </label>
-                            </div>
-
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="WorldCheck">
-                                <label class="form-check-label" for="WorldCheck">
-                                    World Whitelist
-                                </label>
-                            </div>
-                            
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingGeneral">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseGeneral" aria-expanded="true" aria-controls="panelsStayOpen-collapseGeneral">
+                      General
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseGeneral" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingGeneral">
+                    <div class="accordion-body">
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="ShowScoreboardCheck" checked="checked">
+                            <label class="form-check-label active" for="ShowScoreboardCheck">
+                                Show Scoreboard
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="ShowChatCheck">
+                            <label class="form-check-label" for="ShowChatCheck">
+                                Show Chat
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="PriorityCheck">
+                            <label class="form-check-label" for="PriorityCheck">
+                                High Priority
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="TournamentCheck">
+                            <label class="form-check-label" for="TournamentCheck">
+                                Tournament Only
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="AreaCheck">
+                            <label class="form-check-label" for="AreaCheck">
+                                Area Permissions
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="LegendCheck" checked="checked">
+                            <label class="form-check-label active" for="LegendCheck">
+                                Announce Legendary
+                            </label>
                         </div>
 
-                        <!--@*Wandering Traders*@-->
-                        
-                        <div class="input-group mb-3 flex-nowrap">
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="WorldCheck">
+                            <label class="form-check-label" for="WorldCheck">
+                                World Whitelist
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="EconomyCheck" checked="checked">
+                            <label class="form-check-label active" for="EconomyCheck">
+                                Enable Economy
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline form-switch">
+                            <input class="form-check-input" type="checkbox" id="FishBagsCheck" checked="checked">
+                            <label class="form-check-label active" for="FishBagsCheck">
+                                Enable Fish Bags
+                            </label>
+                        </div>
+
+                         <!--@*Wandering Traders*@-->
+                         <div class="input-group mb-3 flex-nowrap">
                             <div class="form-check form-check-inline form-switch">
                                 <input class="form-check-input" type="checkbox" id="WanderingTraderCheck">
                                 <label class="form-check-label" for="WanderingTraderCheck">
@@ -89,7 +104,41 @@
                             <input type="number" class="form-control w-25" id="traderModifierValue" value="1.5">
                         </div>
 
-                        <!--@*Treasure*@-->                        
+                        <div class="form-check form-check-inline form-switch">
+                            <span class="input-group-text" style="width:fit-content;">Chat Prefix</span>
+                            <input type="text" class="form-control" id="chatPrefixInput" value="&b[BF]&f ">
+                        </div>
+
+                        <div class="form-check form-check-inline form-switch">
+                            <span class="input-group-text" style="width:fit-content;">Currency Symbol</span>
+                            <input type="text" class="form-control" id="currencySymbol" value="$">
+                        </div>
+
+                        <!--@*Input Boxes*@-->
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text" style="width:fit-content;">Language Symbol</span>
+                               <select class="form-select" aria-label="Language Select" id="languageSymbol">
+                                    <option selected data-symbol="en">English</option>
+                                    <option data-symbol="es">Spanish</option>
+                                    <option data-symbol="nl">Dutch</option>
+                                    <option data-symbol="pl">Polish</option>
+                                    <option data-symbol="zh">Simplified Chinese</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingTreasure">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTreasure" aria-expanded="false" aria-controls="panelsStayOpen-collapseTreasure">
+                      Treasure
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseTreasure" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTreasure">
+                    <div class="accordion-body">
                         <div class="input-group mb-3 flex-nowrap">
                             <div class="form-check form-check-inline form-switch">
                                 <input class="form-check-input" type="checkbox" id="treasureCheck" checked="checked">
@@ -101,22 +150,19 @@
                             <input type="number" class="form-control w-25" id="treasureChance" value="5">
                         </div>
 
-                        <!--@*All Blue Settings*@-->   
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingEndgame">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEndgame" aria-expanded="false" aria-controls="panelsStayOpen-collapseEndgame">
+                      Endgame
+                    </button>
+                  </h2>
+                <div id="panelsStayOpen-collapseEndgame" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEndgame">
+                    <div class="accordion-body">
+                        
                         <div class="mb-3">
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="EconomyCheck" checked="checked">
-                                <label class="form-check-label active" for="EconomyCheck">
-                                    Enable Economy
-                                </label>
-                            </div>
-
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="FishBagsCheck" checked="checked">
-                                <label class="form-check-label active" for="FishBagsCheck">
-                                    Enable Fish Bags
-                                </label>
-                            </div>
-
                             <div class="form-check form-check-inline form-switch">
                                 <input class="form-check-input" type="checkbox" id="AllBlueCheck" checked="checked">
                                 <label class="form-check-label active" for="AllBlueCheck">
@@ -142,37 +188,16 @@
                                 <span class="input-group-text" style="width:fit-content;">Endgame Ocean Fish Limit</span>
                                 <input type="number" class="form-control" id="allBlueFishInput" value=2000>
                             </div>
-
-                            <div class="form-check form-check-inline form-switch">
-                                <span class="input-group-text" style="width:fit-content;">Chat Prefix</span>
-                                <input type="text" class="form-control" id="chatPrefixInput" value="&b[BF]&f ">
-                            </div>
-
-                            <div class="form-check form-check-inline form-switch">
-                                <span class="input-group-text" style="width:fit-content;">Currency Symbol</span>
-                                <input type="text" class="form-control" id="currencySymbol" value="$">
-                            </div>
                         </div>
 
-
-                        <!--@*Input Boxes*@-->
-                        <div class="mb-3">
-                            <div class="input-group">
-                                <span class="input-group-text" style="width:fit-content;">Language Symbol</span>
-                               <select class="form-select" aria-label="Language Select" id="languageSymbol">
-                                    <option selected data-symbol="en">English</option>
-                                    <option data-symbol="es">Spanish</option>
-                                    <option data-symbol="nl">Dutch</option>
-                                    <option data-symbol="pl">Polish</option>
-                                    <option data-symbol="zh">Simplified Chinese</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                    </div>                    
+                    </div>
                 </div>
-                
+            </div>
+        </div>
+    </div>
 
+    <div>
+            <fieldset>
                 <div class="row mt-md-1">
                     <div class="col-3 list-group overflow-visible scrollList" id="worldList">
                         <span class="list-group-item text-center">Allowed Worlds</span>
