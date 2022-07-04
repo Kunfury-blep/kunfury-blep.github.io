@@ -1,0 +1,17 @@
+.top-button {
+    width: 10%;
+}
+.scrollList{
+    max-height: 15rem;
+}
+
+.addBtn{
+    width: 100%;
+    background-color: green;
+}
+
+.topright {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
