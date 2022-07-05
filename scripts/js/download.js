@@ -1,4 +1,7 @@
 function download(filename) {
+
+    var fileText = "\# \n\#This config was created using the Config Web Panel. Use /BF Config in game to generate your own!\n\#\n"
+
     //Boolean Creation
     var scoreBool = $("#ShowScoreboardCheck").is(":checked");
     var chatBool = $("#ShowChatCheck").is(":checked");
@@ -11,7 +14,7 @@ function download(filename) {
     var allBlueBool = $("#AllBlueCheck").is(":checked");
     var bluePermaBool = $("#PermanentBlueCheck").is(":checked");
 
-    var fileText = (
+    fileText += (
 `Show ScoreBoard: ${scoreBool}
 Show Chat: ${chatBool}
 High Priority: ${prioBool}
