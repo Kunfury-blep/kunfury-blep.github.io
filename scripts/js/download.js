@@ -52,12 +52,15 @@ Wandering Traders Modifier: ${traderMod}
     //Treasure
     var treasureBool = $("#treasureCheck").is(":checked");
     var treasureChance = $("#treasureChance").val();
+    var parrotBonus = $("#parrotBonus").val();
+    var boatBonus = $("#boatBonus").val();
 
     fileText += (`
 Enable Treasure: ${treasureBool}
 Treasure Chance: ${treasureChance}
+Parrot Treasure Bonus: ${parrotBonus}
+Boat Treasure Bonus: ${boatBonus}
 `);
-
 
     //World Whitelist
     var worldBool = $("#WorldCheck").is(":checked");
@@ -84,10 +87,10 @@ Allowed Worlds:
 
         if(rarity.textContent != "Add New"){
             fileText += (`
-${rarity.textContent}:
-    Weight: ${$(rarity).data("weight")}
-    Color Code: ${$(rarity).data("prefix")}
-    Price Mod: ${$(rarity).data("price")}
+    ${rarity.textContent}:
+        Weight: ${$(rarity).data("weight")}
+        Color Code: ${$(rarity).data("prefix")}
+        Price Mod: ${$(rarity).data("price")}
 `);                
         }}
         
@@ -139,7 +142,30 @@ ${rarity.textContent}:
         }
     }
 
+    fileText += "\n";
 
+
+        //Caskets
+        fileText += "\ntreasure: ";
+
+        var casketList = $("#CasketParent").children();
+        for(var i = 0; i< casketList.length; i++){
+            var casket = casketList[i];
+    
+            fileText += (`
+    ${casket.textContent}:
+        Weight: ${$(casket).data("weight")}
+        Color Code: ${$(casket).data("prefix")}
+        Model Data: ${$(casket).data("modelData")}`);                
+
+        var drops = $(casket).data("dropTable")?.toString().split(",");
+
+        fileText += "\n        Drop Table:";
+        if(drops != null){
+            for(var d = 0; d < drops.length; d++){
+            fileText += "\n        - \'" + drops[d] + "\'";
+        }}
+        }
 
 
     var element = document.createElement('a');

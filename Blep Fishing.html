@@ -146,8 +146,29 @@
                                     Enable Treasure
                                 </label>
                             </div>
-                            <span class="input-group-text" style="width:fit-content;">Treasure Chance</span>
-                            <input type="number" class="form-control w-25" id="treasureChance" value="5">
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline form-switch">
+                                <span class="input-group-text" style="width:fit-content;">Treasure Chance</span>
+                                <input type="text" class="form-control" id="treasureChance" value="5">
+                            </div>
+                            <div class="form-check form-check-inline form-switch">
+                                <span class="input-group-text" style="width:fit-content;">Parrot Bonus</span>
+                                <input type="text" class="form-control" id="parrotBonus" value="5">
+                            </div>
+                            <div class="form-check form-check-inline form-switch">
+                                <span class="input-group-text" style="width:fit-content;">Boat Bonus</span>
+                                <input type="text" class="form-control" id="boatBonus" value="5">
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-3 list-group" id="rarityList overflow-visible scrollList">
+                            <span class="list-group-item text-center">Caskets</span>
+                            <button class="btn btn-primary addBtn" onclick="displayCasketModal()">Add New</button>
+                            <div id="CasketParent"></div>
                         </div>
 
                     </div>
@@ -159,6 +180,7 @@
                       Endgame
                     </button>
                   </h2>
+                </div>
                 <div id="panelsStayOpen-collapseEndgame" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEndgame">
                     <div class="accordion-body">
                         
@@ -192,42 +214,38 @@
 
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
 
-    <div>
-            <fieldset>
-                <div class="row mt-md-1">
-                    <div class="col-3 list-group overflow-visible scrollList" id="worldList">
-                        <span class="list-group-item text-center">Allowed Worlds</span>
-                        <button class="btn btn-primary addBtn" onclick="displayWorldModal()">Add New</button>
-                        <div id="WorldsParent"></div>
-                        
-                    </div>
-                    <div class="col-3 list-group overflow-visible scrollList" id="fishList">
-                        <span class="list-group-item text-center">Available Fish</span>
-                        <button type="button" class="btn btn-primary addBtn"  onclick="displayFishModal();">Add New</button>
-                        <div id="FishParent"></div>
-                    </div>
-                    <div class="col-3 list-group overflow-visible scrollList" id="areaList">
-                        <span class="list-group-item text-center">Fishing Areas</span>
-                        <button class="btn btn-primary addBtn" onclick="displayAreaModal();">Add New</button>
-                        <div id="AreaParent"></div>
-                        
-                    </div>
-                    <div class="col-3 list-group" id="rarityList overflow-visible scrollList">
-                        <span class="list-group-item text-center">Fish Rarities</span>
-                        <button class="btn btn-primary addBtn" onclick="displayRarityModal()">Add New</button>
-                        <div id="RarityParent"></div>
-                    </div>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="row mt-md-1">
+                <div class="col-3 list-group overflow-visible scrollList" id="worldList">
+                    <span class="list-group-item text-center">Allowed Worlds</span>
+                    <button class="btn btn-primary addBtn" onclick="displayWorldModal()">Add New</button>
+                    <div id="WorldsParent"></div>
+                    
                 </div>
-                
-
-
-            </fieldset>
-        </form>
-
+                <div class="col-3 list-group overflow-visible scrollList" id="fishList">
+                    <span class="list-group-item text-center">Available Fish</span>
+                    <button type="button" class="btn btn-primary addBtn"  onclick="displayFishModal();">Add New</button>
+                    <div id="FishParent"></div>
+                </div>
+                <div class="col-3 list-group overflow-visible scrollList" id="areaList">
+                    <span class="list-group-item text-center">Fishing Areas</span>
+                    <button class="btn btn-primary addBtn" onclick="displayAreaModal();">Add New</button>
+                    <div id="AreaParent"></div>
+                    
+                </div>
+                <div class="col-3 list-group" id="rarityList overflow-visible scrollList">
+                    <span class="list-group-item text-center">Fish Rarities</span>
+                    <button class="btn btn-primary addBtn" onclick="displayRarityModal()">Add New</button>
+                    <div id="RarityParent"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -458,6 +476,66 @@
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary" onclick="saveRarity();" id="SaveRarityBtn">Create</button>
+                </div>
+          </form>
+        
+        </div>
+      </div>
+  
+  </div>
+
+<!-- Casket Modal -->
+<div class="modal fade" id="casketModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('casket')" id="casketDeleteBtn">Delete</button></div>
+                <div class="modal-header">
+                    <div class="col-10">
+                        <input type="text" id="inputCasketName" class="form-control" style="text-align: center;" placeholder="Casket Name"/>
+                    </div>
+              </div>
+              <div class="modal-body">
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputCasketWeight" class="col-form-label">Weight</label>
+                    </div>
+                    <div class="col-9">
+                      <input type="text" class="form-control" id="inputCasketWeight"></input>
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputCasketPrefix" class="col-form-label">Prefix</label>
+                    </div>
+                    <div class="col-9">
+                      <input type="text" class="form-control" id="inputCasketPrefix"></input>
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputCasketModelData" class="col-form-label">Model Data</label>
+                    </div>
+                    <div class="col-9">
+                      <input type="text" class="form-control" id="inputCasketModelData"></input>
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-3">
+                        <label for="inputCasketPrefix" class="col-form-label">Drop Table</label>
+                    </div>
+                    <div class="col-9">
+                      <textarea class="form-control" id="inputCasketDropTable" row="3"></input>
+                    </div>
+                </div>
+
+            </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="saveCasket();" id="SaveCasketBtn">Create</button>
                 </div>
           </form>
         

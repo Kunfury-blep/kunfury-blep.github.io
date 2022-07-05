@@ -4,6 +4,33 @@ var activeWorld;
 var activeRarity;
 var activeCasket;
 
+$(document).on('click', '.fishButton', function () {
+    var fish = $(event.target);
+    displayFishModal(fish);
+});
+
+$(document).on('click', '.areaButton', function () {
+    var area = $(event.target);
+    displayAreaModal(area);
+});
+
+$(document).on('click', '.worldButton', function () {
+    var world = $(event.target);
+    displayWorldModal(world);
+});
+
+$(document).on('click', '.rarityButton', function () {
+    var rarity = $(event.target);
+    displayRarityModal(rarity);
+});
+
+$(document).on('click', '.casketButton', function () {
+    var casket = $(event.target);
+    displayCasketModal(casket);
+});
+
+
+
 function displayFishModal(fish){
     activeFish = fish;
     if(activeFish != null){
@@ -75,7 +102,7 @@ function displayRarityModal(rarity){
     if(activeRarity != null){
         $('#inputRarityName').val(rarity.text());
         $('#inputRarityWeight').val(rarity.data("weight"));
-        $('#inputRarityColor').val(rarity.data("color"));
+        $('#inputRarityPrefix').val(rarity.data("color"));
         $('#inputRarityPrice').val(rarity.data("price"));
 
         $('#SaveRarityBtn').html('Update');
@@ -83,13 +110,48 @@ function displayRarityModal(rarity){
     }else{
         $('#inputRarityName').val("");
         $('#inputRarityWeight').val("");
-        $('#inputRarityColor').val("");
+        $('#inputRarityPrefix').val("");
         $('#inputRarityPrice').val("");
         $('#SaveRarityBtn').html('Create');
         $('#rarityDeleteBtn').hide();
         
     }
     $('#rarityModal').modal('show');
+}
+
+function displayCasketModal(casket){
+    activeCasket = casket;
+    if(activeCasket != null){
+        $('#inputCasketName').val(casket.text());
+        $('#inputCasketWeight').val(casket.data("weight"));
+        $('#inputCasketPrefix').val(casket.data("prefix"));
+        $('#inputCasketPrefix').val(casket.data("prefix"));
+        $('#inputCasketModelData').val(casket.data("modelData"));
+
+        const dropTableObj = $(casket).data("dropTable").toString().split(',');
+
+
+        var dropTable = "";
+
+        for(const e of dropTableObj){
+            dropTable += e + "\n";
+        }
+
+        $('#inputCasketDropTable').val(dropTable);
+
+        $('#SaveCasketBtn').html('Update');
+        $('#casketDeleteBtn').show();
+    }else{
+        $('#inputCasketName').val("");
+        $('#inputCasketWeight').val("");
+        $('#inputCasketPrefix').val("");
+        $('#inputCasketModelData').val("");
+        $('#inputCasketDropTable').val("");
+        $('#SaveCasketBtn').html('Create');
+        $('#casketDeleteBtn').hide();
+        
+    }
+    $('#casketModal').modal('show');
 }
 
 function saveFish(){
@@ -164,9 +226,9 @@ function saveCasket(){
         alert("A name for the casket is required");
         return;
     }
-    CreateRarityEle($('#inputCasketName').val(), $('#inputRarityWeight').val(), $('#inputRarityColor').val(), $('#inputRarityPrice').val());
+    CreateCasketEle($('#inputCasketName').val(), $('#inputRarityWeight').val(), $('#inputRarityColor').val(), $('#inputRarityPrice').val());
 
-    $('#rarityModal').modal('hide');
+    $('#casketModal').modal('hide');
 }
 
 function Delete(item){

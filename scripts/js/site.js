@@ -56,28 +56,12 @@ $(document).ready(function () {
     CreateAreaEle("End", false, "", "end_barrens, end_highlands, end_midlands, small_end_islands, the_end, the_void");
     CreateAreaEle("Nether", false, "", "basalt_deltas, crimson_forest, nether_wastes, soul_sand_valley, warped_forest");
     
+    //Populate Caskets
+    CreateCasketEle("Legendary Casket", 5, 6, 1, ["CASH: 1000", "ITEM: DIAMOND 4", "ITEM: DIAMOND 8", "ITEM: ANCIENT_DEBRIS 1", "ITEM: HEART_OF_THE_SEA 1"]);
+    CreateCasketEle("Epic Casket", 30, 'd', 2, ["CASH: 1000","ITEM: SEA_LANTERN 1", "ITEM: TURTLE_EGG 1", 'ITEM: DIAMOND 1','ITEM: DIAMOND 1']);
+    CreateCasketEle("Rare Casket", 60, 'b', 3, ['CASH: 250', 'ITEM: SADDLE 1', 'ITEM: SPYGLASS 1', 'ITEM: SCUTE 1']);
+    CreateCasketEle("Common Casket", 100, 'a', 4, ['CASH: 10','ITEM: NAUTILUS_SHELL 1', 'ITEM: DRIED_KELP 8', 'ITEM: KELP 8', 'ITEM: SEA_PICKLE 1','ITEM: IRON_INGOT 2', 'ITEM: GOLD_NUGGET 7' ,'ITEM: INK_SAC 8']);
 
-
-});
-
-$(document).on('click', '.fishButton', function () {
-    var fish = $(event.target);
-    displayFishModal(fish);
-});
-
-$(document).on('click', '.areaButton', function () {
-    var area = $(event.target);
-    displayAreaModal(area);
-});
-
-$(document).on('click', '.worldButton', function () {
-    var world = $(event.target);
-    displayWorldModal(world);
-});
-
-$(document).on('click', '.rarityButton', function () {
-    var rarity = $(event.target);
-    displayRarityModal(rarity);
 });
 
 function updateAvailAreas(){
@@ -159,6 +143,16 @@ function CreateRarityEle(name, weight, prefix, price){
     $("#RarityParent").append(rarity);
 }
 
-function CreateTreasureEle(name, weight, prefix, dropTable){
+function CreateCasketEle(name, weight, prefix, modelData, dropTable){
+    var casket = document.createElement("a");
+    casket.text = name;
 
+    $(casket).data("weight", weight);
+    $(casket).data("prefix", prefix);
+    $(casket).data("modelData", modelData);
+    $(casket).data("dropTable", dropTable);
+
+    $(casket).addClass( ["list-group-item", "casketButton"] );
+
+    $("#CasketParent").append(casket);
 }
