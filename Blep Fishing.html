@@ -2,14 +2,17 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="scripts/site.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="scripts/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
     <script data-main="scripts/js-yaml.js" src="scripts/require.js"></script>
-    
+
+
     <script src="scripts/js/site.js"></script>
     <script src="scripts/js/download.js"></script>
     <script src="scripts/js/modals.js"></script>
     <script src="scripts/js/import.js"></script>
+    
 </head>
     
 
@@ -18,9 +21,9 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div class="text-center">
-            <button class="btn btn-primary top-button" onclick="download('config.yml')">Export</button>
+            <button class="btn btn-primary top-button" onclick="download('config.yml')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Downloads config.yml" >Export</button>
             
-            <button class="btn btn-primary top-button" id="importBtn">Import</button>
+            <button class="btn btn-primary top-button" id="importBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload your current config" >Import</button>
             <input type="file" id="importUpload"  name="importUpload" style="display:none" accept=".yml" />
         </div>
         
@@ -34,58 +37,58 @@
                   </h2>
                   <div id="panelsStayOpen-collapseGeneral" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingGeneral">
                     <div class="accordion-body">
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Displays caught fish using the ingame scoreboard">
                             <input class="form-check-input" type="checkbox" id="ShowScoreboardCheck" checked="checked">
                             <label class="form-check-label active" for="ShowScoreboardCheck">
                                 Show Scoreboard
                             </label>
                         </div>
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Displays caught fish using the ingame chat">
                             <input class="form-check-input" type="checkbox" id="ShowChatCheck">
                             <label class="form-check-label" for="ShowChatCheck">
                                 Show Chat
                             </label>
                         </div>
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"  title="Runs the plugin in High Priority Mode <br>(Only use if you are experiencing incompatibilities)">
                             <input class="form-check-input" type="checkbox" id="PriorityCheck">
                             <label class="form-check-label" for="PriorityCheck">
                                 High Priority
                             </label>
                         </div>
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Custom fish will only be caught when tournaments are running">
                             <input class="form-check-input" type="checkbox" id="TournamentCheck">
                             <label class="form-check-label" for="TournamentCheck">
                                 Tournament Only
                             </label>
                         </div>
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Players are required to have permissions to fish in specific areas">
                             <input class="form-check-input" type="checkbox" id="AreaCheck">
                             <label class="form-check-label" for="AreaCheck">
                                 Area Permissions
                             </label>
                         </div>
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="When a fish of the highest rarity is caught, announce it to the server">
                             <input class="form-check-input" type="checkbox" id="LegendCheck" checked="checked">
                             <label class="form-check-label active" for="LegendCheck">
                                 Announce Legendary
                             </label>
                         </div>
 
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Custom Fish can only be caught in certain worlds">
                             <input class="form-check-input" type="checkbox" id="WorldCheck">
                             <label class="form-check-label" for="WorldCheck">
                                 World Whitelist
                             </label>
                         </div>
 
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enables economy support">
                             <input class="form-check-input" type="checkbox" id="EconomyCheck" checked="checked">
                             <label class="form-check-label active" for="EconomyCheck">
                                 Enable Economy
                             </label>
                         </div>
 
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Allows players to craft upgradeable fish bags">
                             <input class="form-check-input" type="checkbox" id="FishBagsCheck" checked="checked">
                             <label class="form-check-label active" for="FishBagsCheck">
                                 Enable Fish Bags
@@ -94,40 +97,38 @@
 
                          <!--@*Wandering Traders*@-->
                          <div class="input-group mb-3 flex-nowrap">
-                            <div class="form-check form-check-inline form-switch">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Players can sell their fish to Wandering Traders">
                                 <input class="form-check-input" type="checkbox" id="WanderingTraderCheck">
                                 <label class="form-check-label" for="WanderingTraderCheck">
                                     Allow Wandering Traders
                                 </label>
                             </div>
-                            <span class="input-group-text" style="width:fit-content;">Modifier</span>
-                            <input type="number" class="form-control w-25" id="traderModifierValue" value="1.5">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The price modifier when selling fish to Wandering Traders">
+                                <span class="input-group-text" style="width:fit-content;">Modifier</span>
+                                <input type="number" class="form-control" id="traderModifierValue" value="1.5">
+                            </div>
                         </div>
 
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The prefix shown on plugin messages">
                             <span class="input-group-text" style="width:fit-content;">Chat Prefix</span>
                             <input type="text" class="form-control" id="chatPrefixInput" value="&b[BF]&f ">
                         </div>
 
-                        <div class="form-check form-check-inline form-switch">
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
                             <span class="input-group-text" style="width:fit-content;">Currency Symbol</span>
                             <input type="text" class="form-control" id="currencySymbol" value="$">
                         </div>
 
-                        <!--@*Input Boxes*@-->
-                        <div class="mb-3">
-                            <div class="input-group">
-                                <span class="input-group-text" style="width:fit-content;">Language Symbol</span>
-                               <select class="form-select" aria-label="Language Select" id="languageSymbol">
-                                    <option selected data-symbol="en">English</option>
-                                    <option data-symbol="es">Spanish</option>
-                                    <option data-symbol="nl">Dutch</option>
-                                    <option data-symbol="pl">Polish</option>
-                                    <option data-symbol="zh">Simplified Chinese</option>
-                                </select>
-                            </div>
-                        </div>
-                        
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Language file to use">
+                            <span class="input-group-text" style="width:fit-content;">Language</span>
+                            <select class="form-select" aria-label="Language Select" id="languageSymbol">
+                                <option selected data-symbol="en">English</option>
+                                <option data-symbol="es">Spanish</option>
+                                <option data-symbol="nl">Dutch</option>
+                                <option data-symbol="pl">Polish</option>
+                                <option data-symbol="zh">Simplified Chinese</option>
+                            </select>
+                        </div>                        
                     </div>
                   </div>
                 </div>
@@ -149,15 +150,15 @@
                         </div>
 
                         <div class="mb-3">
-                            <div class="form-check form-check-inline form-switch">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Base chance of fishing up treasure">
                                 <span class="input-group-text" style="width:fit-content;">Treasure Chance</span>
                                 <input type="text" class="form-control" id="treasureChance" value="5">
                             </div>
-                            <div class="form-check form-check-inline form-switch">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bonus to treasure chance when fishing with a parrot on your shoulder">
                                 <span class="input-group-text" style="width:fit-content;">Parrot Bonus</span>
                                 <input type="text" class="form-control" id="parrotBonus" value="5">
                             </div>
-                            <div class="form-check form-check-inline form-switch">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bonus to treasure chance when fishing while in a boat">
                                 <span class="input-group-text" style="width:fit-content;">Boat Bonus</span>
                                 <input type="text" class="form-control" id="boatBonus" value="5">
                             </div>
@@ -165,7 +166,7 @@
                         </div>
 
 
-                        <div class="col-3 list-group" id="rarityList overflow-visible scrollList">
+                        <div class="col-3 list-group" id="rarityList overflow-visible scrollList" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a casket to edit">
                             <span class="list-group-item text-center">Caskets</span>
                             <button class="btn btn-primary addBtn" onclick="displayCasketModal()">Add New</button>
                             <div id="CasketParent"></div>
@@ -185,14 +186,14 @@
                     <div class="accordion-body">
                         
                         <div class="mb-3">
-                            <div class="form-check form-check-inline form-switch">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enable the endgame ocean area">
                                 <input class="form-check-input" type="checkbox" id="AllBlueCheck" checked="checked">
                                 <label class="form-check-label active" for="AllBlueCheck">
                                     Enable Endgame Ocean
                                 </label>
                             </div>
 
-                            <div class="form-check form-check-inline form-switch">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="If not permanent, multiple endgame areas can be generated by players and will have a limited amount of fish">
                                 <input class="form-check-input" type="checkbox" id="PermanentBlueCheck" checked="checked">
                                 <label class="form-check-label active" for="PermanentBlueCheck">
                                     Permanent Endgame Ocean
@@ -201,12 +202,12 @@
                         </div>
 
                         <div class="mb-3">
-                            <div class="form-check form-check-inline form-switch">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The name to be used with the Endgame Area">
                                 <span class="input-group-text" style="width:fit-content;">Endgame Ocean Name</span>
                                 <input type="text" class="form-control" id="allBlueNameInput" value="All Blue">
                             </div>
 
-                            <div class="form-check form-check-inline form-switch">
+                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Amount of fish available in non-permanent endgame areas">
                                 <span class="input-group-text" style="width:fit-content;">Endgame Ocean Fish Limit</span>
                                 <input type="number" class="form-control" id="allBlueFishInput" value=2000>
                             </div>
@@ -222,24 +223,24 @@
     <div class="row justify-content-center">
         <div class="col-8">
             <div class="row mt-md-1">
-                <div class="col-3 list-group overflow-visible scrollList" id="worldList">
+                <div class="col-3 list-group overflow-visible scrollList" id="worldList" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a world to edit">
                     <span class="list-group-item text-center">Allowed Worlds</span>
                     <button class="btn btn-primary addBtn" onclick="displayWorldModal()">Add New</button>
                     <div id="WorldsParent"></div>
                     
                 </div>
-                <div class="col-3 list-group overflow-visible scrollList" id="fishList">
+                <div class="col-3 list-group overflow-visible scrollList" id="fishList" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a fish to edit">
                     <span class="list-group-item text-center">Available Fish</span>
                     <button type="button" class="btn btn-primary addBtn"  onclick="displayFishModal();">Add New</button>
                     <div id="FishParent"></div>
                 </div>
-                <div class="col-3 list-group overflow-visible scrollList" id="areaList">
+                <div class="col-3 list-group overflow-visible scrollList" id="areaList" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click an area to edit">
                     <span class="list-group-item text-center">Fishing Areas</span>
                     <button class="btn btn-primary addBtn" onclick="displayAreaModal();">Add New</button>
                     <div id="AreaParent"></div>
                     
                 </div>
-                <div class="col-3 list-group" id="rarityList overflow-visible scrollList">
+                <div class="col-3 list-group" id="rarityList overflow-visible scrollList" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a rarity to edit">
                     <span class="list-group-item text-center">Fish Rarities</span>
                     <button class="btn btn-primary addBtn" onclick="displayRarityModal()">Add New</button>
                     <div id="RarityParent"></div>

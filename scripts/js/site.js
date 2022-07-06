@@ -62,6 +62,10 @@ $(document).ready(function () {
     CreateCasketEle("Rare Casket", 60, 'b', 3, ['CASH: 250', 'ITEM: SADDLE 1', 'ITEM: SPYGLASS 1', 'ITEM: SCUTE 1']);
     CreateCasketEle("Common Casket", 100, 'a', 4, ['CASH: 10','ITEM: NAUTILUS_SHELL 1', 'ITEM: DRIED_KELP 8', 'ITEM: KELP 8', 'ITEM: SEA_PICKLE 1','ITEM: IRON_INGOT 2', 'ITEM: GOLD_NUGGET 7' ,'ITEM: INK_SAC 8']);
 
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 });
 
 
