@@ -64,6 +64,8 @@ $(document).ready(function () {
 
 });
 
+
+
 function updateAvailAreas(){
     var areaList = $("#AreaParent").children();
     $("#inputFishArea").empty();

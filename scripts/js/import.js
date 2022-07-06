@@ -1,8 +1,18 @@
-$('#importUpload').on("change", function(){ importConfig(); });
+// $('#importUpload').on("change", function(){ importConfig(); });
 
-//Brings up the upload dialoge from the Import Button
-$("#importBtn").click(function () {
-    $("#importUpload").trigger('click');
+// //Brings up the upload dialoge from the Import Button
+// $("#importBtn").click(function () {
+    
+// });
+
+
+$(document).ready(function () {
+    $('#importUpload').on("change", function(){ importConfig(); });
+
+    //Brings up the upload dialoge from the Import Button
+    $("#importBtn").click(function () {
+        $("#importUpload").trigger('click');
+    });
 });
 
 function importConfig(){
