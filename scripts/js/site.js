@@ -50,8 +50,6 @@ $(document).ready(function () {
     CreateAreaEle("Jungle", true, "", "bamboo_jungle, bamboo_jungle_hills, jungle, jungle_edge, jungle_hills, modified_jungle, modified_jungle_edge, sparse_jungle, mangrove_swamp, swamp, swamp_hills, mushroom_field_shore, mushroom_fields");
     CreateAreaEle("Ocean", true, "", "beach, cold_ocean, deep_cold_ocean, deep_frozen_ocean, deep_lukewarm_ocean, deep_ocean, deep_warm_ocean, lukewarm_ocean, ocean, warm_ocean, stone_shore, stony_shore");
     CreateAreaEle("Dry", true, "The piece feels strangely warm and seems to almost dry out your hands just touching it.", "badlands, badlands_plateau, desert, desert_hills, desert_lakes, eroded_badlands, modified_badlands_plateau, modified_wooded_badlands_plateau, savanna, savanna_plateau, shattered_savanna, shattered_savanna_plateau, windswept_savanna, wooded_badlands, wooded_badlands_plateau");
-    CreateAreaEle("Ocean", true, "", "beach, cold_ocean, deep_cold_ocean, deep_frozen_ocean, deep_lukewarm_ocean, deep_ocean, deep_warm_ocean, lukewarm_ocean, ocean, warm_ocean, stone_shore, stony_shore");
-
 
     CreateAreaEle("End", false, "", "end_barrens, end_highlands, end_midlands, small_end_islands, the_end, the_void");
     CreateAreaEle("Nether", false, "", "basalt_deltas, crimson_forest, nether_wastes, soul_sand_valley, warped_forest");
@@ -66,6 +64,8 @@ $(document).ready(function () {
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+
+    $("#inputEndgameArea").val("Ocean");
 });
 
 
@@ -73,15 +73,18 @@ $(document).ready(function () {
 function updateAvailAreas(){
     var areaList = $("#AreaParent").children();
     $("#inputFishArea").empty();
+    $("#inputEndgameArea").empty();
     for(var i = 0; i< areaList.length; i++){
         availAreas.push(areaList[i])
         var area = areaList[i].textContent;
         if(area != "Add New"){
             var option = document.createElement("option");
             option.text = area;
-
-            $("#inputFishArea").append(option);
-}}}
+            $("#inputEndgameArea").append($(option).clone());
+            $("#inputFishArea").append($(option).clone());
+        }
+    }
+}
 
 function CreateFishEle(name, lore, minSize, maxSize, modelData, price, fishArea, raining, minHeight, maxHeight){
     var fish = document.createElement("a");

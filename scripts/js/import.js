@@ -45,6 +45,8 @@ function parseImport(result){
     $("#PermanentBlueCheck").prop('checked', config['Permanent All Blue']);
     $('#allBlueNameInput').val(config['All Blue Name']);
     $('#allBlueFishInput').val(config['All Blue Fish']);
+    $('#endgameRadiusInput').val(config['Endgame Radius']);
+    $('#inputEndgameArea').val(config['Endgame Area']);
 
 
 
