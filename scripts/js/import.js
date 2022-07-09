@@ -47,7 +47,7 @@ function parseImport(result){
     $('#allBlueFishInput').val(config['All Blue Fish']);
     $('#endgameRadiusInput').val(config['Endgame Radius']);
     $('#inputEndgameArea').val(config['Endgame Area']);
-
+    $('#inputMobChance').val(config['Endgame Mob Chance']);
 
 
 
@@ -96,4 +96,18 @@ function parseImport(result){
         var f = rarityList[name];
         CreateRarityEle(name, f['Weight'], f['Color Code'], f['Price Mod']);
     }
+
+    //Treasure Caskets
+    $("#CasketParent").empty();
+    var casketList = config['treasure'];
+
+    for(var name in casketList){
+        var f = casketList[name];
+
+        prefix = f['Prefix']
+        if(f['Color Code']) prefix = f['Color Code'];
+
+        CreateCasketEle(name, f['Weight'], prefix, f['Model Data'], f['Drop Table']);
+    }
+
 }

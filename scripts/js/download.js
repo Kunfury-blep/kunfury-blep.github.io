@@ -33,6 +33,7 @@ Enable Fish Bags: ${bagBool}
     var blueName = $("#allBlueNameInput").val();
     var endgameRadius = $("#endgameRadiusInput").val();
     var endgameArea = $("#inputEndgameArea").val();
+    var mobChance = $("#inputMobChance").val();
 
     fileText += (`
 Chat Prefix: '${chatPfx}'
@@ -42,9 +43,10 @@ Language Symbol: ${lanSymbol}
 Enable All Blue: ${allBlueBool}
 Permanent All Blue: ${bluePermaBool} #If disabled, a zone with limited fish will spawn for each compass crafted
 All Blue Name: ${blueName} #The name the endgame zone will be referred to by
-All Blue Fish: ${blueFish} #The amount of fish available in the Endgame Zone. Not needed if permanent.
+All Blue Fish: ${blueFish} #The amount of fish available in the Endgame Zone. Not needed if permanent
 Endgame Radius: ${endgameRadius} #The size of the endgame zone. Larger sizes may make it more difficult to find an appropriate location
 Endgame Area: ${endgameArea} #The area for the endgame zone to generate in
+Endgame Mob Chance: ${mobChance} #The chance of fishing up monsters in the endgame zone
 `);
 
     //Wandering Traders
@@ -162,7 +164,7 @@ Allowed Worlds:
             fileText += (`
     ${casket.textContent}:
         Weight: ${$(casket).data("weight")}
-        Color Code: ${$(casket).data("prefix")}
+        Prefix: ${$(casket).data("prefix")}
         Model Data: ${$(casket).data("modelData")}`);                
 
         var drops = $(casket).data("dropTable")?.toString().split(",");
