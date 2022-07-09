@@ -165,3 +165,5 @@ function CreateCasketEle(name, weight, prefix, modelData, dropTable){
 
     $("#CasketParent").append(casket);
 }
+
+
