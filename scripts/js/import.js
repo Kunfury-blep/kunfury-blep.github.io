@@ -84,8 +84,7 @@ function parseImport(result){
 
     for(var name in areaList){
         var f = areaList[name];
-        var biomes = (f['Biomes']).join(' ');
-        CreateAreaEle(name, f['Has Compass'], f['Compass Hint'], biomes);
+        CreateAreaEle(name, f['Has Compass'], f['Compass Hint'], f['Biomes']);
     }
 
     //Fish Rarities

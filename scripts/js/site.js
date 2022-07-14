@@ -45,14 +45,25 @@ $(document).ready(function () {
     CreateWorldEle("WORLD_NETHER");
 
     //Populate Areas
-    CreateAreaEle("Cold", true, "The pieces feel cold to the touch.", "frozen_river, frozen_ocean, frozen_peaks, grove, ice_spikes, jagged_peaks, mountain_edge, mountains, snowy_beach, snowy_mountains, snowy_plains, snowy_slopes, snowy_taiga, snowy_taiga_hills, snowy_taiga_mountains, snowy_tundra")
-    CreateAreaEle("Temperate", true, "", "birch_forest, birch_forest_hills, dark_forest, dark_forest_hills, flower_forest, forest, giant_spruce_taiga, giant_spruce_taiga_hills, giant_tree_taiga, giant_tree_taiga_hills, gravelly_mountains, meadow, modified_gravelly_mountains, old_growth_birch_forest, old_growth_pine_taiga, old_growth_spruce_taiga, plains, river, sunflower_plains, taiga, taiga_hills, taiga_mountains, tall_birch_forest, tall_birch_hills, windswept_forest, windswept_hills, wooded_hills, wooded_mountains, windswept_gravelly_hills, stony_peaks")
-    CreateAreaEle("Jungle", true, "", "bamboo_jungle, bamboo_jungle_hills, jungle, jungle_edge, jungle_hills, modified_jungle, modified_jungle_edge, sparse_jungle, mangrove_swamp, swamp, swamp_hills, mushroom_field_shore, mushroom_fields");
-    CreateAreaEle("Ocean", true, "", "beach, cold_ocean, deep_cold_ocean, deep_frozen_ocean, deep_lukewarm_ocean, deep_ocean, deep_warm_ocean, lukewarm_ocean, ocean, warm_ocean, stone_shore, stony_shore");
-    CreateAreaEle("Dry", true, "The piece feels strangely warm and seems to almost dry out your hands just touching it.", "badlands, badlands_plateau, desert, desert_hills, desert_lakes, eroded_badlands, modified_badlands_plateau, modified_wooded_badlands_plateau, savanna, savanna_plateau, shattered_savanna, shattered_savanna_plateau, windswept_savanna, wooded_badlands, wooded_badlands_plateau");
+    CreateAreaEle("Cold", true, "The pieces feel cold to the touch.", ["frozen_river", "frozen_ocean", "frozen_peaks", "grove", "ice_spikes", "jagged_peaks", "mountain_edge", "mountains", "snowy_beach", "snowy_mountains", "snowy_plains",
+                    "snowy_slopes", "snowy_taiga", "snowy_taiga_hills", "snowy_taiga_mountains", "snowy_tundra"]);
+    
+    CreateAreaEle("Temperate", true, "You can faintly hear leaves rustling and birds chirping.", ["birch_forest", "birch_forest_hills", "dark_forest", "dark_forest_hills", "flower_forest", "forest", "giant_spruce_taiga", "giant_spruce_taiga_hills", "giant_tree_taiga", "giant_tree_taiga_hills",
+                    "gravelly_mountains", "meadow", "modified_gravelly_mountains", "old_growth_birch_forest", "old_growth_pine_taiga", "old_growth_spruce_taiga", "plains", "river", "sunflower_plains", "taiga", "taiga_hills", 
+                    "taiga_mountains", "tall_birch_forest", "tall_birch_hills", "windswept_forest", "windswept_hills", "wooded_hills", "wooded_mountains", "windswept_gravelly_hills", "stony_peaks"]);
 
-    CreateAreaEle("End", false, "", "end_barrens, end_highlands, end_midlands, small_end_islands, the_end, the_void");
-    CreateAreaEle("Nether", false, "", "basalt_deltas, crimson_forest, nether_wastes, soul_sand_valley, warped_forest");
+    CreateAreaEle("Jungle", true, "", ["bamboo_jungle", "bamboo_jungle_hills", "jungle", "jungle_edge", "jungle_hills", "modified_jungle", "modified_jungle_edge", "sparse_jungle", "mangrove_swamp", "swamp",
+                    "swamp_hills", "mushroom_field_shore", "mushroom_fields"]);
+    
+    CreateAreaEle("Ocean", true, "You hear distant seagulls and feel a cool ocean breeze.", ["beach", "cold_ocean", "deep_cold_ocean", "deep_frozen_ocean", "deep_lukewarm_ocean", "deep_ocean", "deep_warm_ocean", 
+                    "lukewarm_ocean", "ocean", "warm_ocean", "stone_shore", "stony_shore"]);
+    
+    CreateAreaEle("Dry", true, "The piece feels strangely warm and seems to almost dry out your hands just touching it.", ["badlands", "badlands_plateau", "desert", "desert_hills", "desert_lakes", "eroded_badlands", "modified_badlands_plateau",
+                    "modified_wooded_badlands_plateau", "savanna", "savanna_plateau", "shattered_savanna", "shattered_savanna_plateau", "windswept_savanna", "wooded_badlands", "wooded_badlands_plateau"]);
+
+    CreateAreaEle("End", false, "", ["end_barrens", "end_highlands", "end_midlands", "small_end_islands", "the_end", "the_void"]);
+
+    CreateAreaEle("Nether", false, "", ["basalt_deltas", "crimson_forest", "nether_wastes", "soul_sand_valley", "warped_forest"]);
     
     //Populate Caskets
     CreateCasketEle("Legendary Casket", 5, 6, 1, ["CASH: 1000", "ITEM: DIAMOND 4", "ITEM: DIAMOND 8", "ITEM: ANCIENT_DEBRIS 1", "ITEM: HEART_OF_THE_SEA 1"]);

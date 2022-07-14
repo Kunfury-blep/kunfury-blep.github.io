@@ -67,7 +67,17 @@ function displayAreaModal(area){
     activeArea = area;
     if(activeArea != null){
         $('#inputAreaName').val(area.data("name"));
-        $('#inputAreaBiomes').val(area.data("biomes"));
+        
+
+        const biomesObj = $(area).data("biomes").toString().split(',');
+
+        var biomes = "";
+
+        for(const e of biomesObj){
+            biomes += e + "\n";
+        }
+        $('#inputAreaBiomes').val(biomes);
+
         $('#inputHasCompass').prop('checked', area.data("compassBool"));
         $('#inputCompassHint').val(area.data("compassHint"));
         $('#SaveAreaBtn').html('Update');
@@ -170,7 +180,7 @@ function saveFish(){
     $('#inputModelData').val(),  
     $('#inputPrice').val(),
     $('#inputFishArea').val(),
-    $('#inputFishRaining').val());
+    $('#inputFishRaining').is(":checked"));
 
     $('#fishModal').modal('hide');
 }
@@ -184,7 +194,7 @@ function saveArea(){
         alert("A name for the area is required");
         return;
     }
-    CreateAreaEle($('#inputAreaName').val(), $('#inputAreaBiomes').val());
+    CreateAreaEle($('#inputAreaName').val(), $('#inputHasCompass').is(":checked"), $('#inputCompassHint').val(), $('#inputAreaBiomes').val());
 
     $('#areaModal').modal('hide');
 }

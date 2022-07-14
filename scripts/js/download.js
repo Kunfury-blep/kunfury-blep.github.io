@@ -112,7 +112,7 @@ Allowed Worlds:
         var area = areaList[i];
 
         if(area.textContent != "Add New"){
-            var biomes = $(area).data("biomes")?.split(", ");
+            
         fileText += "\n    " + area.textContent + ":";
 
         fileText += "\n        Has Compass: " + $(area).data("compassBool");
@@ -121,6 +121,8 @@ Allowed Worlds:
 
 
         fileText += "\n        Biomes:";
+
+        var biomes = $(area).data("biomes")?.toString().split(",");
         if(biomes != null){
             for(var t = 0; t < biomes.length; t++){
             fileText += "\n        - " + biomes[t];
