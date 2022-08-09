@@ -31,7 +31,7 @@ $(document).ready(function () {
     CreateFishEle("Tambaqui", "", 20, 44, 25, 10, "Jungle", false, 0, 0);
     CreateFishEle("Armored Catfish", "", 3, 38, 26, 10, "Jungle", false, 0, 0);
     CreateFishEle("Red-bellied Piranha", "", 7, 13, 27, 10, "Jungle", false, 0, 0);
-    CreateFishEle("Electric Eel ", "", 72, 130, 28, 10, "Jungle", false, 0, 0);
+    CreateFishEle("Electric Eel ", "A Shocking Discovery", 72, 130, 28, 10, "Jungle", false, 0, 0);
 
     //Populate Rarities
     CreateRarityEle("Legendary", 5, 6, 10);

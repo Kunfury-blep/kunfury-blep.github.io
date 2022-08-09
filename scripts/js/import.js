@@ -36,29 +36,14 @@ function parseImport(result){
     $('#WanderingTraderCheck').prop('checked', config['Allow Wandering Traders']);
     $('#traderModifierValue').val(config['Wandering Traders Modifier']);
 
-    $('#chatPrefixInput').val(config['Chat Prefix']);
-    $('#currencySymbol').val(config['Currency Symbol']);
-
     $("#EconomyCheck").prop('checked', config['Use Economy']);
     $("#FishBagsCheck").prop('checked', config['Enable Fish Bags']);
     $("#AllBlueCheck").prop('checked', config['Enable All Blue']);
     $("#PermanentBlueCheck").prop('checked', config['Permanent All Blue']);
-    $('#allBlueNameInput').val(config['All Blue Name']);
     $('#allBlueFishInput').val(config['All Blue Fish']);
     $('#endgameRadiusInput').val(config['Endgame Radius']);
     $('#inputEndgameArea').val(config['Endgame Area']);
     $('#inputMobChance').val(config['Endgame Mob Chance']);
-
-
-
-
-    //Sets the dropdownt to the appropriate value
-    var langSymb = config['Language Symbol'];
-    $('#languageSymbol').children().each(function () {
-        if($(this).data("symbol") == langSymb){
-            $('#languageSymbol').val(this.value);
-        }
-    });
 
     //Allowed Worlds
     $(WorldsParent).empty();

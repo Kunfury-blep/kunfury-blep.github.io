@@ -26,23 +26,14 @@ Enable Fish Bags: ${bagBool}
 `);
     
     //Text Creation
-    var chatPfx = $("#chatPrefixInput").val();
-    var curSym = $("#currencySymbol").val();
-    var lanSymbol = $("#languageSymbol").find(':selected').data("symbol");
     var blueFish = $("#allBlueFishInput").val();
-    var blueName = $("#allBlueNameInput").val();
     var endgameRadius = $("#endgameRadiusInput").val();
     var endgameArea = $("#inputEndgameArea").val();
     var mobChance = $("#inputMobChance").val();
 
     fileText += (`
-Chat Prefix: '${chatPfx}'
-Currency Symbol: ${curSym}
-Language Symbol: ${lanSymbol}
-
 Enable All Blue: ${allBlueBool}
 Permanent All Blue: ${bluePermaBool} #If disabled, a zone with limited fish will spawn for each compass crafted
-All Blue Name: ${blueName} #The name the endgame zone will be referred to by
 All Blue Fish: ${blueFish} #The amount of fish available in the Endgame Zone. Not needed if permanent
 Endgame Radius: ${endgameRadius} #The size of the endgame zone. Larger sizes may make it more difficult to find an appropriate location
 Endgame Area: ${endgameArea} #The area for the endgame zone to generate in
