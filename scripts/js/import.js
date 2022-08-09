@@ -35,6 +35,7 @@ function parseImport(result){
 
     $('#WanderingTraderCheck').prop('checked', config['Allow Wandering Traders']);
     $('#traderModifierValue').val(config['Wandering Traders Modifier']);
+    $('#currencySymbol').val(config['Currency Symbol']);
 
     $("#EconomyCheck").prop('checked', config['Use Economy']);
     $("#FishBagsCheck").prop('checked', config['Enable Fish Bags']);

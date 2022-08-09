@@ -30,8 +30,11 @@ Enable Fish Bags: ${bagBool}
     var endgameRadius = $("#endgameRadiusInput").val();
     var endgameArea = $("#inputEndgameArea").val();
     var mobChance = $("#inputMobChance").val();
+    var curSym = $("#currencySymbol").val();
 
     fileText += (`
+Currency Symbol: ${curSym}
+
 Enable All Blue: ${allBlueBool}
 Permanent All Blue: ${bluePermaBool} #If disabled, a zone with limited fish will spawn for each compass crafted
 All Blue Fish: ${blueFish} #The amount of fish available in the Endgame Zone. Not needed if permanent
