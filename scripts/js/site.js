@@ -5,32 +5,32 @@ $(document).ready(function () {
 
     //Populate Fish
     CreateFishEle("Bluegill", "Does it call me Pink Lung?", 5, 15, 1, 10, "Temperate", false, 0, 0);
-    CreateFishEle("Brown Trout", "Looks more beige to me.", 15, 39, 2, 10, "Temperate", true, 0, 0);
-    CreateFishEle("Carp", " ", 16, 31, 3, 10, "Temperate", false, 0, 0);
-    CreateFishEle("Catfish", "I prefer a Dogfish.", 45, 65, 4, 10, "Temperate", false, 0, 0);
-    CreateFishEle("Gar", " ", 5, 15, 5, 10, "Temperate", false, 0, 0);
-    CreateFishEle("Minnow", " ", 1, 8, 6, 10, "Temperate", false, 0, 0);
+    CreateFishEle("Brown Trout", "Looks more beige to me", 15, 39, 2, 10, "Temperate", true, 0, 0);
+    CreateFishEle("Carp", "This is a load of Carp", 16, 31, 3, 10, "Temperate", false, 0, 0);
+    CreateFishEle("Catfish", "I prefer a Dogfish", 45, 65, 4, 10, "Temperate", false, 0, 0);
+    CreateFishEle("Gar", "Would make some great Gar-B-Q", 5, 15, 5, 10, "Temperate", false, 0, 0);
+    CreateFishEle("Minnow", "Can you let Minnow where I am?", 1, 8, 6, 10, "Temperate", false, 0, 0);
     CreateFishEle("Muskeullunge", "Don’t listen to them, I think you’re fin-tastic!", 28, 48, 7, 10, "Temperate", false, 0, 0);
-    CreateFishEle("Perch", " ", 8, 20, 8, 10, "Temperate", false, 0, 0);
-    CreateFishEle("Smallmouth Bass", " ", 12, 28, 9, 10, "Temperate", false, 0, 0);
-    CreateFishEle("Blackfish", " ", 8, 24, 10, 10, "Cold", false, 0, 0);
+    CreateFishEle("Perch", "Perch-ance, would you let me go?", 8, 20, 8, 10, "Temperate", false, 0, 0);
+    CreateFishEle("Smallmouth Bass", "Never the Guitar", 12, 28, 9, 10, "Temperate", false, 0, 0);
+    CreateFishEle("Knifefish", "Looking Sharp!", 8, 24, 10, 10, "Cold", false, 0, 0);
     CreateFishEle("Cod", "Cod you pass me the salt?", 24, 36, 11, 10, "Cold", false, 0, 0);
     CreateFishEle("Halibut", "Do it for the Halibut!", 36, 96, 12, 10, "Cold", false, 0, 0);
     CreateFishEle("Herring", "Now to find a red one...", 8, 15, 13, 10, "Cold", false, 0, 0);
-    CreateFishEle("Pink Salmon", " ", 19, 26, 14, 10, "Cold", false, 0, 0);
-    CreateFishEle("Pollock", "What a load of Pollocks.", 10, 21, 15, 10, "Cold", false, 0, 0);
-    CreateFishEle("Rainbow Trout", " ", 23, 45, 16, 10, "Cold", false, 0, 0);
-    CreateFishEle("Red Grouper", "I'm green with envy.", 26, 50, 17, 10, "Ocean", false, 0, 0);
+    CreateFishEle("Pink Salmon", "Always Against the Current", 19, 26, 14, 10, "Cold", false, 0, 0);
+    CreateFishEle("Pollock", "What a load of Pollocks", 10, 21, 15, 10, "Cold", false, 0, 0);
+    CreateFishEle("Rainbow Trout", "Sharing is Caring", 23, 45, 16, 10, "Cold", false, 0, 0);
+    CreateFishEle("Red Grouper", "I'm green with envy", 26, 50, 17, 10, "Ocean", false, 0, 0);
     CreateFishEle("Tuna", "Hmm... Tastes like chicken!", 72, 168, 18, 10, "Ocean", false, 0, 0);
     CreateFishEle("Bayad", "I'm hooked!", 30, 44, 19, 10, "Dry", false, 0, 0);
-    CreateFishEle("Boulti", "", 7, 24, 20, 10, "Dry", false, 0, 0);
-    CreateFishEle("Lungfish", "Not quite up to scale.", 38, 64, 21, 10, "Dry", false, 0, 0);
-    CreateFishEle("Synodontis", "A bunch of Fischious Rumors.", 4, 12, 22, 10, "Dry", false, 0, 0);
+    CreateFishEle("Boulti", "Boulti Different", 7, 24, 20, 10, "Dry", false, 0, 0);
+    CreateFishEle("Lungfish", "Not quite up to scale", 38, 64, 21, 10, "Dry", false, 0, 0);
+    CreateFishEle("Synodontis", "A bunch of Fischious Rumors", 4, 12, 22, 10, "Dry", false, 0, 0);
     CreateFishEle("Anglerfish", "Go with the Glow!", 9, 39, 23, 10, "Ocean", false, -256, 15);
-    CreateFishEle("Arapaima", "", 60, 130, 24, 10, "Jungle", false, 0, 0);
-    CreateFishEle("Tambaqui", "", 20, 44, 25, 10, "Jungle", false, 0, 0);
-    CreateFishEle("Armored Catfish", "", 3, 38, 26, 10, "Jungle", false, 0, 0);
-    CreateFishEle("Red-bellied Piranha", "", 7, 13, 27, 10, "Jungle", false, 0, 0);
+    CreateFishEle("Arapaima", "Large and In Charge", 60, 130, 24, 10, "Jungle", false, 0, 0);
+    CreateFishEle("Tambaqui", "A Breath of Fresh Air", 20, 44, 25, 10, "Jungle", false, 0, 0);
+    CreateFishEle("Armored Catfish", "Quite the tough attacker", 3, 38, 26, 10, "Jungle", false, 0, 0);
+    CreateFishEle("Red-bellied Piranha", "It's got a nice smile", 7, 13, 27, 10, "Jungle", false, 0, 0);
     CreateFishEle("Electric Eel ", "A Shocking Discovery", 72, 130, 28, 10, "Jungle", false, 0, 0);
 
     //Populate Rarities

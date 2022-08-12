@@ -6,7 +6,7 @@ function download(filename) {
     var scoreBool = $("#ShowScoreboardCheck").is(":checked");
     var chatBool = $("#ShowChatCheck").is(":checked");
     var prioBool = $("#PriorityCheck").is(":checked");
-    var tourneyBool = $("#TournamentCheck").is(":checked");
+    var tourneyOnlyBool = $("#TournamentCheck").is(":checked");
     var areaBool = $("#AreaCheck").is(":checked");
     var legendBool = $("#LegendCheck").is(":checked");      
     var economyBool = $("#EconomyCheck").is(":checked");      
@@ -19,12 +19,12 @@ function download(filename) {
 `Show ScoreBoard: ${scoreBool}
 Show Chat: ${chatBool}
 High Priority: ${prioBool}
-Tournament Only: ${tourneyBool}
+Enable Tournaments: ${tournamentBool}
+Tournament Only: ${tourneyOnlyBool}
 Area Permissions: ${areaBool}
 Announce Legendary: ${legendBool}
 Use Economy: ${economyBool}
 Enable Fish Bags: ${bagBool}
-Enable Tournaments: ${tournamentBool}
 `);
     
     //Text Creation
