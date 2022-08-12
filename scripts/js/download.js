@@ -13,6 +13,7 @@ function download(filename) {
     var bagBool = $("#FishBagsCheck").is(":checked");
     var allBlueBool = $("#AllBlueCheck").is(":checked");
     var bluePermaBool = $("#PermanentBlueCheck").is(":checked");
+    var tournamentBool = $("#TournamentsCheck").is(":checked");
 
     fileText += (
 `Show ScoreBoard: ${scoreBool}
@@ -23,6 +24,7 @@ Area Permissions: ${areaBool}
 Announce Legendary: ${legendBool}
 Use Economy: ${economyBool}
 Enable Fish Bags: ${bagBool}
+Enable Tournaments: ${tournamentBool}
 `);
     
     //Text Creation

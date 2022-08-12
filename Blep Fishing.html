@@ -21,7 +21,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div class="text-center">
-            <button class="btn btn-primary top-button" onclick="download('config.yml')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Downloads config.yml" >Export</button>
+            <button class="btn btn-primary top-button" onclick="download('config.yml')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Downloads config.yml" >Download</button>
             
             <button class="btn btn-primary top-button" id="importBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload your current config" >Import</button>
             <input type="file" id="importUpload"  name="importUpload" style="display:none" accept=".yml" />
@@ -92,6 +92,13 @@
                             <input class="form-check-input" type="checkbox" id="FishBagsCheck" checked="checked">
                             <label class="form-check-label active" for="FishBagsCheck">
                                 Enable Fish Bags
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enables server wide Tournaments from the tournaments.yml file">
+                            <input class="form-check-input" type="checkbox" id="TournamentsCheck">
+                            <label class="form-check-label active" for="TournamentsCheck">
+                                Enable Tournaments
                             </label>
                         </div>
 
