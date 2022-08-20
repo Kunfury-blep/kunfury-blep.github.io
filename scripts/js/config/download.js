@@ -186,4 +186,5 @@ Allowed Worlds:
 
     document.body.removeChild(element);
 
+    //alert("Config File successfully downloaded. \nPlease replace the previous one in your BlepFishing folder for your server.");
 }

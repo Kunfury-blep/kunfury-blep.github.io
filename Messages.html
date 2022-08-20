@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="scripts/site.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="scripts/js/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+    <script data-main="scripts/js/js-yaml.js" src="scripts/js/require.js"></script>
+
+    <script src="scripts/js/messages/download.js"></script>
+    <script src="scripts/js/messages/import.js"></script>
+    <script src="scripts/js/global.js"></script>
+</head>
+<br>
+
+<body>
+  <div id="navbar"></div>
+</body>
+
+
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="text-center">
+            <button class="btn btn-primary top-button" onclick="download('messages.yml')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Downloads messages.yml" >Download</button>
+            
+            <button class="btn btn-primary top-button" id="importBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload your current Message File" >Import</button>
+            <input type="file" id="importUpload"  name="importUpload" style="display:none" accept=".yml" />
+        </div>
+        
+        <hr>
+
+        <div>
+            <div class="accordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingChat">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseChat" aria-expanded="true" aria-controls="panelsStayOpen-collapseChat">
+                      Fish
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseChat" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingChat">
+                    <div class="accordion-body">       
+                      <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                        <span class="input-group-text" style="width:fit-content;">Value</span>
+                        <input type="text" class="form-control" id="fishVal" size="50" value="&2Value: {curr}{cost}">
+                      </div>  
+
+                      <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                        <span class="input-group-text" style="width:fit-content;">Length</span>
+                        <input type="text" class="form-control" id="fishLength" size="50" value="&8Length: {size}in.">
+                      </div>  
+
+                      <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                        <span class="input-group-text" style="width:fit-content;">Caught By</span>
+                        <input type="text" class="form-control" id="fishCaught" size="50" value="&8Caught By: {player} on {date}">
+                      </div>  
+
+                    </div>
+                  </div>
+                </div>                
+            </div>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTreasure">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTreasure" aria-expanded="false" aria-controls="panelsStayOpen-collapseTreasure">
+                    Treasure
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTreasure" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTreasure">
+                  <div class="accordion-body">       
+                    <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                      <span class="input-group-text" style="width:fit-content;">Open</span>
+                      <input type="text" class="form-control" id="treasureOpen" size="50" value="&bRight-Click to &e&oOpen">
+                    </div>  
+                    <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                      <span class="input-group-text" style="width:fit-content;">Result</span>
+                      <input type="text" class="form-control" id="treasureResult" size="50" value="You found {item} &finside the {casket}&f!">
+                    </div>  
+                    <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                      <span class="input-group-text" style="width:fit-content;">No Economy</span>
+                      <input type="text" class="form-control" id="treasureNoEcon" size="50" value="Unable to open Casket. You would have found currency but no economy was found.">
+                    </div>  
+                    <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                      <span class="input-group-text" style="width:fit-content;">Bottle</span>
+                      <input type="text" class="form-control" id="treasureBottle" size="50" value="&dMessage in a Bottle">
+                    </div>  
+                    <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                      <span class="input-group-text" style="width:fit-content;">Crumpled Letter</span>
+                      <input type="text" class="form-control" id="treasureLetter" size="50" value="&fCrumpled Letter">
+                    </div>  
+
+                  </div>
+                </div>
+              </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingTournaments">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTournaments" aria-expanded="false" aria-controls="panelsStayOpen-collapseTournaments">
+                  Tournaments
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTournaments" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTournaments">
+                <div class="accordion-body">       
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Description</span>
+                    <input type="text" class="form-control" id="tourneyTypeDescription" size="50" value="Catch the {type} {fish} to win!">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Largest</span>
+                    <input type="text" class="form-control" id="tourneyTypeLargest" size="50" value="Largest">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Smallest</span>
+                    <input type="text" class="form-control" id="tourneyTypeSmallest" size="50" value="Smallest">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Highest Value</span>
+                    <input type="text" class="form-control" id="tourneyTypeExpensive" size="50" value="Most Expensive">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Lowest Value</span>
+                    <input type="text" class="form-control" id="tourneyTypeCheapest" size="50" value="Cheapest">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Score</span>
+                    <input type="text" class="form-control" id="tourneyTypeScore" size="50" value="Best">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Amount</span>
+                    <input type="text" class="form-control" id="tourneyTypeAmount" size="50" value="Most">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">None Caught</span>
+                    <input type="text" class="form-control" id="tourneyNoneCaught" size="50" value="No Fish Caught Yet">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Best Announcement</span>
+                    <input type="text" class="form-control" id="tourneyBest" size="50" value="{player} just took the top spot in the {tournament}&f with a {rarity} {fish}!">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">All Fish Type</span>
+                    <input type="text" class="form-control" id="toruneyFishName" size="50" value="Fish">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">None Caught Tournament</span>
+                    <input type="text" class="form-control" id="tourneyNoneCaughtFinal" size="50" value="No {fish} were caught before the tournament ended, no rewards have been given.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Start</span>
+                    <input type="text" class="form-control" id="tourneyStart" size="50" value="The {tournament} &fFishing Contest has begun!">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Leaderboard</span>
+                    <input type="text" class="form-control" id="tourneyLeaderboard" size="50" value="&l-- Tournament Leaderboard - Hover For Info --">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Rewards</span>
+                    <input type="text" class="form-control" id="tourneyNoRewards" size="50" value="You do not have any rewards to claim.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Claim Rewards - First</span>
+                    <input type="text" class="form-control" id="tourneyClaimRewards1" size="50" value="You have {amount} rewards left to be claimed!">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Claim Rewards - Second</span>
+                    <input type="text" class="form-control" id="tourneyClaimRewards2" size="50" value="Type &b/bf claim &fto receive them!">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Panel Title</span>
+                    <input type="text" class="form-control" id="tourneyPanelName" size="50" value="Fishing Tournaments">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Tournaments Running</span>
+                    <input type="text" class="form-control" id="tourneyEmpty" size="50" value="No Fishing Tournaments are currently running.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Tournaments Disabled</span>
+                    <input type="text" class="form-control" id="tourneyInactive" size="50" value="Tournaments are not enabled on this server.">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingPlayerPanel">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsePlayerPanel" aria-expanded="false" aria-controls="panelsStayOpen-collapsePlayerPanel">
+                  Player Panel
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapsePlayerPanel" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingPlayerPanel">
+                <div class="accordion-body">       
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Panel Title</span>
+                    <input type="text" class="form-control" id="playerPanelTitle" size="50" value="Blep Panel">
+                  </div>  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Tournaments Running</span>
+                    <input type="text" class="form-control" id="playerTourneyNone" size="50" value="No Tournaments Running">
+                  </div>  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Single Tournament</span>
+                    <input type="text" class="form-control" id="playerTourneySingle" size="50" value="Active Tournament">
+                  </div>  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Multiple Tournaments</span>
+                    <input type="text" class="form-control" id="playerTourneyMulti" size="50" value="Active Tournaments">
+                  </div>  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Quests</span>
+                    <input type="text" class="form-control" id="playerQuests" size="50" value="Daily Quests">
+                  </div>  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Collection Log</span>
+                    <input type="text" class="form-control" id="playerCollection" size="50" value="Collection Log">
+                  </div>  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Coming Soon</span>
+                    <input type="text" class="form-control" id="playerComingSoon" size="50" value="Coming Soon">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingHelp">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseHelp" aria-expanded="false" aria-controls="panelsStayOpen-collapseHelp">
+                  Help
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseHelp" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingHelp">
+                <div class="accordion-body">       
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Help Title</span>
+                    <input type="text" class="form-control" id="helpTitle" size="50" value="&b[Blep Fishing Help]">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">/bf Leaderboard</span>
+                    <input type="text" class="form-control" id="helpLeaderboard" size="50" value="&f/bf LB <fishname> &dDisplays the leaderboard for the fish.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">/bf Reload</span>
+                    <input type="text" class="form-control" id="helpReload" size="50" value="&f/bf Reload&d Reloads the Blep Fishing plugin.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">/bf Claim</span>
+                    <input type="text" class="form-control" id="helpClaim" size="50" value="&f/bf Claim&d Claims any tournament rewards you may have.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">/bf Admin</span>
+                    <input type="text" class="form-control" id="helpAdmin" size="50" value="&f/bf Admin&d Brings up the Blep Fishing admin panel.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">/bf Tournament</span>
+                    <input type="text" class="form-control" id="helpTourney" size="50" value="&f/bf Tournament&d Allows control of tournaments.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">/bf Get Data</span>
+                    <input type="text" class="form-control" id="helpGetData" size="50" value="&f/bf GetData&d Gets the binary data of the item in hand. Used for setting custom rewards.">
+                  </div>  
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">/bf Config</span>
+                    <input type="text" class="form-control" id="helpConfig" size="50" value="&f/bf Config&d Gives link to the Configuration Web Panel.">
+                  </div>  
+                </div>
+              </div>
+            </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingSigns">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSign" aria-expanded="false" aria-controls="panelsStayOpen-collapseSign">
+                  Signs
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseSign" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSigns">
+                <div class="accordion-body">       
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Fish Market - Line One</span>
+                    <input type="text" class="form-control" id="signsMarketLine1" size="50" value="Fish">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Fish Market - Line Two</span>
+                    <input type="text" class="form-control" id="signsMarketLine2" size="50" value="Market">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Market Title</span>
+                    <input type="text" class="form-control" id="signsMarketTitle" size="50" value="Fish Market">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Rank Default</span>
+                    <input type="text" class="form-control" id="signsNoRank" size="50" value="Third line is not a number, defaulting to 1st place.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Fish Not Found</span>
+                    <input type="text" class="form-control" id="signsNoFish" size="50" value="&4Fish Doesn't Exist">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingSystem">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSystem" aria-expanded="false" aria-controls="panelsStayOpen-collapseSystem">
+                  System
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseSystem" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSystem">
+                <div class="accordion-body">       
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Catch Announcement</span>
+                    <input type="text" class="form-control" id="systemCatchAnnounce" size="50" value='{player} just caught a {rarity} {fish} &fthat was {size}\" long!'>
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Admin Required</span>
+                    <input type="text" class="form-control" id="systemAdminReq" size="50" value="You need to be an admin to do that.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Full Inventory</span>
+                    <input type="text" class="form-control" id="systemFullInv" size="50" value="Your inventory is full, please clear some space and try again.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Plugin Prefix</span>
+                    <input type="text" class="form-control" id="systemPrefix" size="50" value="&b[BF]&f ">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Permissions</span>
+                    <input type="text" class="form-control" id="systemNoPerm" size="50" value="Sorry, you don't have permission to do that.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Unrecognized Command</span>
+                    <input type="text" class="form-control" id="systemNoComm" size="50" value="&4Command not recognized.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Reload</span>
+                    <input type="text" class="form-control" id="systemReload" size="50" value="Blep Fishing reloaded successfully.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Items Received</span>
+                    <input type="text" class="form-control" id="systemItemRec" size="50" value="You received {amount} {item}!">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingAdmin">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseAdmin" aria-expanded="false" aria-controls="panelsStayOpen-collapseAdmin">
+                  Admin
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseAdmin" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingAdmin">
+                <div class="accordion-body">       
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Panel Title</span>
+                    <input type="text" class="form-control" id="adminTitle" size="50" value="---Blep Fishing Admin Panel---">
+                  </div>  
+                </div>
+              </div>
+            </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingEquipment">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEquipment" aria-expanded="false" aria-controls="panelsStayOpen-collapseEquipment">
+                  Equipment
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseEquipment" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEquipment">
+                <div class="accordion-body">
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Fish Bag Name</span>
+                    <input type="text" class="form-control" id="equipmentFBName" size="50" value="Bag o' Fish">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Auto Pickup</span>
+                    <input type="text" class="form-control" id="equipmentFBPickupMsg" size="50" value="&cLeft-Click While Holding to Toggle &e&oAuto-Pickup">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Pickup Enabled</span>
+                    <input type="text" class="form-control" id="equipmentFBPickupEnable" size="50" value="Auto Pickup Enabled.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Pickup Disabled</span>
+                    <input type="text" class="form-control" id="equipmentFBPickupDisable" size="50" value="Auto Pickup Disabled.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Deposit All</span>
+                    <input type="text" class="form-control" id="equipmentFBDeposit" size="50" value="&cShift Left-Click While Holding to Toggle &e&oDepositAll">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Upgrade Ready</span>
+                    <input type="text" class="form-control" id="equipmentFBUpgradeReady" size="50" value="Combine with a &e&o{upgrade}&f at a smithing table to upgrade!">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Upgrade Hint</span>
+                    <input type="text" class="form-control" id="equipmentFBUpgradeHint" size="50" value="Fill bag to &e&oUpgrade">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Small Bag Description</span>
+                    <input type="text" class="form-control" id="equipmentFBSmallDesc" size="50" value="Holds a small amount of fish">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Fish Found</span>
+                    <input type="text" class="form-control" id="equipmentFBNoFish" size="50" value="No fish found in inventory.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Space</span>
+                    <input type="text" class="form-control" id="equipmentFBNoSpace" size="50" value="There is no more space in that bag.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Fish Added</span>
+                    <input type="text" class="form-control" id="equipmentFBAddFish" size="50" value="Added {amount} to the bag.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Invalid Fish</span>
+                    <input type="text" class="form-control" id="equipmentFBInvFish" size="50" value="&cThat fish is from a previous version and is unable to be stored in the bag.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Stored</span>
+                    <input type="text" class="form-control" id="equipmentFBStored" size="50" value="&bAmount Stored: &f{amount}">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Largest Stored</span>
+                    <input type="text" class="form-control" id="equipmentFBLargest" size="50" value='&bLargest Fish: &f{size}\"'>
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Withdraw Smallest</span>
+                    <input type="text" class="form-control" id="equipmentFBWithdrawSmall" size="50" value="Left-Click to Withdraw &e&oSmallest">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Withdraw Largest</span>
+                    <input type="text" class="form-control" id="equipmentFBWithdrawLarge" size="50" value="Right-Click to Withdraw &e&oLargest">
+                  </div> 
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Withdraw All</span>
+                    <input type="text" class="form-control" id="equipmentFBWithdrawAll" size="50" value="&c&oHold Shift to Withdraw &eAll">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingEconomy">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEconomy" aria-expanded="false" aria-controls="panelsStayOpen-collapseEconomy">
+                  Economy
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseEconomy" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEconomy">
+                <div class="accordion-body">    
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Value</span>
+                    <input type="text" class="form-control" id="economyNoVal" size="50" value="Those fish aren't worth anything.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Sell All Confirmation</span>
+                    <input type="text" class="form-control" id="economySellAllConfirm" size="50" value="Sell all fish? Sneak Right-Click again to confirm.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Sell Bag Hint</span>
+                    <input type="text" class="form-control" id="economySellBagHint" size="50" value="Sneak Right-Click to sell all fish in bag.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Sell Bag Confirmation</span>
+                    <input type="text" class="form-control" id="economySellBagConfirm" size="50" value="Sell all fish in bag? Sneak Right-Click again to confirm.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Sale Finish</span>
+                    <input type="text" class="form-control" id="economySaleFinish" size="50" value="Sold {amount} fish for ${total}.">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingEndgame">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEndgame" aria-expanded="false" aria-controls="panelsStayOpen-collapseEndgame">
+                  Endgame
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseEndgame" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEndgame">
+                <div class="accordion-body">       
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Area Name</span>
+                    <input type="text" class="form-control" id="endgameAreaName" size="50" value="All Blue">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Compass Name</span>
+                    <input type="text" class="form-control" id="endgameCompassName" size="50" value="&o&bCompass to the All Blue">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Compass Lore</span>
+                    <input type="text" class="form-control" id="endgameCompassLore" size="50" value="It really does exist...">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Compass Hint</span>
+                    <input type="text" class="form-control" id="endgameCompassHint" size="50" value="&bRight-Click to &o&eFocus">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Compass Announce</span>
+                    <input type="text" class="form-control" id="endgameCompassAnnounce" size="50" value="&7You feel a warm breeze in the air and hear Seagulls in the distant {direction}.">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+
+          </div><div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingPAPI">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsePAPI" aria-expanded="false" aria-controls="panelsStayOpen-collapsePAPI">
+                  Placeholder API (PAPI)
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapsePAPI" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingPAPI">
+                <div class="accordion-body">       
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Tournament Default</span>
+                    <input type="text" class="form-control" id="papiTourneyDefault" size="50" value="{tournament}&f - {fish} - {time}">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Tournament Not Running</span>
+                    <input type="text" class="form-control" id="papiTourneyNotRun" size="50" value="Not Running">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Tournament None Caught</span>
+                    <input type="text" class="form-control" id="papiTourneyNoneCaught" size="50" value="None Caught">
+                  </div> 
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Fish Not Found</span>
+                    <input type="text" class="form-control" id="papiFishNone" size="50" value= "Fish Not Found">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+          </div>
+
+
+        </div>
+    </div>
+</div>
