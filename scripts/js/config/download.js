@@ -3,77 +3,50 @@ function download(filename) {
     var fileText = "\# \n\#This config was created using the Config Web Panel. Use /BF Config in game to generate your own!\n\#\n"
 
     //Boolean Creation
-    var scoreBool = $("#ShowScoreboardCheck").is(":checked");
-    var chatBool = $("#ShowChatCheck").is(":checked");
-    var prioBool = $("#PriorityCheck").is(":checked");
-    var tourneyOnlyBool = $("#TournamentCheck").is(":checked");
-    var areaBool = $("#AreaCheck").is(":checked");
-    var legendBool = $("#LegendCheck").is(":checked");      
-    var economyBool = $("#EconomyCheck").is(":checked");      
-    var bagBool = $("#FishBagsCheck").is(":checked");
-    var allBlueBool = $("#AllBlueCheck").is(":checked");
-    var bluePermaBool = $("#PermanentBlueCheck").is(":checked");
-    var tournamentBool = $("#TournamentsCheck").is(":checked");
-
     fileText += (
-`Show ScoreBoard: ${scoreBool}
-Show Chat: ${chatBool}
-High Priority: ${prioBool}
-Enable Tournaments: ${tournamentBool}
-Tournament Only: ${tourneyOnlyBool}
-Area Permissions: ${areaBool}
-Announce Legendary: ${legendBool}
-Use Economy: ${economyBool}
-Enable Fish Bags: ${bagBool}
+`Show ScoreBoard: ${$("#ShowScoreboardCheck").is(":checked")}
+Show Chat: ${$("#ShowChatCheck").is(":checked")}
+High Priority: ${$("#PriorityCheck").is(":checked")}
+Enable Tournaments: ${$("#TournamentsCheck").is(":checked")}
+Tournament Only: ${$("#TournamentCheck").is(":checked")}
+Area Permissions: ${$("#AreaCheck").is(":checked")}
+Announce Legendary: ${$("#LegendCheck").is(":checked")}
+Use Economy: ${$("#EconomyCheck").is(":checked")}
+Enable Fish Bags: ${$("#FishBagsCheck").is(":checked")}
+Enable Teasers: ${$("#TeasersCheck").is(":checked")}
 `);
     
     //Text Creation
-    var blueFish = $("#allBlueFishInput").val();
-    var endgameRadius = $("#endgameRadiusInput").val();
-    var endgameArea = $("#inputEndgameArea").val();
-    var mobChance = $("#inputMobChance").val();
-    var curSym = $("#currencySymbol").val();
-
     fileText += (`
-Currency Symbol: ${curSym}
+Currency Symbol: ${$("#currencySymbol").val()}
 
-Enable All Blue: ${allBlueBool}
-Permanent All Blue: ${bluePermaBool} #If disabled, a zone with limited fish will spawn for each compass crafted
-All Blue Fish: ${blueFish} #The amount of fish available in the Endgame Zone. Not needed if permanent
-Endgame Radius: ${endgameRadius} #The size of the endgame zone. Larger sizes may make it more difficult to find an appropriate location
-Endgame Area: ${endgameArea} #The area for the endgame zone to generate in
-Endgame Mob Chance: ${mobChance} #The chance of fishing up monsters in the endgame zone
+Enable All Blue: ${$("#AllBlueCheck").is(":checked")}
+Permanent All Blue: ${$("#PermanentBlueCheck").is(":checked")} #If disabled, a zone with limited fish will spawn for each compass crafted
+All Blue Fish: ${$("#allBlueFishInput").val()} #The amount of fish available in the Endgame Zone. Not needed if permanent
+Endgame Radius: ${$("#endgameRadiusInput").val()} #The size of the endgame zone. Larger sizes may make it more difficult to find an appropriate location
+Endgame Area: ${$("#inputEndgameArea").val()} #The area for the endgame zone to generate in
+Endgame Mob Chance: ${$("#inputMobChance").val()} #The chance of fishing up monsters in the endgame zone
 `);
 
     //Wandering Traders
-    var traderBool = $("#WanderingTraderCheck").is(":checked");
-    var traderMod = $("#traderModifierValue").val();
-
     fileText += (`
-Allow Wandering Traders: ${traderBool}
-Wandering Traders Modifier: ${traderMod}
+Allow Wandering Traders: ${$("#WanderingTraderCheck").is(":checked")}
+Wandering Traders Modifier: ${$("#traderModifierValue").val()}
 `);
 
     //Treasure
-    var treasureBool = $("#treasureCheck").is(":checked");
-    var treasureChance = $("#treasureChance").val();
-    var parrotBonus = $("#parrotBonus").val();
-    var boatBonus = $("#boatBonus").val();
-
     fileText += (`
-Enable Treasure: ${treasureBool}
-Treasure Chance: ${treasureChance}
-Parrot Treasure Bonus: ${parrotBonus}
-Boat Treasure Bonus: ${boatBonus}
+Enable Treasure: ${$("#treasureCheck").is(":checked")}
+Treasure Chance: ${$("#treasureChance").val()}
+Parrot Treasure Bonus: ${$("#parrotBonus").val()}
+Boat Treasure Bonus: ${$("#boatBonus").val()}
 `);
 
     //World Whitelist
-    var worldBool = $("#WorldCheck").is(":checked");
-
     var worldsList = $("#WorldsParent").children();
 
     fileText += (`
-World Whitelist: ${worldBool}
+World Whitelist: ${$("#WorldCheck").is(":checked")}
 Allowed Worlds: 
 `);
 

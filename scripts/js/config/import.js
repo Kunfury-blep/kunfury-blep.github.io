@@ -32,7 +32,8 @@ function parseImport(result){
     $('#AreaCheck').prop('checked', config['Area Permissions']);
     $('#LegendCheck').prop('checked', config['Announce Legendary']);
     $('#WorldCheck').prop('checked', config['World Whitelist']);
-    $("#TournamentsCheck").prop('checked', config['Enabled Tournaments']);
+    $("#TournamentsCheck").prop('checked', config['Enable Tournaments']);
+    $("#TeasersCheck").prop('checked', config['Enable Teasers']);
 
     $('#WanderingTraderCheck').prop('checked', config['Allow Wandering Traders']);
     $('#traderModifierValue').val(config['Wandering Traders Modifier']);
