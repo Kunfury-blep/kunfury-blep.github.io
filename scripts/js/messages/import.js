@@ -31,7 +31,8 @@ function parseImport(result){
         $('#fishLength').val(config['Fish Object']['length']);
     if(config['Fish Object']['caught'])
         $('#fishCaught').val(config['Fish Object']['caught']);
-
+    if(config['Fish Object']['announce'])
+        $('#fishAnnounce').val(config['Fish Object']['announce']);
     
     if(config['Treasure']['open'])
         $('#treasureOpen').val(config['Treasure']['open']);

@@ -4,12 +4,13 @@ function download(filename) {
 
     //Text Creation
     fileText += (`
-version: 1.0
+version: 1.1
 
 Fish Object: 
     value: "${$("#fishVal").val()}"
     length: "${$("#fishLength").val()}"
     caught: "${$("#fishCaught").val()}"
+    announce: "${$("#fishAnnounce").val()}"
 
 Treasure: 
     open: "${$("#treasureOpen").val()}"
