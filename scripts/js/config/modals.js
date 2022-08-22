@@ -44,6 +44,7 @@ function displayFishModal(fish){
         $('#inputPrice').val(fish.data("price"));
         $('#inputFishArea').val(fish.data("area"));
         $('#inputFishRaining').prop('checked', fish.data("raining"));
+        $('#inputFishTime').val(fish.data("time"));
         $('#SaveFishBtn').html('Update');
         $('#fishDeleteBtn').show();
     }else{
@@ -57,6 +58,7 @@ function displayFishModal(fish){
         $('#inputPrice').val("");
         $('#inputFishArea').val("");
         $('#inputFishRaining').prop('checked', false);
+        $('#inputFishTime').val("ALL");
         $('#fishDeleteBtn').hide();
     }
     //Fill the modal with the clicked fish
@@ -176,11 +178,14 @@ function saveFish(){
     CreateFishEle($('#inputFishName').val(),
     $('#inputFishLore').val(),
     $('#inputMinSize').val(),
-  $('#inputMaxSize').val(),
+    $('#inputMaxSize').val(),
     $('#inputModelData').val(),  
     $('#inputPrice').val(),
     $('#inputFishArea').val(),
-    $('#inputFishRaining').is(":checked"));
+    $('#inputFishRaining').is(":checked"),
+    $('#inputMinHeight').val(),
+    $('#inputMaxHeight').val(),
+    $('#inputFishTime').val());
 
     $('#fishModal').modal('hide');
 }

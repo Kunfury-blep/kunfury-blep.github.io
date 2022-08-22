@@ -63,7 +63,8 @@ function parseImport(result){
         var f = fishList[name];
         CreateFishEle(name, f['Lore'], f['Min Size'], f['Max Size'],
                         f['ModelData'], f['Base Price'], f['Area'], 
-                        f['Raining'], f['Min Height'], f['Max Height']);
+                        f['Raining'], f['Min Height'], f['Max Height'],
+                        f['Time']);
     }
 
     //Fishing Areas

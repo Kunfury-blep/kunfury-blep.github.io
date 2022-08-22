@@ -119,6 +119,7 @@ Allowed Worlds:
             fileText += "\n        Raining: " + $(fish).data("raining");
             fileText += "\n        Min Height: " + $(fish).data("minHeight");
             fileText += "\n        Max Height: " + $(fish).data("maxHeight");
+            fileText += "\n        Time: " + $(fish).data("time");
         }
     }
 

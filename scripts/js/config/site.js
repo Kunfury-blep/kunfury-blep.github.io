@@ -97,7 +97,7 @@ function updateAvailAreas(){
     }
 }
 
-function CreateFishEle(name, lore, minSize, maxSize, modelData, price, fishArea, raining, minHeight, maxHeight){
+function CreateFishEle(name, lore, minSize, maxSize, modelData, price, fishArea, raining, minHeight, maxHeight, time){
     var fish = document.createElement("a");
     fish.text = name;
 
@@ -108,6 +108,7 @@ function CreateFishEle(name, lore, minSize, maxSize, modelData, price, fishArea,
     var price = (price === undefined) ? 0 : price;
     var minHeight = (minHeight === undefined) ? 0 : minHeight;
     var maxHeight = (maxHeight === undefined) ? 0 : maxHeight;
+    var time = (time === undefined) ? "ALL" : time;
 
     $(fish).data("name", name);
     $(fish).data("lore", lore);
@@ -120,6 +121,7 @@ function CreateFishEle(name, lore, minSize, maxSize, modelData, price, fishArea,
 
     $(fish).data("minHeight", minHeight);
     $(fish).data("maxHeight", maxHeight);
+    $(fish).data("time", time);
 
     $(fish).addClass( ["list-group-item", "fishButton"] );
 
