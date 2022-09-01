@@ -4,7 +4,7 @@ function download(filename) {
 
     //Text Creation
     fileText += (`
-version: 1.1
+version: 1.2
 
 Fish Object: 
     value: "${$("#fishVal").val()}"
@@ -40,6 +40,12 @@ Tournament:
     panelName: "${$("#tourneyPanelName").val()}"
     empty: "${$("#tourneyEmpty").val()}"
     inactive: "${$("#tourneyInactive").val()}"
+    starting: "${$("#tourneyStarting").val()}"
+    noTournament: "${$("#tourneyNoTourney").val()}"
+    noAction: "${$("#tourneyNoAction").val()}"
+    noName: "${$("#tourneyNoName").val()}"
+    cancel: "${$("#tourneyCancel").val()}"
+    notRunning: "${$("#tourneyNotRunning").val()}"
 
 Player Panel:
     title: "${$("#playerPanelTitle").val()}"
@@ -76,9 +82,20 @@ System:
     noComm: "${$("#systemNoComm").val()}"
     reload: "${$("#systemReload").val()}"
     itemReceive: "${$("#systemItemRec").val()}"
+    debugFish: "${$("#systemDebugFish").val()}"
+    debugEnabled: "${$("#systemDebugEnable").val()}"
+    debugDisabled: "${$("#systemDebugDisable").val()}"
 
 Admin: 
     panelTitle: "${$("#adminTitle").val()}"
+    getDataClick: "${$("#adminGetData").val()}"
+    Spawn:
+        noName: "${$("#adminSpawnNoName").val()}"
+        success: "${$("#adminSpawnSuccess").val()}"
+        limit: "${$("#adminSpawnLimit").val()}"
+        validAmount: "${$("#adminSpawnNoAmt").val()}"
+        validFish: "${$("#adminSpawnNoFish").val()}"
+        validTreasure: "${$("#adminSpawnNoTreasure").val()}"
 
 Equipment:
     Fish Bag:
@@ -99,6 +116,10 @@ Equipment:
         withdrawSmall: "${$("#equipmentFBWithdrawSmall").val()}"
         withdrawLarge: "${$("#equipmentFBWithdrawLarge").val()}"
         shift: "${$("#equipmentFBWithdrawAll").val()}"
+        smallBag: "${$("#equipmentFBSmall").val()}"
+        medBag: "${$("#equipmentFBMedium").val()}"
+        largeBag: "${$("#equipmentFBLarge").val()}"
+        giantBag: "${$("#equipmentFBGiant").val()}"
 
 Economy: 
     noValue: "${$("#economyNoVal").val()}"
@@ -106,6 +127,8 @@ Economy:
     sellBagHint: "${$("#economySellBagHint").val()}"
     sellBagConfirm: "${$("#economySellBagConfirm").val()}"
     finishSale: "${$("#economySaleFinish").val()}"
+    noEconomy: "${$("#economyNoEcon").val()}"
+    noPlayer: "${$("#economyNoPlayer").val()}"
 
 Endgame: 
     areaName: "${$("#endgameAreaName").val()}"

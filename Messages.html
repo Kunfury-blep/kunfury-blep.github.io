@@ -200,6 +200,36 @@
                     <input type="text" class="form-control" id="tourneyInactive" size="50" value="Tournaments are not enabled on this server.">
                   </div> 
 
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Starting Tournament</span>
+                    <input type="text" class="form-control" id="tourneyStarting" size="50" value="Starting {tournament}.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Invalid Tournament</span>
+                    <input type="text" class="form-control" id="tourneyNoTourney" size="50" value="Please provide a valid tournament name.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Tournament Action</span>
+                    <input type="text" class="form-control" id="tourneyNoAction" size="50" value="Please provide the type of tournament action you would like to perform.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Tournament Name</span>
+                    <input type="text" class="form-control" id="tourneyNoName" size="50" value="Please provide the name of the tournament you would like to {action}.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Cancel Tournament</span>
+                    <input type="text" class="form-control" id="tourneyCancel" size="50" value="{tournament} successfully canceled.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Not Running</span>
+                    <input type="text" class="form-control" id="tourneyNotRunning" size="50" value="{tournament} is not currently running.">
+                  </div> 
+
                 </div>
               </div>
             </div>                
@@ -389,6 +419,20 @@
                     <input type="text" class="form-control" id="systemItemRec" size="50" value="You received {amount} {item}!">
                   </div> 
 
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Debug Enabled</span>
+                    <input type="text" class="form-control" id="systemDebugEnable" size="50" value="Enabled Debug Mode.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Debug Disabled</span>
+                    <input type="text" class="form-control" id="systemDebugDisable" size="50" value="Disabled Debug Mode.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Debug Fish Count</span>
+                    <input type="text" class="form-control" id="systemDebugFish" size="50" value="Total Fish Count: {amount}">
+                  </div> 
                 </div>
               </div>
             </div>                
@@ -407,6 +451,45 @@
                     <span class="input-group-text" style="width:fit-content;">Panel Title</span>
                     <input type="text" class="form-control" id="adminTitle" size="50" value="---Blep Fishing Admin Panel---">
                   </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Get Data Message</span>
+                    <input type="text" class="form-control" id="adminGetData" size="50" value="Click me to copy data to clipboard!">
+                  </div>  
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Spawn - No Name</span>
+                    <input type="text" class="form-control" id="adminSpawnNoName" size="50" value="&4Please include what you wish to spawn">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Spawn - Success</span>
+                    <input type="text" class="form-control" id="adminSpawnSuccess" size="50" value="Finished spawning {amount} {type}">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Spawn - Limit</span>
+                    <input type="text" class="form-control" id="adminSpawnLimit" size="50" value="&eAmount set to 100 to prevent crashing.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Spawn - Invalid Amount</span>
+                    <input type="text" class="form-control" id="adminSpawnNoAmt" size="50" value="&4Please enter a valid amount.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Spawn - Invalid Fish</span>
+                    <input type="text" class="form-control" id="adminSpawnNoFish" size="50" value="&4Please enter a valid fish Type.">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Spawn - Invalid Treasure</span>
+                    <input type="text" class="form-control" id="adminSpawnNoTreasure" size="50" value="&4Please include the treasure type you wish to spawn.">
+                  </div>  
+
+
+
+
                 </div>
               </div>
             </div>                
@@ -507,6 +590,28 @@
                     <input type="text" class="form-control" id="equipmentFBWithdrawAll" size="50" value="&c&oHold Shift to Withdraw &eAll">
                   </div> 
 
+
+
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Small Bag</span>
+                    <input type="text" class="form-control" id="equipmentFBSmall" size="50" value="Small Bag o' Fish">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Medium Bag</span>
+                    <input type="text" class="form-control" id="equipmentFBMedium" size="50" value="Medium Bag o' Fish">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Large Bag</span>
+                    <input type="text" class="form-control" id="equipmentFBLarge" size="50" value="Large Bag o' Fish">
+                  </div> 
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Giant Bag</span>
+                    <input type="text" class="form-control" id="equipmentFBGiant" size="50" value="Giant Bag o' Fish">
+                  </div> 
                 </div>
               </div>
             </div>                
@@ -546,7 +651,16 @@
                     <span class="input-group-text" style="width:fit-content;">Sale Finish</span>
                     <input type="text" class="form-control" id="economySaleFinish" size="50" value="Sold {amount} fish for ${total}.">
                   </div> 
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Economy</span>
+                    <input type="text" class="form-control" id="economyNoEcon" size="50" value="No economy plugin found.">
+                  </div> 
 
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Player</span>
+                    <input type="text" class="form-control" id="economyNoPlayer" size="50" value="That player could not be found.">
+                  </div> 
                 </div>
               </div>
             </div>                

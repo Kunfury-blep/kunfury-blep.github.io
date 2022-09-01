@@ -218,5 +218,59 @@ function parseImport(result){
     if(config['PAPI']['Fish']['notFound'])
         $('#papiFishNone').val(config['PAPI']['Fish']['notFound']);
 
+    
+    //Extra messages found by Nibrock - 8/31/22
+    if(config['Tournament']['starting'])
+        $('#tourneyStarting').val(config['Tournament']['starting']);
+    if(config['Tournament']['noTournament'])
+        $('#tourneyNoTourney').val(config['Tournament']['noTournament']);
+    if(config['Tournament']['noAction'])
+        $('#tourneyNoAction').val(config['Tournament']['noAction']);
+    if(config['Tournament']['noName'])
+        $('#tourneyNoName').val(config['Tournament']['noName']);
+    if(config['Tournament']['cancel'])
+        $('#tourneyCancel').val(config['Tournament']['cancel']);
+    if(config['Tournament']['notRunning'])
+        $('#tourneyNotRunning').val(config['Tournament']['notRunning']);
+
+    if(config['Equipment']['Fish Bag']['smallBag'])
+        $('#equipmentFBSmall').val(config['Equipment']['Fish Bag']['smallBag']);
+    if(config['Equipment']['Fish Bag']['medBag'])
+        $('#equipmentFBMedium').val(config['Equipment']['Fish Bag']['medBag']);
+    if(config['Equipment']['Fish Bag']['largeBag'])
+        $('#equipmentFBLarge').val(config['Equipment']['Fish Bag']['largeBag']);
+    if(config['Equipment']['Fish Bag']['giantBag'])
+        $('#equipmentFBGiant').val(config['Equipment']['Fish Bag']['giantBag']);
+
+    if(config['Economy']['noEconomy'])
+        $('#economyNoEcon').val(config['Economy']['noEconomy']);
+    if(config['Economy']['noPlayer'])
+        $('#economyNoPlayer').val(config['Economy']['noPlayer']);
+
+    if(config['System']['debugFish'])
+        $('#systemDebugFish').val(config['System']['debugFish']);
+    if(config['System']['debugEnabled'])
+        $('#systemDebugEnable').val(config['System']['debugEnabled']);
+    if(config['System']['debugDisabled'])
+        $('#systemDebugDisable').val(config['System']['debugDisabled']);
+
+    if(config['Admin']['Spawn']['noName'])
+        $('#adminSpawnNoName').val(config['Admin']['Spawn']['noName']);
+    if(config['Admin']['Spawn']['success'])
+        $('#adminSpawnSuccess').val(config['Admin']['Spawn']['success']);
+    if(config['Admin']['Spawn']['limit'])
+        $('#adminSpawnLimit').val(config['Admin']['Spawn']['limit']);
+    if(config['Admin']['Spawn']['validAmount'])
+        $('#adminSpawnNoAmt').val(config['Admin']['Spawn']['validAmount']);
+    if(config['Admin']['Spawn']['validFish'])
+        $('#adminSpawnNoFish').val(config['Admin']['Spawn']['validFish']);
+    if(config['Admin']['Spawn']['validTreasure'])
+        $('#adminSpawnNoTreasure').val(config['Admin']['Spawn']['validTreasure']);
+
+    if(config['Admin']['getDataClick'])
+        $('#adminGetData').val(config['Admin']['Spawn']['getDataClick']);
+
+
+
 
     }
