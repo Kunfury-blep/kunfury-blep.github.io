@@ -14,6 +14,9 @@ Announce Legendary: ${$("#LegendCheck").is(":checked")}
 Use Economy: ${$("#EconomyCheck").is(":checked")}
 Enable Fish Bags: ${$("#FishBagsCheck").is(":checked")}
 Enable Teasers: ${$("#TeasersCheck").is(":checked")}
+Enable Quests: ${$("#QuestsCheck").is(":checked")}
+Announce Quests: ${$("#QuestsAnnounceCheck").is(":checked")}
+Max Quests: ${$("#maxQuestsValue").val()}
 `);
     
     //Text Creation

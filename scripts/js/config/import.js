@@ -35,6 +35,10 @@ function parseImport(result){
     $("#TournamentsCheck").prop('checked', config['Enable Tournaments']);
     $("#TeasersCheck").prop('checked', config['Enable Teasers']);
 
+    $('#QuestsCheck').prop('checked', config['Enable Quests']);
+    $('#QuestsAnnounceCheck').prop('checked', config['Announce Quests']);
+    $('#maxQuestsValue').val(config['Max Quests']);
+
     $('#WanderingTraderCheck').prop('checked', config['Allow Wandering Traders']);
     $('#traderModifierValue').val(config['Wandering Traders Modifier']);
     $('#currencySymbol').val(config['Currency Symbol']);

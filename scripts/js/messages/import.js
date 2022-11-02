@@ -271,6 +271,31 @@ function parseImport(result){
         $('#adminGetData').val(config['Admin']['Spawn']['getDataClick']);
 
 
+    if(config['Admin']['Spawn']['endgame'])
+        $('#adminSpawnEndgame').val(config['Admin']['Spawn']['endgame']);
 
+    if(config['Economy']['received'])
+        $('#economyReceived').val(config['Economy']['received']);
+
+    if(config['Quests']['progress'])
+        $('#questsProgress').val(config['Quests']['progress']);
+    if(config['Quests']['completed'])
+        $('#questsCompleted').val(config['Quests']['completed']);
+    if(config['Quests']['disabled'])
+        $('#questsDisabled').val(config['Quests']['disabled']);
+    if(config['Quests']['noneActive'])
+        $('#questsNoneActive').val(config['Quests']['noneActive']);
+    if(config['Quests']['noAction'])
+        $('#questsNoAction').val(config['Quests']['noAction']);
+    if(config['Quests']['description'])
+        $('#questsDescription').val(config['Quests']['description']);
+    if(config['Quests']['minDesc'])
+        $('#questMinDesc').val(config['Quests']['minDesc']);
+    if(config['Quests']['maxDesc'])
+        $('#questMaxDesc').val(config['Quests']['maxDesc']);
+    if(config['Quests']['expired'])
+        $('#questsExpired').val(config['Quests']['expired']);
+    if(config['Quests']['cancel'])
+        $('#questsCancel').val(config['Quests']['cancel']);
 
     }

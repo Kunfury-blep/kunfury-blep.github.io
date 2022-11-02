@@ -487,6 +487,12 @@
                     <input type="text" class="form-control" id="adminSpawnNoTreasure" size="50" value="&4Please include the treasure type you wish to spawn.">
                   </div>  
 
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Spawn - Endgame</span>
+                    <input type="text" class="form-control" id="adminSpawnEndgame" size="50" value="All Blue successfully created at {x}x {y}y {z}z">
+                  </div>  
+
 
 
 
@@ -661,6 +667,11 @@
                     <span class="input-group-text" style="width:fit-content;">No Player</span>
                     <input type="text" class="form-control" id="economyNoPlayer" size="50" value="That player could not be found.">
                   </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Received</span>
+                    <input type="text" class="form-control" id="economyReceived" size="50" value="You received &a{value}!">
+                  </div> 
                 </div>
               </div>
             </div>                
@@ -705,7 +716,8 @@
               </div>
             </div>                
 
-          </div><div class="accordion">
+          </div>
+          <div class="accordion">
             <div class="accordion-item">
               <h2 class="accordion-header" id="panelsStayOpen-headingPAPI">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsePAPI" aria-expanded="false" aria-controls="panelsStayOpen-collapsePAPI">
@@ -739,6 +751,74 @@
               </div>
             </div>                
           </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingQuests">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseQuests" aria-expanded="false" aria-controls="panelsStayOpen-collapseQuests">
+                  Quests
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseQuests" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingQuests">
+                <div class="accordion-body">       
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Progress</span>
+                    <input type="text" class="form-control" id="questsProgress" size="50" value="{quest}: {caught}/{required}">
+                  </div>  
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Completed</span>
+                    <input type="text" class="form-control" id="questsCompleted" size="50" value="You've completed {quest}&f!">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Disabled</span>
+                    <input type="text" class="form-control" id="questsDisabled" size="50" value="Quests are not enabled on this server.">
+                  </div> 
+                  
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">None Active</span>
+                    <input type="text" class="form-control" id="questsNoneActive" size="50" value= "No Quests Active">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">No Action</span>
+                    <input type="text" class="form-control" id="questsNoAction" size="50" value= "Please provide the type of quest action you would like to perform.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Description</span>
+                    <input type="text" class="form-control" id="questsDescription" size="50" value= "&f{caught}&b/&f{required} &b{fish}">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Minimum Description</span>
+                    <input type="text" class="form-control" id="questMinDesc" size="50" value= "{size}\&quot; Min">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Maximum Description</span>
+                    <input type="text" class="form-control" id="questMaxDesc" size="50" value= "{size}\&quot; Max">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Expired</span>
+                    <input type="text" class="form-control" id="questsExpired" size="50" value="&4Quest Expired">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Cancel</span>
+                    <input type="text" class="form-control" id="questsCancel" size="50" value="&4Shift-Right-Click to Cancel">
+                  </div> 
+
+                </div>
+              </div>
+            </div>                
+          </div>
+
+
+          
 
 
         </div>

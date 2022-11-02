@@ -4,7 +4,7 @@ function download(filename) {
 
     //Text Creation
     fileText += (`
-version: 1.2
+version: 1.3
 
 Fish Object: 
     value: "${$("#fishVal").val()}"
@@ -96,6 +96,7 @@ Admin:
         validAmount: "${$("#adminSpawnNoAmt").val()}"
         validFish: "${$("#adminSpawnNoFish").val()}"
         validTreasure: "${$("#adminSpawnNoTreasure").val()}"
+        endgame: "${$("#adminSpawnEndgame").val()}"
 
 Equipment:
     Fish Bag:
@@ -129,6 +130,7 @@ Economy:
     finishSale: "${$("#economySaleFinish").val()}"
     noEconomy: "${$("#economyNoEcon").val()}"
     noPlayer: "${$("#economyNoPlayer").val()}"
+    received: "${$("#economyReceived").val()}"
 
 Endgame: 
     areaName: "${$("#endgameAreaName").val()}"
@@ -145,6 +147,20 @@ PAPI:
         noneCaught: "${$("#papiTourneyNoneCaught").val()}"
     Fish: 
         notFound: "${$("#papiFishNone").val()}"
+
+
+Quests:
+    progress: "${$("#questsProgress").val()}"
+    completed: "${$("#questsCompleted").val()}"
+    disabled: "${$("#questsDisabled").val()}"
+    noneActive: "${$("#questsNoneActive").val()}"
+    noAction: "${$("#questsNoAction").val()}"
+    description: "${$("#questsDescription").val()}"
+    minDesc: "${$("#questMinDesc").val()}"
+    maxDesc: "${$("#questMaxDesc").val()}"
+    expired: "${$("#questsExpired").val()}"
+    cancel: "${$("#questsCancel").val()}"
+
 `);
 
 

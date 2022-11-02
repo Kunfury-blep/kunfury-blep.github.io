@@ -112,7 +112,28 @@
                             </label>
                         </div>
 
-                         <!--@*Wandering Traders*@-->
+ <!--@*Quests*@-->
+
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enables quests on the server">
+                            <input class="form-check-input" type="checkbox" id="QuestsCheck" checked="checked">
+                            <label class="form-check-label active" for="QuestsCheck">
+                                Enable Quests
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Announces when new quests begin">
+                            <input class="form-check-input" type="checkbox" id="QuestsAnnounceCheck" checked="checked">
+                            <label class="form-check-label active" for="QuestsAnnounceCheck">
+                                Announce Quests
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="How many quests can be running at once">
+                            <span class="input-group-text" style="width:fit-content;">Max Quests</span>
+                            <input type="number" class="form-control" id="maxQuestsValue" value="3">
+                        </div>
+
+<!--@*Wandering Traders*@-->
                          <div class="input-group mb-3 flex-nowrap">
                             <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Players can sell their fish to Wandering Traders">
                                 <input class="form-check-input" type="checkbox" id="WanderingTraderCheck">

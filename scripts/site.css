@@ -19,3 +19,23 @@
 .inputGroup{
     margin-bottom: 10px;
 }
+
+.mode-btn{
+    width: 200px;
+}
+
+.type-btn{
+    width: 200px;
+}
+
+.day-btn{
+    width: 50px;
+}
+
+.active-btn{
+    background-color: #eb60ca !important;
+}
+
+.input-small{
+    width: 200px;
+}
