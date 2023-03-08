@@ -48,14 +48,14 @@ $(document).ready(function () {
     CreateAreaEle("Cold", true, "The pieces feel cold to the touch.", ["frozen_river", "frozen_ocean", "frozen_peaks", "grove", "ice_spikes", "jagged_peaks", "mountain_edge", "mountains", "snowy_beach", "snowy_mountains", "snowy_plains",
                     "snowy_slopes", "snowy_taiga", "snowy_taiga_hills", "snowy_taiga_mountains", "snowy_tundra"]);
     
-    CreateAreaEle("Temperate", true, "You can faintly hear leaves rustling and birds chirping.", ["birch_forest", "birch_forest_hills", "dark_forest", "dark_forest_hills", "flower_forest", "forest", "giant_spruce_taiga", "giant_spruce_taiga_hills", "giant_tree_taiga", "giant_tree_taiga_hills",
+    CreateAreaEle("Temperate", true, "You can faintly hear leaves rustling and a howling wolf.", ["birch_forest", "birch_forest_hills", "dark_forest", "dark_forest_hills", "flower_forest", "forest", "giant_spruce_taiga", "giant_spruce_taiga_hills", "giant_tree_taiga", "giant_tree_taiga_hills",
                     "gravelly_mountains", "meadow", "modified_gravelly_mountains", "old_growth_birch_forest", "old_growth_pine_taiga", "old_growth_spruce_taiga", "plains", "river", "sunflower_plains", "taiga", "taiga_hills", 
                     "taiga_mountains", "tall_birch_forest", "tall_birch_hills", "windswept_forest", "windswept_hills", "wooded_hills", "wooded_mountains", "windswept_gravelly_hills", "stony_peaks"]);
 
-    CreateAreaEle("Jungle", true, "", ["bamboo_jungle", "bamboo_jungle_hills", "jungle", "jungle_edge", "jungle_hills", "modified_jungle", "modified_jungle_edge", "sparse_jungle", "mangrove_swamp", "swamp",
+    CreateAreaEle("Jungle", true, "You hear distant sounds of breaking vines and singing birds.", ["bamboo_jungle", "bamboo_jungle_hills", "jungle", "jungle_edge", "jungle_hills", "modified_jungle", "modified_jungle_edge", "sparse_jungle", "mangrove_swamp", "swamp",
                     "swamp_hills", "mushroom_field_shore", "mushroom_fields"]);
     
-    CreateAreaEle("Ocean", true, "You hear distant seagulls and feel a cool ocean breeze.", ["beach", "cold_ocean", "deep_cold_ocean", "deep_frozen_ocean", "deep_lukewarm_ocean", "deep_ocean", "deep_warm_ocean", 
+    CreateAreaEle("Ocean", true, "You hear the sounds of dolphins and feel a cool ocean breeze.", ["beach", "cold_ocean", "deep_cold_ocean", "deep_frozen_ocean", "deep_lukewarm_ocean", "deep_ocean", "deep_warm_ocean", 
                     "lukewarm_ocean", "ocean", "warm_ocean", "stone_shore", "stony_shore"]);
     
     CreateAreaEle("Dry", true, "The piece feels strangely warm and seems to almost dry out your hands just touching it.", ["badlands", "badlands_plateau", "desert", "desert_hills", "desert_lakes", "eroded_badlands", "modified_badlands_plateau",
@@ -77,6 +77,12 @@ $(document).ready(function () {
     })
 
     $("#inputEndgameArea").val("Ocean");
+    var test = $('[data-category!=""]'); 
+
+    $('[data-category!=""]').each(function( i ) {
+
+        ToggleEleClass($(this).data("category"), $(this).is(":checked"))
+      });
 });
 
 
@@ -180,3 +186,86 @@ function CreateCasketEle(name, weight, prefix, modelData, dropTable){
 }
 
 
+$(function () {
+
+    $("input").click(function (){
+        var cat = $(this).data("category");
+
+        if(typeof cat !== 'undefined'){
+            ToggleEleClass(cat, $(this).is(":checked"));
+        }
+
+        
+    })
+});
+
+function ToggleEleClass(className, show){
+
+    if(show){
+        $( "." + className ).each(function( index ) {
+            if($(this).hasClass("accordion-item") || $(this).hasClass("section")){
+                $(this).slideDown();
+            }else{
+                $(this).visible();
+            }
+          });
+
+        
+    }else{
+        $( "." + className ).each(function( index ) {
+            if($(this).hasClass("accordion-item") || $(this).hasClass("section")){
+                $(this).slideUp();
+            }else{
+                $(this).invisible();
+            }
+          });
+    }
+
+}
+
+(function($) {
+    $.fn.invisible = function() {
+        return this.each(function() {
+            $(this).css("visibility", "hidden");
+        });
+    };
+    $.fn.visible = function() {
+        return this.each(function() {
+            $(this).css("visibility", "visible");
+        });
+    };
+}(jQuery));
+
+function AddCasketDrop(){
+    var dropHolder = $( "#casketDropsHolder" )
+
+    var casketDrop = $('<div>', {
+        class: 'casketDrop',
+    }).appendTo(dropHolder);
+
+    var dropSelect = $('<select>', {
+        class: 'casketDropSelect',
+    }).appendTo(casketDrop);
+
+    $('<option>', {
+        html: 'CASH',
+    }).appendTo(dropSelect);
+
+    $('<option>', {
+        html: 'ITEM',
+    }).appendTo(dropSelect);
+
+    $('<option>', {
+        html: 'BYTE',
+    }).appendTo(dropSelect);
+
+    $('<input>', {
+        class: 'casketDropInput',
+        type: 'text',
+        placeholder: 'Empty'
+    }).appendTo(casketDrop);
+}
+
+function CasketHelp(){
+    alert("Help!");
+}

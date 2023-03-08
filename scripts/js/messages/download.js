@@ -4,13 +4,17 @@ function download(filename) {
 
     //Text Creation
     fileText += (`
-version: 1.3
+version: 1.4
 
 Fish Object: 
     value: "${$("#fishVal").val()}"
     length: "${$("#fishLength").val()}"
     caught: "${$("#fishCaught").val()}"
     announce: "${$("#fishAnnounce").val()}"
+    Scoreboard: 
+        rank: "${$("#fishScoreboardRank").val()}"
+        value: "${$("#fishScoreboardValue").val()}"
+        size: "${$("#fishScoreboardSize").val()}"
 
 Treasure: 
     open: "${$("#treasureOpen").val()}"
@@ -128,6 +132,7 @@ Economy:
     sellBagHint: "${$("#economySellBagHint").val()}"
     sellBagConfirm: "${$("#economySellBagConfirm").val()}"
     finishSale: "${$("#economySaleFinish").val()}"
+    singleSale: "${$("#economySingleSale").val()}"
     noEconomy: "${$("#economyNoEcon").val()}"
     noPlayer: "${$("#economyNoPlayer").val()}"
     received: "${$("#economyReceived").val()}"
@@ -148,7 +153,6 @@ PAPI:
     Fish: 
         notFound: "${$("#papiFishNone").val()}"
 
-
 Quests:
     progress: "${$("#questsProgress").val()}"
     completed: "${$("#questsCompleted").val()}"
@@ -160,8 +164,7 @@ Quests:
     maxDesc: "${$("#questMaxDesc").val()}"
     expired: "${$("#questsExpired").val()}"
     cancel: "${$("#questsCancel").val()}"
-
-`);
+    `);
 
 
 

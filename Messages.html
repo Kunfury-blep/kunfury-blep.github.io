@@ -35,25 +35,49 @@
                   </h2>
                   <div id="panelsStayOpen-collapseChat" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingChat">
                     <div class="accordion-body">       
-                      <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
-                        <span class="input-group-text" style="width:fit-content;">Value</span>
-                        <input type="text" class="form-control" id="fishVal" size="50" value="&2Value: {curr}{cost}">
+                      <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                        <label style="width:fit-content;">Value</span>
+        
+                        <span class="input-holder"><input type="text" class="input-box" id="fishVal" value="&2Value: {curr}{cost}"></span>
                       </div>  
 
-                      <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
-                        <span class="input-group-text" style="width:fit-content;">Length</span>
-                        <input type="text" class="form-control" id="fishLength" size="50" value="&8Length: {size}in.">
+                      <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                        <label style="width:fit-content;">Length</span>
+        
+                        <span class="input-holder"><input type="text" class="input-box" id="fishLength" value="&8Length: {size}in."></span>
                       </div>  
 
-                      <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
-                        <span class="input-group-text" style="width:fit-content;">Caught By</span>
-                        <input type="text" class="form-control" id="fishCaught" size="50" value="&8Caught By: {player} on {date}">
-                      </div>  
 
-                      <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
-                        <span class="input-group-text" style="width:fit-content;">Catch Message</span>
-                        <input type="text" class="form-control" id="fishAnnounce" size="50" value="You just caught a {rarity} {fish}&f!">
-                      </div>
+                      
+                      <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                        <label style="width:fit-content;">Caught By</span>
+        
+                        <span class="input-holder"><input type="text" class="input-box" id="fishCaught" value="&8Caught By: {player} on {date}"></span>
+                      </div>                         
+
+                      <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                        <label style="width:fit-content;">Catch Message</span>
+        
+                        <span class="input-holder"><input type="text" class="input-box" id="fishAnnounce" value="You just caught a {rarity} {fish}&f!"></span>
+                      </div>    
+
+                      <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                        <label style="width:fit-content;">Scoreboard Rank</span>
+        
+                        <span class="input-holder"><input type="text" class="input-box" id="fishScoreboardRank" value="&bRank #{rank}"></span>
+                      </div>       
+                      
+                      <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                        <label style="width:fit-content;">Scoreboard Value</span>
+        
+                        <span class="input-holder"><input type="text" class="input-box" id="fishScoreboardValue" value="&a${value}"></span>
+                      </div>      
+                      
+                      <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                        <label style="width:fit-content;">Scoreboard Size</span>
+        
+                        <span class="input-holder"><input type="text" class="input-box" id="fishScoreboardSize" value='&b{size}\"'></span>
+                      </div>          
 
                     </div>
                   </div>
@@ -656,6 +680,11 @@
                   <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
                     <span class="input-group-text" style="width:fit-content;">Sale Finish</span>
                     <input type="text" class="form-control" id="economySaleFinish" size="50" value="Sold {amount} fish for ${total}.">
+                  </div> 
+
+                  <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+                    <span class="input-group-text" style="width:fit-content;">Single Sale</span>
+                    <input type="text" class="form-control" id="economySingleSale" size="50" value="Sold {fish} for ${total}.">
                   </div> 
                   
                   <div class="form-check form-check-inline form-switch inputGroup" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">

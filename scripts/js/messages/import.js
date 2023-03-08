@@ -33,6 +33,14 @@ function parseImport(result){
         $('#fishCaught').val(config['Fish Object']['caught']);
     if(config['Fish Object']['announce'])
         $('#fishAnnounce').val(config['Fish Object']['announce']);
+    if(config['Fish Object']['Scoreboard']['rank'])
+        $('#fishScoreboardRank').val(config['Fish Object']['Scoreboard']['rank']);
+    if(config['Fish Object']['Scoreboard']['value'])
+        $('#fishScoreboardValue').val(config['Fish Object']['Scoreboard']['value']);
+    if(config['Fish Object']['Scoreboard']['size'])
+        $('#fishScoreboardSize').val(config['Fish Object']['Scoreboard']['size']);
+
+
     
     if(config['Treasure']['open'])
         $('#treasureOpen').val(config['Treasure']['open']);
@@ -196,6 +204,9 @@ function parseImport(result){
         $('#economySellBagConfirm').val(config['Economy']['sellBagConfirm']);
     if(config['Economy']['finishSale'])
         $('#economySaleFinish').val(config['Economy']['finishSale']);
+    if(config['Economy']['singleSale'])
+        $('#economySingleSale').val(config['Economy']['singleSale']);
+        
 
     if(config['Endgame']['areaName'])
         $('#endgameAreaName').val(config['Endgame']['areaName']);
