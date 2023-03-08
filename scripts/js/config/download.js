@@ -14,6 +14,7 @@ Announce Legendary: ${$("#LegendCheck").is(":checked")}
 Use Economy: ${$("#EconomyCheck").is(":checked")}
 Enable Fish Bags: ${$("#FishBagsCheck").is(":checked")}
 Enable Teasers: ${$("#TeasersCheck").is(":checked")}
+Enable Patrons: ${$("#PatronsCheck").is(":checked")}
 Enable Quests: ${$("#QuestsCheck").is(":checked")}
 Announce Quests: ${$("#QuestsAnnounceCheck").is(":checked")}
 Max Quests: ${$("#maxQuestsValue").val()}
@@ -22,6 +23,7 @@ Max Quests: ${$("#maxQuestsValue").val()}
     //Text Creation
     fileText += (`
 Currency Symbol: ${$("#currencySymbol").val()}
+New Day Time: ${$("#resetTime").val()}
 
 Enable All Blue: ${$("#AllBlueCheck").is(":checked")}
 Permanent All Blue: ${$("#PermanentBlueCheck").is(":checked")} #If disabled, a zone with limited fish will spawn for each compass crafted

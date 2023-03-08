@@ -36,6 +36,231 @@
     background-color: #eb60ca !important;
 }
 
-.input-small{
-    width: 200px;
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
+.tg-list {
+  display: flex;
+  margin:auto;
+  width: auto;
+}
+
+.tg-list-item {
+  margin: 0 2em;
+}
+
+h4.toggleHeader {
+  color: #999;
+}
+
+.tgl {
+  display: none;
+}
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+.tgl::-moz-selection, .tgl:after::-moz-selection, .tgl:before::-moz-selection, .tgl *::-moz-selection, .tgl *:after::-moz-selection, .tgl *:before::-moz-selection, .tgl + .tgl-btn::-moz-selection {
+  background: none;
+}
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+  background: none;
+}
+.tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 6em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+.tgl + .tgl-btn:after {
+  left: 0;
+}
+.tgl + .tgl-btn:before {
+  display: none;
+}
+.tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.tgl-flip + .tgl-btn {
+    padding: 2px;
+    transition: all 0.2s ease;
+    font-family: sans-serif;
+    perspective: 100px;
+  }
+  .tgl-flip + .tgl-btn:after, .tgl-flip + .tgl-btn:before {
+    display: inline-block;
+    transition: all 0.4s ease;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    line-height: 2em;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-radius: 4px;
+  }
+  .tgl-flip + .tgl-btn:after {
+    content: attr(data-tg-on);
+    background: #b353da;
+    transform: rotateY(-180deg);
+  }
+  .tgl-flip + .tgl-btn:before {
+    background: #7501a3;
+    content: attr(data-tg-off);
+  }
+  .tgl-flip + .tgl-btn:active:before {
+    transform: rotateY(-20deg);
+  }
+  .tgl-flip:checked + .tgl-btn:before {
+    transform: rotateY(180deg);
+  }
+  .tgl-flip:checked + .tgl-btn:after {
+    transform: rotateY(0);
+    left: 0;
+    background: #f747c2;
+  }
+  .tgl-flip:checked + .tgl-btn:active:after {
+    transform: rotateY(20deg);
+  }
+
+  div.center {
+    margin: auto;
+    width: 50%;
+  }
+
+.toggleBoxContainer{
+  padding-bottom: 1%;
+  margin: auto;
+  width: 50%;
+}
+
+.short-input{
+  width: 25%;
+}
+
+.char-input{
+  width: 10%;
+}
+
+.left-bar{
+  position: fixed;
+  left: -1%;
+  top: 10%;
+  bottom: 5%;
+  width: 15%;
+  height: 80%;
+  border-radius: 1em;
+  overflow: auto;
+}
+
+.left-holder{
+  width: 90%;
+  margin:auto;
+}
+
+  .left-holder .header{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .input-holder {
+    border: 1px solid #cccccc;
+    border-radius: 7.5px;
+    display: inline-block;
+    padding: 2.5px
+  }
+  .input-holder input {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+  }
+
+  .input-box{
+    border-radius: 1em;
+  }
+
+  .input-very-small{
+    width: 1em;
+    text-align: center;
+  }
+
+  .input-small{
+    width: 3em;
+    text-align: center;
+  }
+
+  .input-medium{
+    width: 10em;
+  }
+
+  .input-large{
+    width: 15em;
+  }
+
+  .input-max{
+    width: 100%;
+  }
+
+  .option{
+    width: 20%;
+    height: 2.5%;
+    font-size: 1vw;
+  }
+
+  .option .big{
+    width: 40%;
+  }
+
+  .options-holder{
+    text-align: center;
+  }
+
+  .accordion-button:hover {
+    background-color: rgba(108, 215, 247, 0.209);
+    color: black;
+  }
+
+  .addCasketDrop{
+    background-color: #7501a3; /* Green */
+    border: none;
+    color: white;
+    padding: 0px 8px;
+    margin-left: 25%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 3.5px;
+  }
+
+  .modalInput{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    height: 2em;
+  }

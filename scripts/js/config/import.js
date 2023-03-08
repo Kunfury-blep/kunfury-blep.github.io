@@ -34,6 +34,7 @@ function parseImport(result){
     $('#WorldCheck').prop('checked', config['World Whitelist']);
     $("#TournamentsCheck").prop('checked', config['Enable Tournaments']);
     $("#TeasersCheck").prop('checked', config['Enable Teasers']);
+    $("#PatronsCheck").prop('checked', config['Enable Patrons']);
 
     $('#QuestsCheck').prop('checked', config['Enable Quests']);
     $('#QuestsAnnounceCheck').prop('checked', config['Announce Quests']);
@@ -52,6 +53,7 @@ function parseImport(result){
     $('#inputEndgameArea').val(config['Endgame Area']);
     $('#inputMobChance').val(config['Endgame Mob Chance']);
 
+    $('#resetTime').val(config['New Day Time']);
     //Allowed Worlds
     $(WorldsParent).empty();
     var worlds = config['Allowed Worlds'];

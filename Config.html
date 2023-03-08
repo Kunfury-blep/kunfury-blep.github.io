@@ -16,575 +16,636 @@
     <div id="navbar"></div>
 </head>
     
+<body>
+    <br/>
 
-<br/>
-
-<div class="row justify-content-center">
-    <div class="col-8">
-        <div class="text-center">
-            <button class="btn btn-primary top-button" onclick="download('config.yml')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Downloads config.yml" >Download</button>
-            
-            <button class="btn btn-primary top-button" id="importBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload your current config" >Import</button>
-            <input type="file" id="importUpload"  name="importUpload" style="display:none" accept=".yml" />
-        </div>
-
-        <hr>
-
-        <div>
-            <div class="accordion" id="accordionPanelsStayOpenExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="panelsStayOpen-headingGeneral">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseGeneral" aria-expanded="true" aria-controls="panelsStayOpen-collapseGeneral">
-                      General
-                    </button>
-                  </h2>
-                  <div id="panelsStayOpen-collapseGeneral" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingGeneral">
-                    <div class="accordion-body">
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Displays caught fish using the ingame scoreboard">
-                            <input class="form-check-input" type="checkbox" id="ShowScoreboardCheck" checked="checked">
-                            <label class="form-check-label active" for="ShowScoreboardCheck">
-                                Show Scoreboard
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Displays caught fish using the ingame chat">
-                            <input class="form-check-input" type="checkbox" id="ShowChatCheck">
-                            <label class="form-check-label" for="ShowChatCheck">
-                                Show Chat
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"  title="Runs the plugin in High Priority Mode <br>(Only use if you are experiencing incompatibilities)">
-                            <input class="form-check-input" type="checkbox" id="PriorityCheck">
-                            <label class="form-check-label" for="PriorityCheck">
-                                High Priority
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Custom fish will only be caught when tournaments are running">
-                            <input class="form-check-input" type="checkbox" id="TournamentCheck">
-                            <label class="form-check-label" for="TournamentCheck">
-                                Tournament Only
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Players are required to have permissions to fish in specific areas">
-                            <input class="form-check-input" type="checkbox" id="AreaCheck">
-                            <label class="form-check-label" for="AreaCheck">
-                                Area Permissions
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="When a fish of the highest rarity is caught, announce it to the server">
-                            <input class="form-check-input" type="checkbox" id="LegendCheck" checked="checked">
-                            <label class="form-check-label active" for="LegendCheck">
-                                Announce Legendary
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Custom Fish can only be caught in certain worlds">
-                            <input class="form-check-input" type="checkbox" id="WorldCheck">
-                            <label class="form-check-label" for="WorldCheck">
-                                World Whitelist
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enables economy support">
-                            <input class="form-check-input" type="checkbox" id="EconomyCheck" checked="checked">
-                            <label class="form-check-label active" for="EconomyCheck">
-                                Enable Economy
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Allows players to craft upgradeable fish bags">
-                            <input class="form-check-input" type="checkbox" id="FishBagsCheck" checked="checked">
-                            <label class="form-check-label active" for="FishBagsCheck">
-                                Enable Fish Bags
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enables server wide Tournaments from the tournaments.yml file">
-                            <input class="form-check-input" type="checkbox" id="TournamentsCheck">
-                            <label class="form-check-label active" for="TournamentsCheck">
-                                Enable Tournaments
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Shows teasers for future content in the plugin.">
-                            <input class="form-check-input" type="checkbox" id="TeasersCheck" checked="checked">
-                            <label class="form-check-label active" for="TeasersCheck">
-                                Enable Teasers
-                            </label>
-                        </div>
-
- <!--@*Quests*@-->
-
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enables quests on the server">
-                            <input class="form-check-input" type="checkbox" id="QuestsCheck" checked="checked">
-                            <label class="form-check-label active" for="QuestsCheck">
-                                Enable Quests
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Announces when new quests begin">
-                            <input class="form-check-input" type="checkbox" id="QuestsAnnounceCheck" checked="checked">
-                            <label class="form-check-label active" for="QuestsAnnounceCheck">
-                                Announce Quests
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="How many quests can be running at once">
-                            <span class="input-group-text" style="width:fit-content;">Max Quests</span>
-                            <input type="number" class="form-control" id="maxQuestsValue" value="3">
-                        </div>
-
-<!--@*Wandering Traders*@-->
-                         <div class="input-group mb-3 flex-nowrap">
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Players can sell their fish to Wandering Traders">
-                                <input class="form-check-input" type="checkbox" id="WanderingTraderCheck">
-                                <label class="form-check-label" for="WanderingTraderCheck">
-                                    Allow Wandering Traders
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The price modifier when selling fish to Wandering Traders">
-                                <span class="input-group-text" style="width:fit-content;">Modifier</span>
-                                <input type="number" class="form-control" id="traderModifierValue" value="1.5">
-                            </div>
-                        </div>   
-                        <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
-                            <span class="input-group-text" style="width:fit-content;">Currency Symbol</span>
-                            <input type="text" class="form-control" id="currencySymbol" value="$">
-                        </div>                  
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="panelsStayOpen-headingTreasure">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTreasure" aria-expanded="false" aria-controls="panelsStayOpen-collapseTreasure">
-                      Treasure
-                    </button>
-                  </h2>
-                  <div id="panelsStayOpen-collapseTreasure" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTreasure">
-                    <div class="accordion-body">
-                        <div class="input-group mb-3 flex-nowrap">
-                            <div class="form-check form-check-inline form-switch">
-                                <input class="form-check-input" type="checkbox" id="treasureCheck" checked="checked">
-                                <label class="form-check-label" for="treasureCheck">
-                                    Enable Treasure
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Base chance of fishing up treasure">
-                                <span class="input-group-text" style="width:fit-content;">Treasure Chance</span>
-                                <input type="text" class="form-control" id="treasureChance" value="5">
-                            </div>
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bonus to treasure chance when fishing with a parrot on your shoulder">
-                                <span class="input-group-text" style="width:fit-content;">Parrot Bonus</span>
-                                <input type="text" class="form-control" id="parrotBonus" value="5">
-                            </div>
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bonus to treasure chance when fishing while in a boat">
-                                <span class="input-group-text" style="width:fit-content;">Boat Bonus</span>
-                                <input type="text" class="form-control" id="boatBonus" value="5">
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-3 list-group" id="rarityList overflow-visible scrollList">
-                            <span class="list-group-item text-center">Caskets</span>
-                            <button class="btn btn-primary addBtn" onclick="displayCasketModal()">Add New</button>
-                            <div id="CasketParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a casket to edit"></div>
-                        </div>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="panelsStayOpen-headingEndgame">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEndgame" aria-expanded="false" aria-controls="panelsStayOpen-collapseEndgame">
-                      Endgame
-                    </button>
-                  </h2>
-                </div>
-                <div id="panelsStayOpen-collapseEndgame" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEndgame">
-                    <div class="accordion-body">
-                        
-                        <div class="mb-3">
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enable the endgame ocean area">
-                                <input class="form-check-input" type="checkbox" id="AllBlueCheck" checked="checked">
-                                <label class="form-check-label active" for="AllBlueCheck">
-                                    Enable Endgame Ocean
-                                </label>
-                            </div>
-
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="If disabled, a zone with limited fish will spawn for each compass crafted">
-                                <input class="form-check-input" type="checkbox" id="PermanentBlueCheck" checked="checked">
-                                <label class="form-check-label active" for="PermanentBlueCheck">
-                                    Permanent Endgame Ocean
-                                </label>
-                            </div>
-                            
-                        </div>
-
-                        <div class="mb-3">
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Amount of fish available in non-permanent endgame areas">
-                                <span class="input-group-text" style="width:fit-content;">Endgame Ocean Fish Limit</span>
-                                <input type="number" class="form-control" id="allBlueFishInput" value=2000>
-                            </div>
-
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The size of the endgame ocean zone. Larger sizes may make it more difficult to find an appropriate location">
-                                <span class="input-group-text" style="width:fit-content;">Endgame Ocean Radius</span>
-                                <input type="number" class="form-control" id="endgameRadiusInput" value=32>
-                            </div>
-
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The chance of fishing up monsters in the endgame zone">
-                                <span class="input-group-text" style="width:fit-content;">Endgame Mob Chance</span>
-                                <input type="number" class="form-control" id="inputMobChance" value=2>
-                            </div>
-
-                            <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The area for the endgame zone to generate in">
-                                <span class="input-group-text" style="width:fit-content;">Endgame Area</span>
-                                <select class="form-select" id="inputEndgameArea">
-                                </select>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="padding-bottom: 10%;">
         <div class="col-8">
-            <div class="row mt-md-1">
-                <div class="col-3 list-group overflow-visible scrollList" id="worldList" >
-                    <span class="list-group-item text-center">Allowed Worlds</span>
-                    <button class="btn btn-primary addBtn" onclick="displayWorldModal()">Add New</button>
-                    <div id="WorldsParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a world to edit"></div>
+            <div class="text-center">
+                <button class="btn btn-primary top-button" onclick="download('config.yml')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Downloads config.yml" >Download</button>
+                
+                <button class="btn btn-primary top-button" id="importBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload your current config" >Import</button>
+                <input type="file" id="importUpload"  name="importUpload" style="display:none" accept=".yml" />
+            </div>
+            <br>
+            <div class="toggleBoxContainer">
+                <ul class="tg-list">
+                    <li class="tg-list-item">
+                      <h4 class="toggleHeader">Tournaments</h4>
+                      <input class="tgl tgl-flip" id="TournamentsCheck" type="checkbox" data-category="cat-tournament"/>
+                      <label class="tgl-btn" data-tg-off="Disabled" data-tg-on="Enabled" for="TournamentsCheck"></label>
+                    </li>
+                    <li class="tg-list-item">
+                        <h4 class="toggleHeader">Quests</h4>
+                        <input class="tgl tgl-flip" id="QuestsCheck" type="checkbox" data-category="cat-quests"/>
+                        <label class="tgl-btn" data-tg-off="Disabled" data-tg-on="Enabled" for="QuestsCheck"></label>
+                      </li>
+                      <li class="tg-list-item">
+                        <h4 class="toggleHeader">Endgame</h4>
+                        <input class="tgl tgl-flip" id="endgameCheck" type="checkbox" data-category="cat-endgame"/>
+                        <label class="tgl-btn" data-tg-off="Disabled" data-tg-on="Enabled" for="endgameCheck"></label>
+                      </li>
+                      <li class="tg-list-item">
+                        <h4 class="toggleHeader">Treasure</h4>
+                        <input class="tgl tgl-flip" id="treasureCheck" type="checkbox" data-category="cat-treasure"/>
+                        <label class="tgl-btn" data-tg-off="Disabled" data-tg-on="Enabled" for="treasureCheck"></label>
+                      </li>
+                  </ul>
+            </div>
+
+            <hr>
+
+            <div class="options-holder">
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Displays caught fish using the ingame scoreboard">
+                    <input class="form-check-input" type="checkbox" id="ShowScoreboardCheck" checked="checked">
+                    <label class="form-check-label active" for="ShowScoreboardCheck">
+                        Show Scoreboard
+                    </label>
+                </div>
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Displays caught fish using the ingame chat">
+                    <input class="form-check-input" type="checkbox" id="ShowChatCheck">
+                    <label class="form-check-label" for="ShowChatCheck">
+                        Show Chat
+                    </label>
+                </div>
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"  title="Runs the plugin in High Priority Mode <br>(Only use if you are experiencing incompatibilities)">
+                    <input class="form-check-input" type="checkbox" id="PriorityCheck">
+                    <label class="form-check-label" for="PriorityCheck">
+                        High Priority
+                    </label>
+                </div>
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Players are required to have permissions to fish in specific areas">
+                    <input class="form-check-input" type="checkbox" id="AreaCheck">
+                    <label class="form-check-label" for="AreaCheck">
+                        Area Permissions
+                    </label>
+                </div>
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="When a fish of the highest rarity is caught, announce it to the server">
+                    <input class="form-check-input" type="checkbox" id="LegendCheck" checked="checked">
+                    <label class="form-check-label active" for="LegendCheck">
+                        Announce Legendary
+                    </label>
+                </div>
+    
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Custom Fish can only be caught in certain worlds">
+                    <input class="form-check-input" type="checkbox" id="WorldCheck" data-category="cat-world-whitelist">
+                    <label class="form-check-label" for="WorldCheck">
+                        World Whitelist
+                    </label>
+                </div>
+    
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enables economy support">
+                    <input class="form-check-input" type="checkbox" id="EconomyCheck" checked="checked" data-category="cat-economy">
+                    <label class="form-check-label active" for="EconomyCheck">
+                        Enable Economy
+                    </label>
+                </div>
+    
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Allows players to craft upgradeable fish bags">
+                    <input class="form-check-input" type="checkbox" id="FishBagsCheck" checked="checked">
+                    <label class="form-check-label active" for="FishBagsCheck">
+                        Enable Fish Bags
+                    </label>
+                </div>
+    
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Shows teasers for future content in the plugin.">
+                    <input class="form-check-input" type="checkbox" id="TeasersCheck" checked="checked">
+                    <label class="form-check-label active" for="TeasersCheck">
+                        Enable Teasers
+                    </label>
+                </div>
+
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Shows teasers for future content in the plugin.">
+                    <input class="form-check-input" type="checkbox" id="PatronsCheck" checked="checked">
+                    <label class="form-check-label active" for="PatronsCheck">
+                        Enable Patron Rewards
+                    </label>
+                </div>
+    
+    
+                <div class="option form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Players can sell their fish to Wandering Traders">
+                    <input class="form-check-input" type="checkbox" id="WanderingTraderCheck" data-category="cat-wandering-trader">
+                    <label class="form-check-label" for="WanderingTraderCheck">
+                        Wandering Traders
+                    </label>
+                </div>
+
+                <div class="option form-check form-check-inline form-switch cat-wandering-trader" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Players can sell their fish to Wandering Traders">
+                    <label style="width:fit-content;" for="traderModifierValue">Modifier</label>
+                    <span class="input-holder"><input type="number" class="input-box input-small" id="traderModifierValue" value="1.5" max="100" min="0" step=".1">%</span>
+                </div>
+    
+                <div class="option form-check form-check-inline form-switch cat-economy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                    <label style="width:fit-content;">Currency Symbol</span>
+    
+                    <span class="input-holder"><input type="text" class="input-box input-very-small" id="currencySymbol" value="$"></span>
                     
-                </div>
-                <div class="col-3 list-group overflow-visible scrollList" id="fishList" >
-                    <span class="list-group-item text-center">Available Fish</span>
-                    <button type="button" class="btn btn-primary addBtn"  onclick="displayFishModal();">Add New</button>
-                    <div id="FishParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a fish to edit"></div>
-                </div>
-                <div class="col-3 list-group overflow-visible scrollList" id="areaList" >
-                    <span class="list-group-item text-center">Fishing Areas</span>
-                    <button class="btn btn-primary addBtn" onclick="displayAreaModal();">Add New</button>
-                    <div id="AreaParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click an area to edit"></div>
+                </div>       
+
+                <div class="option form-check form-check-inline form-switch cat-economy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+                    <label style="width:fit-content;">Reset Time</span>
+    
+                    <span class="input-holder"><input type="time" class="" id="resetTime"  min="00:00" max="24:00" value="00:00" > </span>
                     
+                </div>   
+
+                <div class="option form-check form-check-inline form-switch cat-economy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+        
+                </div>   
+
+                <div class="option form-check form-check-inline form-switch cat-economy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+ 
+                </div>   
+
+                <div class="option form-check form-check-inline form-switch cat-economy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Used whenever the plugin has to handle economy messages">
+
+                </div>   
+    
+                <div class="cat-treasure section">
+                    <hr>
+                    <h2>Treasure</h2>
+                       
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Base chance of fishing up treasure">
+                        <span class="input-group-text" style="width:fit-content;">Treasure Chance</span>
+                        <input type="text" class="form-control" id="treasureChance" value="5">
+                    </div>
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bonus to treasure chance when fishing with a parrot on your shoulder">
+                        <span class="input-group-text" style="width:fit-content;">Parrot Bonus</span>
+                        <input type="text" class="form-control" id="parrotBonus" value="5">
+                    </div>
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bonus to treasure chance when fishing while in a boat">
+                        <span class="input-group-text" style="width:fit-content;">Boat Bonus</span>
+                        <input type="text" class="form-control" id="boatBonus" value="5">
+                    </div>
                 </div>
-                <div class="col-3 list-group" id="rarityList overflow-visible scrollList" >
-                    <span class="list-group-item text-center">Fish Rarities</span>
-                    <button class="btn btn-primary addBtn" onclick="displayRarityModal()">Add New</button>
-                    <div id="RarityParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a rarity to edit"></div>
+
+                <div class="cat-tournament section">
+                    <hr>
+                    <h2>Tournaments</h2>
+    
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Custom fish will only be caught when tournaments are running">
+                        <input class="form-check-input" type="checkbox" id="TournamentCheck">
+                        <label class="form-check-label" for="TournamentCheck">
+                            Tournament Only
+                        </label>
+                    </div>
                 </div>
+    
+                <div class="cat-endgame section">
+                    <hr>
+                    <h2>Endgame</h2>
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enable the endgame ocean area">
+                        <input class="form-check-input" type="checkbox" id="AllBlueCheck" checked="checked">
+                        <label class="form-check-label active" for="AllBlueCheck">
+                            Enable Endgame Ocean
+                        </label>
+                    </div>
+    
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="If disabled, a zone with limited fish will spawn for each compass crafted">
+                        <input class="form-check-input" type="checkbox" id="PermanentBlueCheck" checked="checked">
+                        <label class="form-check-label active" for="PermanentBlueCheck">
+                            Permanent Endgame Ocean
+                        </label>
+                    </div>
+    
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Amount of fish available in non-permanent endgame areas">
+                        <span class="input-group-text" style="width:fit-content;">Endgame Ocean Fish Limit</span>
+                        <input type="number" class="form-control" id="allBlueFishInput" value=2000>
+                    </div>
+    
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The size of the endgame ocean zone. Larger sizes may make it more difficult to find an appropriate location">
+                        <span class="input-group-text" style="width:fit-content;">Endgame Ocean Radius</span>
+                        <input type="number" class="form-control" id="endgameRadiusInput" value=32>
+                    </div>
+    
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The chance of fishing up monsters in the endgame zone">
+                        <span class="input-group-text" style="width:fit-content;">Endgame Mob Chance</span>
+                        <input type="number" class="form-control" id="inputMobChance" value=2>
+                    </div>
+    
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The area for the endgame zone to generate in">
+                        <span class="input-group-text" style="width:fit-content;">Endgame Area</span>
+                        <select class="form-select" id="inputEndgameArea">
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="cat-quests section">
+                    <hr>
+                    <h2>Quests</h2>
+    
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Announces when new quests begin">
+                        <input class="form-check-input" type="checkbox" id="QuestsAnnounceCheck" checked="checked">
+                        <label class="form-check-label active" for="QuestsAnnounceCheck">
+                            Announce Quests
+                        </label>
+                    </div>
+    
+                    <div class="form-check form-check-inline form-switch" data-bs-toggle="tooltip" data-bs-placement="bottom" title="How many quests can be running at once">
+                        <span class="input-group-text" style="width:fit-content;">Max Quests</span>
+                        <input type="number" class="form-control" id="maxQuestsValue" value="3">
+                    </div>
+                </div>
+    
             </div>
         </div>
     </div>
-</div>
+    
+    <div class="left-bar">
+        <div class="left-holder">
+            <div class="header">
+                Click Below to Expand
+            </div>
 
-
-
-<!-- Fish Modal -->
-<div class="modal fade" id="fishModal" tabindex="-1" aria-labelledby="fishModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-              <div class="modal-content">
-        <form>
-            <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('fish')" id="fishDeleteBtn">Delete</button></div>
-            <div class="modal-header">
-                <div class="col-10">
-                    <input type="text" id="inputFishName" class="form-control" style="text-align: center;" placeholder="Fish Name"/>
+            <div class="accordion" id="leftPanelAccordian">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFish">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFish" aria-expanded="false" aria-controls="collapseFish">
+                      Fish
+                    </button>
+                  </h2>
+                  <div id="collapseFish" class="accordion-collapse collapse" aria-labelledby="headingFish" data-bs-parent="#leftPanelAccordian">
+                    <div class="accordion-body">
+                        <button type="button" class="btn btn-primary addBtn"  onclick="displayFishModal();">Add New</button>
+                        <div id="FishParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a fish to edit"></div>                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFishAreas">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFishAreas" aria-expanded="false" aria-controls="collapseFishAreas">
+                      Fishing Areas
+                    </button>
+                  </h2>
+                  <div id="collapseFishAreas" class="accordion-collapse collapse" aria-labelledby="headingFishAreas" data-bs-parent="#leftPanelAccordian">
+                    <div class="accordion-body">
+                        <button class="btn btn-primary addBtn" onclick="displayAreaModal();">Add New</button>
+                        <div id="AreaParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click an area to edit"></div>
+                    </div>
+                  </div>
                 </div>
                 
-            </div>
-            <div class="modal-body">
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputLore" class="col-form-label">Lore</label>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingRarities">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRarities" aria-expanded="false" aria-controls="collapseRarities">
+                      Fish Rarities
+                    </button>
+                  </h2>
+                  <div id="collapseRarities" class="accordion-collapse collapse" aria-labelledby="headingRarities" data-bs-parent="#leftPanelAccordian">
+                    <div class="accordion-body">
+                        <button class="btn btn-primary addBtn" onclick="displayRarityModal()">Add New</button>
+                        <div id="RarityParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a rarity to edit"></div>
                     </div>
-                    <div class="col-9">
-                        <input type="text" id="inputFishLore" class="form-control">
-                    </div>
+                  </div>
                 </div>
 
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputMinSize" class="col-form-label">Min Length</label>
+                <div class="accordion-item cat-world-whitelist">
+                    <h2 class="accordion-header" id="headingWorlds">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWorlds" aria-expanded="false" aria-controls="collapseWorlds">
+                        Allowed Worlds
+                      </button>
+                    </h2>
+                    <div id="collapseWorlds" class="accordion-collapse collapse" aria-labelledby="headingWorlds" data-bs-parent="#leftPanelAccordian">
+                      <div class="accordion-body">
+                        <button class="btn btn-primary addBtn" onclick="displayWorldModal()">Add New</button>
+                        <div id="WorldsParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a world to edit"></div>
+                      </div>
                     </div>
-                    <div class="col-9">
-                        <input type="number" id="inputMinSize" class="form-control">
-                    </div>
-                </div>
+                  </div>
 
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputMaxSize" class="col-form-label">Max Length</label>
+                  <div class="accordion-item cat-treasure">
+                    <h2 class="accordion-header" id="headingTreasure">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTreasure" aria-expanded="false" aria-controls="collapseTreasure">
+                        Treasure Caskets
+                      </button>
+                    </h2>
+                    <div id="collapseTreasure" class="accordion-collapse collapse" aria-labelledby="headingTreasure" data-bs-parent="#leftPanelAccordian">
+                      <div class="accordion-body">
+                        <button class="btn btn-primary addBtn" onclick="displayCasketModal()">Add New</button>
+                        <div id="CasketParent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click a casket to edit"></div>
+                      </div>
                     </div>
-                    <div class="col-9">
-                        <input type="number" id="inputMaxSize" class="form-control">
-                    </div>
-                </div>
-
-                
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputMinHeight" class="col-form-label">Min Height</label>
-                    </div>
-                    <div class="col-9">
-                        <input type="number" id="inputMinHeight" class="form-control">
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputMaxHeight" class="col-form-label">Max Height</label>
-                    </div>
-                    <div class="col-9">
-                        <input type="number" id="inputMaxHeight" class="form-control">
-                    </div>
-                </div>
-
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputModelData" class="col-form-label">Model Data</label>
-                    </div>
-                    <div class="col-9">
-                        <input type="number" id="inputModelData" class="form-control">
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputPrice" class="col-form-label">Base Price</label>
-                    </div>
-                    <div class="col-9">
-                        <input type="number" id="inputPrice" class="form-control">
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputFishArea" class="col-form-label">Area</label>
-                    </div>
-                    <div class="col-9">
-                        <select class="form-select" id="inputFishArea">
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputFishTime" class="col-form-label">Catch Time</label>
-                    </div>
-                    <div class="col-9">
-                        <select class="form-select" id="inputFishTime">
-                            <option>ALL</option>
-                            <option>DAY</option>
-                            <option>NIGHT</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputFishRaining" class="col-form-label">Raining</label>
-                    </div>
-                    <div class="col-9">
-                        <input class="form-check-input" type="checkbox" id="inputFishRaining" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="saveFish();" id="SaveFishBtn">Create</button>
+                  </div>
               </div>
-        </form>
+        </div>
+    </div>
+
+
+    
+    <!-- Fish Modal -->
+    <div class="modal fade" id="fishModal" tabindex="-1" aria-labelledby="fishModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+                  <div class="modal-content">
+            <form>
+                <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('fish')" id="fishDeleteBtn">Delete</button></div>
+                <div class="modal-header">
+                    <div class="col-10">
+                        <input type="text" id="inputFishName" class="form-control" style="text-align: center;" placeholder="Fish Name"/>
+                    </div>
+                    
+                </div>
+                <div class="modal-body">
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputLore" class="col-form-label">Lore</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" id="inputFishLore" class="form-control">
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputMinSize" class="col-form-label">Min Length</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="number" id="inputMinSize" class="form-control">
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputMaxSize" class="col-form-label">Max Length</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="number" id="inputMaxSize" class="form-control">
+                        </div>
+                    </div>
+    
+                    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputMinHeight" class="col-form-label">Min Height</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="number" id="inputMinHeight" class="form-control">
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputMaxHeight" class="col-form-label">Max Height</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="number" id="inputMaxHeight" class="form-control">
+                        </div>
+                    </div>
+    
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputModelData" class="col-form-label">Model Data</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="number" id="inputModelData" class="form-control">
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputPrice" class="col-form-label">Base Price</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="number" id="inputPrice" class="form-control">
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputFishArea" class="col-form-label">Area</label>
+                        </div>
+                        <div class="col-9">
+                            <select class="form-select" id="inputFishArea">
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputFishTime" class="col-form-label">Catch Time</label>
+                        </div>
+                        <div class="col-9">
+                            <select class="form-select" id="inputFishTime">
+                                <option>ALL</option>
+                                <option>DAY</option>
+                                <option>NIGHT</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputFishRaining" class="col-form-label">Raining</label>
+                        </div>
+                        <div class="col-9">
+                            <input class="form-check-input" type="checkbox" id="inputFishRaining" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveFish();" id="SaveFishBtn">Create</button>
+                  </div>
+            </form>
+          
+          </div>
+        </div>
+    
+    </div>
+    
+    <!-- Area Modal -->
+    <div class="modal fade" id="areaModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+                    <div class="modal-content">
+              <form>
+                <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('area')" id="areaDeleteBtn">Delete</button></div>
+                  <div class="modal-header">
+                    <div class="col-10">
+                        <input type="text" id="inputAreaName" class="form-control" style="text-align: center;" placeholder="Area Name"/>
+                    </div>
+                  </div>
+                  <div class="modal-body">
+      
+                      <div class="row g-3 align-items-center">
+                          <div class="col-2">
+                              <label for="inputAreaBiomes" class="col-form-label">Biomes</label>
+                          </div>
+                          <div class="col-10">
+                            <textarea class="form-control" id="inputAreaBiomes" rows="3" placeholder="Seperate each biome by a space"></textarea>
+                          </div>
+                      </div>
+                      <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputHasCompass" class="col-form-label">Has Compass</label>
+                        </div>
+                        <div class="col-9">
+                            <input class="form-check-input" type="checkbox" id="inputHasCompass" class="form-control">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputCompassHint" class="col-form-label">Compass Hint</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" id="inputCompassHint" class="form-control">
+                        </div>
+                    </div>
+      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" onclick="saveArea();" id="SaveAreaBtn">Create</button>
+                    </div>
+              </form>
+            
+            </div>
+          </div>
       
       </div>
-    </div>
-
-</div>
-
-<!-- Area Modal -->
-<div class="modal fade" id="areaModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-                <div class="modal-content">
-          <form>
-            <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('area')" id="areaDeleteBtn">Delete</button></div>
-              <div class="modal-header">
-                <div class="col-10">
-                    <input type="text" id="inputAreaName" class="form-control" style="text-align: center;" placeholder="Area Name"/>
-                </div>
-              </div>
-              <div class="modal-body">
-  
-                  <div class="row g-3 align-items-center">
-                      <div class="col-2">
-                          <label for="inputAreaBiomes" class="col-form-label">Biomes</label>
-                      </div>
+    
+    <!-- World Modal -->
+    <div class="modal fade" id="worldModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+                    <div class="modal-content">
+              <form>
+                <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('world')" id="worldDeleteBtn">Delete</button></div>
+                  <div class="modal-header">
                       <div class="col-10">
-                        <textarea class="form-control" id="inputAreaBiomes" rows="3" placeholder="Seperate each biome by a space"></textarea>
+                        <input type="text" id="inputWorldName" class="form-control" style="text-align: center;" placeholder="World Name"/>
                       </div>
                   </div>
-                  <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputHasCompass" class="col-form-label">Has Compass</label>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" onclick="saveWorld();" id="SaveWorldBtn">Create</button>
                     </div>
-                    <div class="col-9">
-                        <input class="form-check-input" type="checkbox" id="inputHasCompass" class="form-control">
-                        </select>
-                    </div>
-                </div>
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputCompassHint" class="col-form-label">Compass Hint</label>
-                    </div>
-                    <div class="col-9">
-                        <input type="text" id="inputCompassHint" class="form-control">
-                    </div>
-                </div>
-  
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" onclick="saveArea();" id="SaveAreaBtn">Create</button>
-                </div>
-          </form>
-        
-        </div>
+              </form>
+            
+            </div>
+          </div>
+      
       </div>
-  
-  </div>
-
-<!-- World Modal -->
-<div class="modal fade" id="worldModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-                <div class="modal-content">
-          <form>
-            <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('world')" id="worldDeleteBtn">Delete</button></div>
-              <div class="modal-header">
-                  <div class="col-10">
-                    <input type="text" id="inputWorldName" class="form-control" style="text-align: center;" placeholder="World Name"/>
+    
+    <!-- Rarity Modal -->
+    <div class="modal fade" id="rarityModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('rarity')" id="rarityDeleteBtn">Delete</button></div>
+                    <div class="modal-header">
+                        <div class="col-10">
+                            <input type="text" id="inputRarityName" class="form-control" style="text-align: center;" placeholder="Rarity Name"/>
+                        </div>
                   </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" onclick="saveWorld();" id="SaveWorldBtn">Create</button>
-                </div>
-          </form>
-        
-        </div>
-      </div>
-  
-  </div>
-
-<!-- Rarity Modal -->
-<div class="modal fade" id="rarityModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('rarity')" id="rarityDeleteBtn">Delete</button></div>
-                <div class="modal-header">
-                    <div class="col-10">
-                        <input type="text" id="inputRarityName" class="form-control" style="text-align: center;" placeholder="Rarity Name"/>
+                  <div class="modal-body">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputRarityWeight" class="col-form-label">Weight</label>
+                        </div>
+                        <div class="col-9">
+                          <input type="text" class="form-control" id="inputRarityWeight"></input>
+                        </div>
                     </div>
-              </div>
-              <div class="modal-body">
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputRarityWeight" class="col-form-label">Weight</label>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputRarityPrefix" class="col-form-label">Prefix</label>
+                        </div>
+                        <div class="col-9">
+                          <input type="text" class="form-control" id="inputRarityPrefix"></input>
+                        </div>
                     </div>
-                    <div class="col-9">
-                      <input type="text" class="form-control" id="inputRarityWeight"></input>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputRarityPrice" class="col-form-label">Price Mod</label>
+                        </div>
+                        <div class="col-9">
+                          <input type="number" class="form-control" id="inputRarityPrice"></input>
+                        </div>
                     </div>
                 </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputRarityPrefix" class="col-form-label">Prefix</label>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" onclick="saveRarity();" id="SaveRarityBtn">Create</button>
                     </div>
-                    <div class="col-9">
-                      <input type="text" class="form-control" id="inputRarityPrefix"></input>
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputRarityPrice" class="col-form-label">Price Mod</label>
-                    </div>
-                    <div class="col-9">
-                      <input type="number" class="form-control" id="inputRarityPrice"></input>
-                    </div>
-                </div>
+              </form>
+            
             </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" onclick="saveRarity();" id="SaveRarityBtn">Create</button>
-                </div>
-          </form>
-        
-        </div>
+          </div>
+      
       </div>
-  
-  </div>
+    
+    <!-- Casket Modal -->
+    <div class="modal fade" id="casketModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('casket')" id="casketDeleteBtn">Delete</button></div>
+                    <div class="modal-header">
+                        <div class="col-10">
+                            <input type="text" id="inputCasketName" class="modalInput" style="text-align: center;" placeholder="Casket Name"/>
+                        </div>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputCasketWeight" class="col-form-label">Weight</label>
+                        </div>
+                        <div class="col-9">
+                          <input type="text" class="modalInput" id="inputCasketWeight"></input>
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputCasketPrefix" class="col-form-label">Prefix</label>
+                        </div>
+                        <div class="col-9">
+                          <input type="text" class="modalInput" id="inputCasketPrefix"></input>
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputCasketModelData" class="col-form-label">Model Data</label>
+                        </div>
+                        <div class="col-9">
+                          <input type="text" class="modalInput" id="inputCasketModelData"></input>
+                        </div>
+                    </div>
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-3">
+                            <label for="inputCasketPrefix" class="col-form-label">Drop Table</label>
+                            <a class="addCasketDrop" id="casketDropsAdd" onclick="AddCasketDrop()">Add</a>
+                        </div>
+                        <div class="col-9">
+                          <textarea class="form-control" id="inputCasketDropTable" row="3" style="display: none;"></textarea>
+                          <div id="casketDropsHolder">
+                            <div class="casketDrop">
+                                <select class="casketDropSelect">
+                                    <option>CASH</option>
+                                    <option>ITEM</option>
+                                    <option>BYTE</option>
+                                </select>
+                                <input type="text" class="casketDropInput" placeholder="Empty">
+                            </div>
 
-<!-- Casket Modal -->
-<div class="modal fade" id="casketModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="col-2"><button type="button" class="btn btn-danger btn-sm topright" onclick="Delete('casket')" id="casketDeleteBtn">Delete</button></div>
-                <div class="modal-header">
-                    <div class="col-10">
-                        <input type="text" id="inputCasketName" class="form-control" style="text-align: center;" placeholder="Casket Name"/>
-                    </div>
-              </div>
-              <div class="modal-body">
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputCasketWeight" class="col-form-label">Weight</label>
-                    </div>
-                    <div class="col-9">
-                      <input type="text" class="form-control" id="inputCasketWeight"></input>
+                          </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputCasketPrefix" class="col-form-label">Prefix</label>
-                    </div>
-                    <div class="col-9">
-                      <input type="text" class="form-control" id="inputCasketPrefix"></input>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="CasketHelp()">Help</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveCasket();" id="SaveCasketBtn">Create</button>
                 </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputCasketModelData" class="col-form-label">Model Data</label>
-                    </div>
-                    <div class="col-9">
-                      <input type="text" class="form-control" id="inputCasketModelData"></input>
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <label for="inputCasketPrefix" class="col-form-label">Drop Table</label>
-                    </div>
-                    <div class="col-9">
-                      <textarea class="form-control" id="inputCasketDropTable" row="3"></textarea>
-                    </div>
-                </div>
+              </form>
+            
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="saveCasket();" id="SaveCasketBtn">Create</button>
-            </div>
-          </form>
-        
-        </div>
+          </div>
+      
       </div>
-  
-  </div>
+</body>
+
