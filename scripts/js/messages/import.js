@@ -17,7 +17,8 @@ $(document).ready(function () {
 
 function importConfig(){
     var fr = new FileReader();
-    fr.onload = function(){ parseImport(fr.result); }
+    fr.onload = function(){
+        parseImport(fr.result); }
     fr.readAsText(document.getElementById('importUpload').files[0]);
 }
 
@@ -193,6 +194,12 @@ function parseImport(result){
         $('#equipmentFBWithdrawLarge').val(config['Equipment']['Fish Bag']['withdrawLarge']);
     if(config['Equipment']['Fish Bag']['shift'])
         $('#equipmentFBWithdrawAll').val(config['Equipment']['Fish Bag']['shift']);
+    if(config['Equipment']['Fish Bag']['convert'])
+        $('#equipmentFBConvert').val(config['Equipment']['Fish Bag']['convert']);
+    if(config['Equipment']['Fish Bag']['corruptFish'])
+        $('#equipmentFBCorruptFish').val(config['Equipment']['Fish Bag']['corruptFish']);
+    if(config['Equipment']['Fish Bag']['empty'])
+        $('#equipmentFBEmpty').val(config['Equipment']['Fish Bag']['empty']);
 
     if(config['Economy']['noValue'])
         $('#economyNoVal').val(config['Economy']['noValue']);

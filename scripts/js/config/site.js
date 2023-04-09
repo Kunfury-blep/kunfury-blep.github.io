@@ -267,5 +267,5 @@ function AddCasketDrop(){
 }
 
 function CasketHelp(){
-    alert("Help!");
+    showImportantMessage("Casket Help Placeholder");
 }

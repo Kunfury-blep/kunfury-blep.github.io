@@ -126,6 +126,10 @@ Equipment:
         largeBag: "${$("#equipmentFBLarge").val()}"
         giantBag: "${$("#equipmentFBGiant").val()}"
 
+        convert: "${$("#equipmentFBConvert").val()}"
+        corruptFish: "${$("#equipmentFBCorruptFish").val()}"
+        empty: "${$("#equipmentFBEmpty").val()}"
+
 Economy: 
     noValue: "${$("#economyNoVal").val()}"
     confirmSellAll: "${$("#economySellAllConfirm").val()}"
